@@ -1,6 +1,6 @@
 body {
-  background-color: yellow;
-  /* TODO: Use brand colors */
+  background-color: #ecd24a;
+
   margin: 0;
   padding: 0;
 }
@@ -13,7 +13,6 @@ body {
   padding: 0;
 
   display: flex;
-  /* align-items: center; */
   justify-content: center;
 }
 
@@ -27,11 +26,11 @@ body {
 }
 
 #container .h-separator:first-of-type {
-  background: linear-gradient(to right, yellow, black);
+  background: linear-gradient(to right, #ecd24a, #000);
 }
 
 #container .h-separator:last-of-type {
-  background: linear-gradient(to left, yellow, black);
+  background: linear-gradient(to left, #ecd24a, #000);
 }
 
 /* #screen {} */
