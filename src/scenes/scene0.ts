@@ -1,5 +1,6 @@
 import * as THREE from "three"
 import { AnimatedScene, createAnimatedScene } from "../animatedScene"
+import { App } from "../app"
 
 const scene0 = createAnimatedScene(
   function setup(this: AnimatedScene, _) {
@@ -14,12 +15,13 @@ const scene0 = createAnimatedScene(
 
     this.scene.add(cube)
   },
-  function animate(this: AnimatedScene, _) {
+  function animate(this: AnimatedScene, app: App) {
     const cube = this.scene.getObjectByName('cube')
+    const dt = app.clock.getDelta()
 
     if (cube) {
-      cube.rotation.x += 0.01
-      cube.rotation.y += 0.01
+      cube.rotation.x += Math.PI / 2.0 * dt
+      cube.rotation.y += Math.PI / 2.0 * dt
     }
   }
 )

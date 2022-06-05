@@ -9,8 +9,7 @@ export interface App {
   cam: THREE.OrthographicCamera,
   renderer: THREE.WebGLRenderer,
   animatedScenes: Array<AnimatedScene>,
-  // TODO: Create clock field to track time
-  // clock: THREE.Clock,
+  clock: THREE.Clock,
 
   addScene: AppAnimatedSceneMethod
   startAnimation: AppMethod,
@@ -39,6 +38,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
     cam,
     renderer,
     animatedScenes: [],
+    clock: new THREE.Clock(false),
 
     addScene(this: App, as: AnimatedScene) {
       as.setup(this)
@@ -46,6 +46,8 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
     },
 
     startAnimation(this: App) {
+      this.clock.start()
+
       const animate = () => {
         requestAnimationFrame(animate)
 

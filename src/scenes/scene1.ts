@@ -25,7 +25,7 @@ const scene1 = createAnimatedScene(
     }
   },
   function animate(this: AnimatedScene, app: App) {
-    const t = Date.now() / 1000.0 // TODO: use app.clock
+    const t = app.clock.elapsedTime
 
     for (let i = 0; i < 10; i++) {
       const sphere = this.scene.getObjectByName(`sphere_${i}`)
