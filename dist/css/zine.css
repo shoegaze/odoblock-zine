@@ -1,3 +1,10 @@
 body {
+  background-color: yellow; /* TODO: Use brand colors */
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+body #container {
   margin: 0;
 }
