@@ -5,7 +5,8 @@ import scene1 from './scenes/scene1'
 
 
 { // main
-  const app = createApp()
+  const canvas = document.querySelector('#screen') as HTMLCanvasElement
+  const app = createApp(canvas)
 
   const scenes: Array<AnimatedScene> = [scene0, scene1]
   scenes.forEach(scene => {
