@@ -14,7 +14,9 @@ export interface AnimatedScene {
   // afterRender: AnimatedSceneMethod,
 }
 
-export const createAnimatedScene = (setup: AnimatedSceneMethod, animate: AnimatedSceneMethod): AnimatedScene => ({
+type CreateAnimatedScene = (setup: AnimatedSceneMethod, animate: AnimatedSceneMethod) => AnimatedScene
+
+export const createAnimatedScene: CreateAnimatedScene = (setup, animate) => ({
   scene: new THREE.Scene(),
   setup,
   animate
