@@ -3,6 +3,7 @@ import { App } from "./app"
 
 
 type AnimatedSceneMethod = (this: AnimatedScene, app: App) => void
+// type AnimatedSceneMethod<T extends AnimatedScene> = (this: T, app: App) => void
 
 export interface AnimatedScene {
   scene: THREE.Scene,
