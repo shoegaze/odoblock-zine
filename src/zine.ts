@@ -23,5 +23,10 @@ import scene2 from './scenes/scene2'
     app.resize()
   }
 
+  // TODO: Implement these events
+  window.ondragstart = () => false
+  window.ondrag = () => false
+  window.ondragend = () => false
+
   app.startAnimation()
 }
