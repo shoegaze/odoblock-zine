@@ -14,7 +14,10 @@ export interface App {
   addScene: AppAnimatedSceneMethod
   startAnimation: AppMethod,
   resize: AppMethod,
-  render: AppMethod
+  render: AppMethod,
+
+  translate: (dx: number, dy: number, sensitivity: number) => void,
+  zoom: (dz: number, sensitivity: number) => void
 }
 
 export const createApp = (canvas: HTMLCanvasElement): App => {
@@ -92,6 +95,30 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
         renderer.clearDepth()
         // Prevents next scene from clearing the previous scene's buffer
         renderer.autoClear = false
+      })
+    },
+
+
+    translate(this: App, dx: number, dy: number, sensitivity: number) {
+      cam.translateX(-dx * sensitivity)
+      cam.translateY(+dy * sensitivity)
+    },
+
+    // dz < 0: zoom in ;
+    // dz > 0: zoom out
+    zoom(this: App, dz: number, sensitivity: number) {
+      const dzReal = -dz * sensitivity + (dz < 0 ? 1.0 : 0.0)
+
+      // z-translation only works for perspective cameras
+      // cam.translateZ(dzReal)
+
+      this.animatedScenes.forEach(as => {
+        as.scene.children.forEach(obj => {
+          const sz = obj.scale.multiplyScalar(dzReal)
+
+          obj.scale.setX(sz.x)
+          obj.scale.setY(sz.y)
+        })
       })
     }
   }
