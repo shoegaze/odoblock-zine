@@ -24,13 +24,19 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
   const cam = new THREE.OrthographicCamera(
     -s_2, +s_2, // left, right
     +s_2, -s_2, // top, bottom
-    0.1, 1000)  // near, far
+    0.1, 1000   // near, far
+  )
 
   cam.position.z = 200
 
   const renderer = new THREE.WebGLRenderer({
     canvas
   })
+
+  // TODO: Disable debug mode in production
+  renderer.debug = {
+    checkShaderErrors: true
+  }
 
   renderer.setSize(s, s)
 
