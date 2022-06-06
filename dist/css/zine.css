@@ -33,4 +33,6 @@ body {
   background: linear-gradient(to left, #ecd24a, #000);
 }
 
-/* #screen {} */
+#screen:hover {
+  cursor: grab;
+}
