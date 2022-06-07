@@ -1,5 +1,5 @@
 import * as THREE from "three"
-import { App } from "./app"
+import { App } from "./App"
 
 
 type AnimatedSceneMethod = (this: AnimatedScene, app: App) => void

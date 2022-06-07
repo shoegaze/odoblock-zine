@@ -1,7 +1,7 @@
 import * as THREE from "three"
 import { lerp } from "three/src/math/MathUtils"
-import { AnimatedScene, createAnimatedScene } from "../animatedScene"
-import { App } from "../app"
+import { AnimatedScene, createAnimatedScene } from "../AnimatedScene"
+import { App } from "../App"
 
 
 const scene1 = createAnimatedScene(

@@ -1,6 +1,6 @@
 import * as THREE from "three"
-import { AnimatedScene, createAnimatedScene } from "../animatedScene"
-import { App } from "../app"
+import { AnimatedScene, createAnimatedScene } from "../AnimatedScene"
+import { App } from "../App"
 
 const scene0 = createAnimatedScene(
   function setup(this: AnimatedScene, _) {

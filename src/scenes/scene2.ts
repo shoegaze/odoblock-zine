@@ -1,6 +1,6 @@
 import * as THREE from "three"
-import { AnimatedScene, createAnimatedScene } from "../animatedScene"
-import { App } from "../app"
+import { AnimatedScene, createAnimatedScene } from "../AnimatedScene"
+import { App } from "../App"
 
 
 interface Scene2 extends AnimatedScene {

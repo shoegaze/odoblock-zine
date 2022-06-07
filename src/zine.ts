@@ -1,8 +1,8 @@
-import { AnimatedScene } from './animatedScene'
-import { createApp } from './app'
-import scene0 from './scenes/scene0'
-import scene1 from './scenes/scene1'
-import scene2 from './scenes/scene2'
+import { AnimatedScene } from './AnimatedScene'
+import { createApp } from './App'
+import scene0 from './scenes/Scene0'
+import scene1 from './scenes/Scene1'
+import scene2 from './scenes/Scene2'
 
 
 { // main
