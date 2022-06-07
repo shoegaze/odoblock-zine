@@ -31,6 +31,8 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'static', 'js')
+    path: path.resolve(__dirname, 'static', 'js', 'dist'),
+    clean: true,
+    publicPath: 'auto'
   }
 }
