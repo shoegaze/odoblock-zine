@@ -144,4 +144,4 @@ out
 
 # End of https://www.toptal.com/developers/gitignore/api/node
 
-dist/js/bundle.js
+static/js/bundle.js

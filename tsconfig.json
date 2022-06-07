@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
+    "outDir": "./static",
     "strict": true,
     "noImplicitAny": true,
     "sourceMap": true,
