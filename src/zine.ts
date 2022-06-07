@@ -49,7 +49,7 @@ import scene2 from './scenes/scene2'
   {
     canvas.onwheel = (ev) => {
       const { deltaY: dz } = ev
-      const sensitivity = 0.005
+      const sensitivity = 0.05
 
       app.zoom(dz, sensitivity)
     }
