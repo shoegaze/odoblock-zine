@@ -12,7 +12,7 @@ import scene2 from './scenes/scene2'
   const scenes: Array<AnimatedScene> = [
     scene0,
     scene1,
-    // scene2
+    scene2
   ]
 
   scenes.forEach(scene => {
@@ -49,7 +49,7 @@ import scene2 from './scenes/scene2'
   {
     canvas.onwheel = (ev) => {
       const { deltaY: dz } = ev
-      const sensitivity = 0.05
+      const sensitivity = 0.5
 
       app.zoom(dz, sensitivity)
     }
