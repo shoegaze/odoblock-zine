@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx webpack",
     "watch": "npx webpack --watch",
-    "serve": "npx webpack-dev-server --static-watch --hot"
+    "serve": "npx webpack-dev-server --hot"
   },
   "author": "ODOBLOCK",
   "license": "ISC",
