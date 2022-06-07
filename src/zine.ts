@@ -10,9 +10,9 @@ import scene2 from './scenes/scene2'
   const app = createApp(canvas)
 
   const scenes: Array<AnimatedScene> = [
-    scene0,
+    scene2,
     scene1,
-    scene2
+    scene0
   ]
 
   scenes.forEach(scene => {
