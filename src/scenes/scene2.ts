@@ -12,7 +12,7 @@ interface Scene2 extends AnimatedScene {
 const scene2: Scene2 = {
   size: new THREE.Vector2(0, 0),
   lastUpdate: 0,
-  updateInterval: 2.5,
+  updateInterval: 5.0,
 
   ...createAnimatedScene(
     function setup(this: AnimatedScene, app: App) {
@@ -24,7 +24,7 @@ const scene2: Scene2 = {
       const geo = new THREE.PlaneGeometry(w, h)
       const mat = new THREE.MeshBasicMaterial({
         map: new THREE.TextureLoader().load(
-          `https://picsum.photos/${w}/${h}`
+          './img/test.png'
         )
       })
 
@@ -34,34 +34,7 @@ const scene2: Scene2 = {
       self.lastUpdate = app.clock.getElapsedTime()
     },
 
-    function animate(this: AnimatedScene, app: App) {
-      const self = this as Scene2
-
-      // Size test
-      const sz = new THREE.Vector2()
-      app.renderer.getSize(sz)
-
-      if (self.size.equals(sz)) {
-        return
-      }
-
-      // Time test
-      const t = app.clock.getElapsedTime()
-
-      if (t < self.lastUpdate + self.updateInterval) {
-        return
-      }
-
-      console.log('[Scene2]', 'updating image: ', t)
-
-      self.lastUpdate = t
-
-      // Reset image
-      const img = this.scene.children[0] as THREE.Mesh
-      this.scene.remove(img)
-
-      this.setup(app)
-    }
+    function animate(this: AnimatedScene, _: App) { }
   )
 }
 
