@@ -6,7 +6,7 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist')
+      directory: path.join(__dirname, 'static')
     },
     // headers: {
     //   'Access-Control-Allow-Origin': '*',
@@ -31,6 +31,6 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist', 'js')
+    path: path.resolve(__dirname, 'static', 'js')
   }
 }
