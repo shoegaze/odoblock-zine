@@ -4,14 +4,15 @@
 
 ### High Priority
 
-* [!!!] Camera translation acceleration/deceleration
-* [!!!] Layering system
+* Camera translation acceleration/deceleration
+* Layering system
 
 ### Medium Priority
 
-* [!!] Text display
+* Text display
 
 ### Low Priority
 
-* [!] .svg support
-* [!] Figure out how to control audio
+* .svg support
+* Figure out how to control audio
+* Add tilt when camera is moving fast
