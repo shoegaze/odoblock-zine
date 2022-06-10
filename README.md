@@ -10,9 +10,9 @@
 ### Medium Priority
 
 * Text display
+* .svg support
 
 ### Low Priority
 
-* .svg support
 * Figure out how to control audio
 * Add tilt when camera is moving fast
