@@ -17,6 +17,7 @@ export function insertMembrain() {
     containerElement.insertAdjacentHTML(
       'afterbegin',
       `<div class="membrane">
+        <div class="membrane-next">next</div>
         <div class="membrane-top"></div>
         <div class="membrane-bottom"></div>
       </div>`
