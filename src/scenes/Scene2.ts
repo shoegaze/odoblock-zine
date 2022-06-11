@@ -3,35 +3,20 @@ import { AnimatedScene, createAnimatedScene } from "../AnimatedScene"
 import { App } from "../App"
 
 
-interface Scene2 extends AnimatedScene {
-  size: THREE.Vector2,
-  lastUpdate: number,
-  updateInterval: number
-}
+let size: THREE.Vector2 = new THREE.Vector2(0.0)
 
-const scene2: Scene2 = {
-  size: new THREE.Vector2(0, 0),
-  lastUpdate: 0,
-  updateInterval: 5.0,
-
+const scene2: AnimatedScene = {
   ...createAnimatedScene(
-    function setup(this: AnimatedScene, app: App) {
-      const self = this as Scene2
-
-      app.renderer.getSize(self.size)
-      const { x: w, y: h } = self.size
-
-      const geo = new THREE.PlaneGeometry(w, h)
+    function setup(this: AnimatedScene, _) {
+      const geo = new THREE.PlaneGeometry(50.0, 50.0)
       const mat = new THREE.MeshBasicMaterial({
-        map: new THREE.TextureLoader().load(
-          './img/test.png'
-        )
+        map: new THREE.TextureLoader().load('./img/test.png')
       })
 
       const mesh = new THREE.Mesh(geo, mat)
-      this.scene.add(mesh)
+      mesh.position.z = -80.0
 
-      self.lastUpdate = app.clock.getElapsedTime()
+      this.scene.add(mesh)
     },
 
     function animate(this: AnimatedScene, _: App) { }

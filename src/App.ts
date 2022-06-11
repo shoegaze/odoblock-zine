@@ -28,10 +28,10 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
   const cam = new THREE.PerspectiveCamera(
     45,         // fov
     1.0,        // aspect
-    0.001, 1000 // near, far
+    0.1, 500.0  // near, far
   )
 
-  cam.position.z = 500.0
+  cam.position.z = 0.0
 
   const renderer = new THREE.WebGLRenderer({
     canvas
@@ -75,7 +75,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
       const { innerWidth: w, innerHeight: h } = window
       const s = Math.min(w, h)
 
-      cam.aspect = 1.0
+      cam.aspect = s / s
       cam.updateProjectionMatrix()
 
       renderer.setSize(s, s)
