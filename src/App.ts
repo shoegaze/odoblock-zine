@@ -71,7 +71,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
         (physics: Physics, _) => {
           { // Clamp speed of velocity
             // TODO: Hoist this to AppCameraDragger
-            const maxSpeed = 50.0
+            const maxSpeed = 100.0
             physics.velocity.clampLength(0, maxSpeed)
           }
 
