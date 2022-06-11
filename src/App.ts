@@ -165,7 +165,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
     // dz > 0: zoom out
     queueZoom(this: App, zoom: number) {
       // TODO: Hoist this to AppCameraDragger
-      const sensitivity = 5.0
+      const sensitivity = 10.0
 
       // Right-most factor prevents the result from being in the range (-s, +s)
       //  where s is the sensitivity.
