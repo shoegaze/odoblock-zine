@@ -4,18 +4,16 @@ import scene0 from './scenes/Scene0'
 import scene1 from './scenes/Scene1'
 import scene2 from './scenes/Scene2'
 
+import { addMembrainLink, insertMembrain } from './insaneInTheMembrain'
 
-{ // main
+{
+  // main
   const canvas = document.querySelector('#screen') as HTMLCanvasElement
   const app = createApp(canvas)
 
-  const scenes: Array<AnimatedScene> = [
-    scene2,
-    scene1,
-    scene0
-  ]
+  const scenes: Array<AnimatedScene> = [scene2, scene1, scene0]
 
-  scenes.forEach(scene => {
+  scenes.forEach((scene) => {
     app.addScene(scene)
   })
 
@@ -23,7 +21,8 @@ import scene2 from './scenes/Scene2'
     app.resize()
   }
 
-  { // Drag event
+  {
+    // Drag event
     let dragging = false
 
     canvas.onmousedown = (_) => {
@@ -56,4 +55,5 @@ import scene2 from './scenes/Scene2'
   }
 
   app.startAnimation()
+  addMembrainLink()
 }
