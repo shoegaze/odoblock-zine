@@ -16,7 +16,10 @@ export function insertMembrain() {
   if (containerElement) {
     containerElement.insertAdjacentHTML(
       'afterbegin',
-      `<div class="membrane">you made it</div>`
+      `<div class="membrane">
+        <div class="membrane-top"></div>
+        <div class="membrane-bottom"></div>
+      </div>`
     )
   }
 }

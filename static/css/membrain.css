@@ -1,0 +1,30 @@
+#container {
+  align-items: center;
+}
+
+.membrane-top,
+.membrane-bottom {
+  transition: 0.35s;
+}
+
+.membrane-top {
+  width: 200px;
+  height: 100px;
+  background-color: white;
+  border-radius: 200px 200px 0 0;
+}
+
+.membrane-bottom {
+  width: 200px;
+  height: 100px;
+  background-color: black;
+  border-radius: 0 0 200px 200px;
+}
+
+.membrane:hover .membrane-top {
+  transform: translate(-15px, -15px);
+}
+
+.membrane:hover .membrane-bottom {
+  transform: translate(15px, 15px);
+}
