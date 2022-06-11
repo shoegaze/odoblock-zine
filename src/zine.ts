@@ -40,20 +40,17 @@ import scene2 from './scenes/Scene2'
       }
 
       const { movementX: dx, movementY: dy } = ev
-      const sensitivity = 1.0
-
-      app.translate(dx, dy, sensitivity)
+      app.queueTranslation(dx, dy)
     }
   }
 
   {
     canvas.onwheel = (ev) => {
       const { deltaY: dz } = ev
-      const sensitivity = 0.5
-
-      app.zoom(dz, sensitivity)
+      app.queueZoom(dz)
     }
   }
 
+  app.startPhysics()
   app.startAnimation()
 }
