@@ -30,7 +30,7 @@ import scene2 from './scenes/Scene2'
       dragging = true
     }
 
-    canvas.onmouseup = (_) => {
+    document.onmouseup = (_) => {
       dragging = false
     }
 
