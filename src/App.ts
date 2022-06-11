@@ -54,6 +54,9 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
   let queuedTranslation: THREE.Vector2 | null = null
   let queuedZoom: number | null = null
 
+  // TODO: Hoist this to AppCameraDragger
+  const maxSpeed = 100.0
+
   return {
     cam,
     renderer,
@@ -68,10 +71,12 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
 
     startPhysics() {
       this.cameraDragger.startPhysicsLoop(
-        (physics: Physics, _) => {
+        (physics: Physics, _) => { // beforeUpdate
+          { // Reset camera rotation
+            this.cam.rotation.set(0.0, 0.0, 0.0)
+          }
+
           { // Clamp speed of velocity
-            // TODO: Hoist this to AppCameraDragger
-            const maxSpeed = 100.0
             physics.velocity.clampLength(0, maxSpeed)
           }
 
@@ -89,7 +94,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
             queuedZoom = null
           }
         },
-        (physics: Physics, _) => {
+        (physics: Physics, _) => { // afterUpdate
           { // Decelerate if no input received for t seconds
             const t = this.clock.elapsedTime - lastInputTime
             if (t > maxIdleTime) {
@@ -103,6 +108,25 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
               physics.addForce(f)
               physics.velocity.multiplyScalar(s)
             }
+          }
+
+          { // Apply camera inertia tilt
+            const v = new THREE.Vector3(
+              physics.velocity.x,
+              physics.velocity.y,
+              0.0
+            )
+            // const k = new THREE.Vector3(0.0, 0.0, +1.0)
+
+            // v `cross` k = (-v_y, +v_x, 0)^T
+            //  when v_z = 0
+            const axis = new THREE.Vector3(-v.y, +v.x, 0.0)
+
+            const maxAngle = Math.PI / 3500
+            const angle = maxAngle * (v.length() / maxSpeed)
+
+            // TODO: Fix jitter: lerp between previous axis/angle?
+            this.cam.rotateOnAxis(axis, angle)
           }
         }
       )
