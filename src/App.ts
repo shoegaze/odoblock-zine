@@ -1,5 +1,4 @@
 import * as THREE from "three"
-import { clamp, lerp } from "three/src/math/MathUtils"
 import { AnimatedScene } from "./AnimatedScene"
 import AppCameraDragger from "./AppCameraDragger"
 import Physics from "./Physics"
