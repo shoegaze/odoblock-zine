@@ -47,6 +47,10 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
     checkShaderErrors: true
   }
 
+  // TODO: Hoist to constructor
+  const maxIdleTime = 0.1
+  let lastInputTime = 0.0
+
   let queuedTranslation: THREE.Vector2 | null = null
   let queuedZoom: number | null = null
 
@@ -67,7 +71,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
         (physics: Physics, _) => {
           { // Clamp speed of velocity
             // TODO: Hoist this to AppCameraDragger
-            const maxSpeed = 50.0
+            const maxSpeed = 100.0
             physics.velocity.clampLength(0, maxSpeed)
           }
 
@@ -86,29 +90,20 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
           }
         },
         (physics: Physics, _) => {
-          // TODO: Implement deceleration after receiving no input for t seconds
+          { // Decelerate if no input received for t seconds
+            const t = this.clock.elapsedTime - lastInputTime
+            if (t > maxIdleTime) {
+              const s = 0.9
 
-          { // DEBUG: Naive deceleration towards 0
-            const s = 0.9
+              const a = physics.acceleration.clone()
+              const f = a.negate()
+                .multiplyScalar(s)
+                .multiplyScalar(physics.mass)
 
-            const a = physics.acceleration.clone()
-            const f = a.negate()
-              .multiplyScalar(s)
-            // .multiplyScalar(clamp(dt, 0.0, 1.0))
-            // .multiplyScalar(physics.mass)
-
-            physics.addForce(f)
-            physics.velocity.multiplyScalar(s)
+              physics.addForce(f)
+              physics.velocity.multiplyScalar(s)
+            }
           }
-
-          // { // DEBUG: Log physical parameters
-          //   console.groupCollapsed(`Physics Log (t=${this.clock.elapsedTime.toFixed(2)})`)
-          //   console.log('dt', dt)
-          //   console.log('speed', physics.velocity.length())
-          //   console.log('velocity', physics.velocity)
-          //   console.log('position', physics.position)
-          //   console.groupEnd()
-          // }
         }
       )
     },
@@ -162,6 +157,8 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
       // Convert (dx, dy) from screen axes to world axes
       queuedTranslation = new THREE.Vector2(-dx, +dy)
         .multiplyScalar(sensitivity)
+
+      lastInputTime = this.clock.elapsedTime
     },
 
     // dz < 0: zoom in ;
@@ -174,6 +171,8 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
       //  where s is the sensitivity.
       //  When |s| < 1, without the factor we will zoom in no matter what.
       queuedZoom = +zoom * sensitivity + (zoom < 0.0 ? 1.0 : 0.0)
+
+      lastInputTime = this.clock.elapsedTime
     }
   }
 }

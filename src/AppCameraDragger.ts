@@ -26,7 +26,8 @@ export default class CameraDragger {
       return
     }
 
-    const fps = 30
+    // TODO: Auto-detect level of physics precision (fps) from cpu speed?
+    const fps = 60
     const dt = 1.0 / fps
     const dtMs = 1000.0 * dt
 
