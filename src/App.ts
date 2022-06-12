@@ -193,15 +193,21 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
           { // Decelerate if no input received for t seconds
             const t = this.clock.getElapsedTime() - lastInputTime
             if (t > maxIdleTime) {
-              const s = 0.0
+              const s = 0.9
 
               const a = physics.acceleration.clone()
               const f = a.negate()
                 .multiplyScalar(s)
                 .multiplyScalar(physics.mass)
 
-              physics.addForce(f)
-              physics.velocity.multiplyScalar(s)
+              if (f.length() > 1.0e-3) {
+                physics.addForce(f)
+                physics.velocity.multiplyScalar(s)
+              }
+              else {
+                physics.acceleration.set(0.0, 0.0, 0.0)
+                physics.velocity.set(0.0, 0.0, 0.0)
+              }
             }
           }
 
@@ -216,6 +222,8 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
 
             // dp `cross` k = (-dp_y, +dp_x, 0)^T
             //  when dp_z = 0
+
+            // TODO: Normalize axis
             const axis = new THREE.Vector3(-dp.y, +dp.x, 0.0)
 
             const maxAngle = Math.PI / 4
