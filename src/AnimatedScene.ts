@@ -9,7 +9,7 @@ export interface AnimatedScene {
   scene: THREE.Scene,
 
   setup: AnimatedSceneMethod,
-  animate: AnimatedSceneMethod,
+  animate: AnimatedSceneMethod, // TODO: Be able to pass in dt
   // resize: AnimatedSceneMethod,
   // afterRender: AnimatedSceneMethod,
 
