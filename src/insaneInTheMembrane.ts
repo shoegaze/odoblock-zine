@@ -1,13 +1,7 @@
-import { DoubleSide } from 'three'
-
 const url = window.location.href
-
 const onMembrane = /membrane/.test(url)
-
 const containerElement = document.querySelector('#container')
-
 const membraneLinkString = `<div class="membrane-link-container"><a href="./membrane.html">hehe</a></div>`
-
 const membraneString = `
 <div class="membrane">
   <div class="membrane-next">next</div>
@@ -15,7 +9,6 @@ const membraneString = `
   <div class="membrane-half-bottom"></div>
 </div>
 `
-
 const transitionTime = 350
 
 export function addMembraneLink() {
@@ -62,8 +55,8 @@ function handleNext() {
 function insertNextMembrane() {
   const membraneElement = document.querySelector('.membrane')
   const halvesString = `
-    <div class="membrane-half-top></div>
-    <div class="membrane-half-bottom></div>
+    <div class="membrane-half-top"></div>
+    <div class="membrane-half-bottom"></div>
     `
   if (membraneElement) {
     membraneElement.insertAdjacentHTML('beforeend', halvesString)
@@ -74,9 +67,11 @@ function setNewMembraneStyles(
   topHalf: HTMLDivElement,
   bottomHalf: HTMLDivElement
 ) {
-  const translateDistance = randomNumberFromRange(160, 260)
-  const topRotateDeg = randomNumberFromRange(280, 340)
-  const bottomRotateDeg = randomNumberFromRange(280, 340)
+  // default translate range 160, 260
+  // default def range 280, 240
+  const translateDistance = randomNumberFromRange(120, 280)
+  const topRotateDeg = randomNumberFromRange(20, 340)
+  const bottomRotateDeg = randomNumberFromRange(20, 340)
   const topTransform = `translate(-${translateDistance}px, -${
     translateDistance / 2
   }px) rotate(${topRotateDeg}deg)`
@@ -105,18 +100,26 @@ if (membraneNextElement) {
 
 const membraneElement = document.querySelector('.membrane')
 
+function addMembraneListeners() {}
+
 if (membraneElement) {
   membraneElement.addEventListener('mouseenter', () => {
+    const membraneHalves = getMembraneHalves()
     console.log('got hovered')
-
-    const membraneHalves = [
-      ...document.querySelectorAll("[class^='membrane-half']"),
-    ]
     if (membraneHalves) {
       setNewMembraneStyles(
         membraneHalves[0] as HTMLDivElement,
         membraneHalves[1] as HTMLDivElement
       )
     }
+  })
+
+  membraneElement.addEventListener('mouseleave', () => {
+    const membraneHalves = getMembraneHalves()
+    console.log('mouseleave')
+    membraneHalves.forEach((half) => {
+      //@ts-ignore
+      half.style.transform = ''
+    })
   })
 }
