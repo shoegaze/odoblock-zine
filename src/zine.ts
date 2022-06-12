@@ -1,22 +1,18 @@
-import { AnimatedScene } from './AnimatedScene'
 import { createApp } from './App'
-import scene0 from './scenes/Scene0'
-import scene1 from './scenes/Scene1'
-import scene2 from './scenes/Scene2'
+import { Layer } from './Layer'
+import layer1 from './layers/1/Layer1'
 
 
 { // main
   const canvas = document.querySelector('#screen') as HTMLCanvasElement
   const app = createApp(canvas)
 
-  const scenes: Array<AnimatedScene> = [
-    scene2,
-    scene1,
-    scene0
+  const layers = [
+    layer1
   ]
 
-  scenes.forEach(scene => {
-    app.addScene(scene)
+  layers.forEach((layer: Layer) => {
+    app.addLayer(layer)
   })
 
   window.onresize = () => {
@@ -51,6 +47,5 @@ import scene2 from './scenes/Scene2'
     }
   }
 
-  app.startPhysics()
-  app.startAnimation()
+  app.start()
 }

@@ -12,6 +12,8 @@ export interface AnimatedScene {
   animate: AnimatedSceneMethod,
   // resize: AnimatedSceneMethod,
   // afterRender: AnimatedSceneMethod,
+
+  setActive: (this: AnimatedScene, active: boolean) => void
 }
 
 type CreateAnimatedScene = (setup: AnimatedSceneMethod, animate: AnimatedSceneMethod) => AnimatedScene
@@ -19,5 +21,16 @@ type CreateAnimatedScene = (setup: AnimatedSceneMethod, animate: AnimatedSceneMe
 export const createAnimatedScene: CreateAnimatedScene = (setup, animate) => ({
   scene: new THREE.Scene(),
   setup,
-  animate
+  animate,
+
+  setActive(this: AnimatedScene, active: boolean) {
+    this.scene.visible = active
+    this.scene.autoUpdate = active
+    this.scene.matrixAutoUpdate = active
+
+    if (active) {
+      this.scene.updateMatrix()
+      this.scene.updateMatrixWorld(true)
+    }
+  }
 })
