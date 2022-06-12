@@ -1,19 +1,32 @@
 import { createApp } from './App'
 import { Layer } from './Layer'
 import layer1 from './layers/1/Layer1'
+import debugSquareLayer from './layers/global/DebugSquareLayer'
 
 
 { // main
   const canvas = document.querySelector('#screen') as HTMLCanvasElement
   const app = createApp(canvas)
 
-  const layers = [
-    layer1
-  ]
+  { // Add global layers
+    const globalLayers = [
+      debugSquareLayer
+    ]
 
-  layers.forEach((layer: Layer) => {
-    app.addLayer(layer)
-  })
+    globalLayers.forEach((layer: Layer) => {
+      app.addGlobalLayer(layer)
+    })
+  }
+
+  { // Add layers
+    const layers = [
+      layer1
+    ]
+
+    layers.forEach((layer: Layer) => {
+      app.addLayer(layer)
+    })
+  }
 
   window.onresize = () => {
     app.resize()

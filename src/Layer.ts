@@ -28,3 +28,17 @@ export const createLayer = (...scenes: AnimatedScene[]): Layer => ({
     })
   }
 })
+
+let idGlobal = 0
+export const createGlobalLayer = (...scenes: AnimatedScene[]): Layer => ({
+  id: idGlobal++,
+  zPos: 0.0,
+  scenes,
+
+  // TODO: Refactor this (DRY)
+  setActive(active: boolean) {
+    this.scenes.forEach((as: AnimatedScene) => {
+      as.setActive(active)
+    })
+  }
+})
