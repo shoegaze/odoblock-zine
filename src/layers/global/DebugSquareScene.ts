@@ -32,6 +32,7 @@ const debugSquareScene: AnimatedScene = createAnimatedScene(
     const plane = this.scene.getObjectByName('plane')
     const { x, y, z } = app.cam.position
 
+    // TODO: Create method to set position to screen space
     plane!.position.set(
       x - 3.5,
       y + 3.5,
