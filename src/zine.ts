@@ -1,6 +1,7 @@
 import { createApp } from './App'
 import { Layer } from './Layer'
 import layer1 from './layers/1/Layer1'
+import layer2 from './layers/2/Layer2'
 import debugSquareLayer from './layers/global/DebugSquareLayer'
 
 
@@ -20,7 +21,8 @@ import debugSquareLayer from './layers/global/DebugSquareLayer'
 
   { // Add layers
     const layers = [
-      layer1
+      layer1,
+      layer2
     ]
 
     layers.forEach((layer: Layer) => {
