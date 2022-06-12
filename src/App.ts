@@ -209,6 +209,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
 
             this.cam.position.z = z
 
+            // TODO: Reset velocity and acceleration when it bumps against zMin/zMax
             // const epsilon = 1.0e-3
             // if (Math.abs(z - zMax) < epsilon || Math.abs(z - zMin) < epsilon) {
             //   if (Math.abs(physics.velocity.z) > epsilon) {
@@ -221,22 +222,6 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
           { // Update active layer
             const id = toId(this.cam.position.z)
             const i = Math.min(id, this.layers.length - 1)
-
-            // { // DEBUG:
-            //   console.group(`Layer ${i} (t=${this.clock.getElapsedTime().toFixed(2)}s)`)
-            //   console.log('this.cam.position.z', this.cam.position.z)
-            //   console.log('id', id)
-            //   console.log('i', i)
-            //   console.log('this.layers', this.layers)
-
-            //   const zNext = this.layers[i].zPos
-            //   const distNext = this.cam.position.z - zNext
-            //   console.log('distance to next layer', distNext > 0 ? distNext : +Infinity)
-
-            //   console.log('this layer', this.activeLayer)
-            //   console.log('closest layer', this.getClosestLayer())
-            //   console.groupEnd()
-            // }
 
             this.setActiveLayer(i)
           }
