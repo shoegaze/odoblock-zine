@@ -20,6 +20,7 @@ let id = 0
 export const createLayer = (...scenes: AnimatedScene[]): Layer => ({
   id: id++,
   zPos: toZPos(id - 1),
+  // TODO: Reverse scenes order so that the first scene is the one that is drawn on top?
   scenes,
 
   setActive(active: boolean) {
