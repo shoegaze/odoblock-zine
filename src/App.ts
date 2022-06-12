@@ -14,6 +14,7 @@ type AppMethod = (this: App) => void
 export interface App {
   cam: THREE.PerspectiveCamera
   renderer: THREE.WebGLRenderer
+  globalLayers: Array<Layer>
   layers: Array<Layer>
   activeLayer: Layer
   clock: THREE.Clock
@@ -25,6 +26,7 @@ export interface App {
   resize: AppMethod
   render: AppMethod
 
+  addGlobalLayer: AppLayerMethod
   addLayer: AppLayerMethod
   setActiveLayer: AppLayerIdMethod
   getClosestLayer: (this: App) => Layer
@@ -71,14 +73,16 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
   return {
     cam,
     renderer,
+    globalLayers: [],
     layers: [homeLayer],
     activeLayer: homeLayer,
     clock: new THREE.Clock(false),
     cameraDragger: new AppCameraDragger(cam),
 
     start() {
-      this.startPhysics()
-      this.startAnimation()
+      this.globalLayers.forEach((layer: Layer) => {
+        layer.setActive(true)
+      })
 
       // TODO: Refactor this (DRY)
       const home = this.layers[0]
@@ -88,6 +92,19 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
       })
 
       this.setActiveLayer(0)
+
+      this.startPhysics()
+      this.startAnimation()
+    },
+
+    addGlobalLayer(layer: Layer) {
+      this.globalLayers.push(layer)
+
+      layer.scenes.forEach((as: AnimatedScene) => {
+        as.setup(this)
+      })
+
+      layer.setActive(true)
     },
 
     addLayer(layer: Layer) {
@@ -95,12 +112,13 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
 
       layer.scenes.forEach((as: AnimatedScene) => {
         as.setup(this)
-        as.setActive(false)
 
         // TODO: Do this only when the containing layer is active ... O(n_obj)?
         // Convert to all objects to their layer-spaces
         as.scene.translateZ(layer.zPos)
       })
+
+      layer.setActive(false)
     },
 
     setActiveLayer(id: number) {
@@ -165,11 +183,11 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
             queuedZoom = null
           }
         },
-        (physics: Physics, _) => { // afterUpdate
+        (physics: Physics, dt: number) => { // afterUpdate
           { // Decelerate if no input received for t seconds
             const t = this.clock.elapsedTime - lastInputTime
             if (t > maxIdleTime) {
-              const s = 0.9
+              const s = 0.0
 
               const a = physics.acceleration.clone()
               const f = a.negate()
@@ -182,19 +200,20 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
           }
 
           { // Apply camera inertia tilt
-            const v = new THREE.Vector3(
+            const dp = new THREE.Vector3(
               physics.velocity.x,
               physics.velocity.y,
               0.0
-            )
+            ).multiplyScalar(dt)
+
             // const k = new THREE.Vector3(0.0, 0.0, +1.0)
 
-            // v `cross` k = (-v_y, +v_x, 0)^T
-            //  when v_z = 0
-            const axis = new THREE.Vector3(-v.y, +v.x, 0.0)
+            // dp `cross` k = (-dp_y, +dp_x, 0)^T
+            //  when dp_z = 0
+            const axis = new THREE.Vector3(-dp.y, +dp.x, 0.0)
 
-            const maxAngle = Math.PI / 3500
-            const angle = maxAngle * (v.length() / maxSpeed)
+            const maxAngle = Math.PI / 4
+            const angle = maxAngle * (dp.length() / maxSpeed)
 
             // TODO: Fix jitter: lerp between previous axis/angle?
             this.cam.rotateOnAxis(axis, angle)
@@ -240,6 +259,12 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
           as.animate(this)
         })
 
+        this.globalLayers.forEach((layer: Layer) => {
+          layer.scenes.forEach((as: AnimatedScene) => {
+            as.animate(this)
+          })
+        })
+
         this.render()
       }
 
@@ -258,7 +283,6 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
 
     render() {
       renderer.autoClear = true
-
       this.activeLayer.scenes.forEach((as: AnimatedScene) => {
         renderer.render(as.scene, cam)
 
@@ -267,6 +291,14 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
         renderer.clearDepth()
         // Prevents next scene from clearing the previous scene's buffer
         renderer.autoClear = false
+      })
+
+      renderer.autoClear = false
+      this.globalLayers.forEach((layer: Layer) => {
+        layer.scenes.forEach((as: AnimatedScene) => {
+          renderer.render(as.scene, cam)
+          renderer.clearDepth()
+        })
       })
     },
 
