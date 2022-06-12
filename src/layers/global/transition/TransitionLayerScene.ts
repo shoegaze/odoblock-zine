@@ -94,6 +94,7 @@ const transitionLayerScene = createAnimatedScene(
       // TODO: Create method to set position to screen space
       mesh.position.set(x, y, z - 1.0)
 
+      // TODO: Rearrange animate timing
       const { x: rx, y: ry, z: rz } = app.cam.rotation
       mesh.rotation.set(rx, ry, rz)
     }
