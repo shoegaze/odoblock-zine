@@ -39,6 +39,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
   const { innerWidth: w, innerHeight: h } = window
   const s = Math.min(w, h)
 
+  // TODO: Calculate far from layersDistance
   const cam = new THREE.PerspectiveCamera(
     45,         // fov
     1.0,        // aspect
@@ -80,21 +81,26 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
     cameraDragger: new AppCameraDragger(cam),
 
     start() {
-      this.globalLayers.forEach((layer: Layer) => {
-        layer.setActive(true)
-      })
+      { // Start loops
+        this.clock.start()
+        this.startPhysics()
+        this.startAnimation()
+      }
 
-      // TODO: Refactor this (DRY)
-      const home = this.layers[0]
-      home.scenes.forEach((as: AnimatedScene) => {
-        as.setup(this)
-        as.scene.translateZ(home.zPos)
-      })
+      { // Initialize layers
+        this.globalLayers.forEach((layer: Layer) => {
+          layer.setActive(true)
+        })
 
-      this.setActiveLayer(0)
+        // TODO: Refactor this (DRY)
+        const home = this.layers[0]
+        home.scenes.forEach((as: AnimatedScene) => {
+          as.setup(this)
+          as.scene.translateZ(home.zPos)
+        })
 
-      this.startPhysics()
-      this.startAnimation()
+        this.setActiveLayer(0)
+      }
     },
 
     addGlobalLayer(layer: Layer) {
@@ -185,17 +191,23 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
         },
         (physics: Physics, dt: number) => { // afterUpdate
           { // Decelerate if no input received for t seconds
-            const t = this.clock.elapsedTime - lastInputTime
+            const t = this.clock.getElapsedTime() - lastInputTime
             if (t > maxIdleTime) {
-              const s = 0.0
+              const s = 0.9
 
               const a = physics.acceleration.clone()
               const f = a.negate()
                 .multiplyScalar(s)
                 .multiplyScalar(physics.mass)
 
-              physics.addForce(f)
-              physics.velocity.multiplyScalar(s)
+              if (f.length() > 1.0e-3) {
+                physics.addForce(f)
+                physics.velocity.multiplyScalar(s)
+              }
+              else {
+                physics.acceleration.set(0.0, 0.0, 0.0)
+                physics.velocity.set(0.0, 0.0, 0.0)
+              }
             }
           }
 
@@ -210,6 +222,8 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
 
             // dp `cross` k = (-dp_y, +dp_x, 0)^T
             //  when dp_z = 0
+
+            // TODO: Normalize axis
             const axis = new THREE.Vector3(-dp.y, +dp.x, 0.0)
 
             const maxAngle = Math.PI / 4
@@ -242,6 +256,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
             const id = toId(this.cam.position.z)
             const i = Math.min(id, this.layers.length - 1)
 
+            // TODO: Only update active layer when this.activeLayer !== this.layers[i]
             this.setActiveLayer(i)
           }
         }
@@ -249,8 +264,6 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
     },
 
     startAnimation() {
-      this.clock.start()
-
       const animate = () => {
         requestAnimationFrame(animate)
 
@@ -312,7 +325,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
       queuedTranslation = new THREE.Vector2(-dx, +dy)
         .multiplyScalar(sensitivity)
 
-      lastInputTime = this.clock.elapsedTime
+      lastInputTime = this.clock.getElapsedTime()
     },
 
     // dz < 0: zoom in ;
@@ -326,7 +339,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
       //  When |s| < 1, without the factor we will zoom in no matter what.
       queuedZoom = +zoom * sensitivity + (zoom < 0.0 ? 1.0 : 0.0)
 
-      lastInputTime = this.clock.elapsedTime
+      lastInputTime = this.clock.getElapsedTime()
     }
   }
 }
