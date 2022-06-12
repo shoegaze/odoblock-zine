@@ -1,6 +1,6 @@
 import * as THREE from "three"
-import { AnimatedScene, createAnimatedScene } from "../AnimatedScene"
-import { App } from "../App"
+import { AnimatedScene, createAnimatedScene } from "../../../AnimatedScene"
+import { App } from "../../../App"
 
 const scene0 = createAnimatedScene(
   function setup(this: AnimatedScene, _) {
@@ -11,7 +11,7 @@ const scene0 = createAnimatedScene(
 
     const cube = new THREE.Mesh(geo, mat)
     cube.name = 'cube'
-    cube.position.z = -50.0
+    cube.position.z = +30.0
 
     this.scene.add(cube)
   },
