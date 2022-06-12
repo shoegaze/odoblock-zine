@@ -4,9 +4,8 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx webpack",
-    "watch": "npx webpack --watch",
+    "build:watch": "npx webpack --watch",
     "serve": "npx webpack-dev-server --hot"
   },
   "author": "ODOBLOCK",
