@@ -1,7 +1,7 @@
 import * as THREE from "three"
 import { lerp } from "three/src/math/MathUtils"
-import { AnimatedScene, createAnimatedScene } from "../AnimatedScene"
-import { App } from "../App"
+import { AnimatedScene, createAnimatedScene } from "../../../AnimatedScene"
+import { App } from "../../../App"
 
 
 const scene1 = createAnimatedScene(
@@ -20,7 +20,7 @@ const scene1 = createAnimatedScene(
       const sphere = new THREE.Mesh(geo, mat)
       sphere.name = `sphere_${i}`
       sphere.position.x = lerp(-15.0, +15.0, w)
-      sphere.position.z = -60.0
+      sphere.position.z = +20.0
 
       this.scene.add(sphere)
     }
