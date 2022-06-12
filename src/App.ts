@@ -118,7 +118,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
     getClosestLayer(): Layer {
       const z = this.cam.position.z
 
-      if (z >= 0) {
+      if (z >= 0.0) {
         return this.layers[0]
       }
 
