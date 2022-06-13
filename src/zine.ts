@@ -2,6 +2,7 @@ import { createApp } from './App'
 import { Layer } from './Layer'
 import layer1 from './layers/1/Layer1'
 import debugSquareLayer from './layers/global/DebugSquareLayer'
+import transitionLayer from './layers/global/transition/TransitionLayer'
 
 
 { // main
@@ -10,7 +11,8 @@ import debugSquareLayer from './layers/global/DebugSquareLayer'
 
   { // Add global layers
     const globalLayers = [
-      debugSquareLayer
+      // debugSquareLayer,
+      transitionLayer
     ]
 
     globalLayers.forEach((layer: Layer) => {

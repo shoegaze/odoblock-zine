@@ -1,7 +1,7 @@
 import { AnimatedScene } from "./AnimatedScene";
 
 
-export const fadeDistance = 100.0
+export const fadeDistance = 125.0
 export const layersDistance = 300.0
 
 export interface Layer {
