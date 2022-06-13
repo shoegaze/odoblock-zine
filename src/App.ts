@@ -14,11 +14,12 @@ type AppMethod = (this: App) => void
 export interface App {
   cam: THREE.PerspectiveCamera
   renderer: THREE.WebGLRenderer
+  clock: THREE.Clock
+  cameraDragger: AppCameraDragger
+
   globalLayers: Array<Layer>
   layers: Array<Layer>
   activeLayer: Layer
-  clock: THREE.Clock
-  cameraDragger: AppCameraDragger
 
   start: AppMethod
   startPhysics: AppMethod
