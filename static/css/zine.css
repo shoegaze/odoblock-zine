@@ -38,7 +38,7 @@ body {
   cursor: grab;
 }
 
-.membrain-link-container {
+.membrane-link-container {
   display: flex;
   position: absolute;
   inset: 50vh 15px auto auto;

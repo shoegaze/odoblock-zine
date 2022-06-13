@@ -17,7 +17,7 @@ export function addMembraneLink() {
   }
 }
 
-export function insertMembrane() {
+function insertMembrane() {
   if (containerElement) {
     containerElement.insertAdjacentHTML('afterbegin', membraneString)
   }
