@@ -58,7 +58,7 @@ function handleNext() {
 }
 
 function insertNextMembrane() {
-  const membraneElement = document.querySelector('.membrane')
+  const membraneElement = document.querySelector(membraneSelector)
   if (membraneElement) {
     membraneElement.insertAdjacentHTML('beforeend', membraneHalvesString)
   }
@@ -93,13 +93,15 @@ function randomNumberFromRange(min: number, max: number): number {
 
 onMembrane && insertMembrane()
 
-const membraneNextElement = document.querySelector(membraneNextSelector)
+const membraneNextElement: HTMLDivElement | null =
+  document.querySelector(membraneNextSelector)
 
 if (membraneNextElement) {
   membraneNextElement.addEventListener('click', () => handleNext())
 }
 
-const membraneElement = document.querySelector(membraneSelector)
+const membraneElement: HTMLDivElement | null =
+  document.querySelector(membraneSelector)
 
 if (membraneElement) {
   membraneElement.addEventListener('mouseenter', () => {
@@ -107,6 +109,9 @@ if (membraneElement) {
     console.log('got hovered')
     if (membraneHalves) {
       setNewMembraneStyles(membraneHalves[0], membraneHalves[1])
+    }
+    if (membraneNextElement) {
+      membraneNextElement.style.zIndex = '900'
     }
   })
 
@@ -116,5 +121,8 @@ if (membraneElement) {
     membraneHalves.forEach((half) => {
       half.style.transform = ''
     })
+    if (membraneNextElement) {
+      membraneNextElement.style.zIndex = '700'
+    }
   })
 }

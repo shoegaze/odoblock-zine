@@ -4,6 +4,9 @@
 
 .membrane {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* .membrane-next-container {
@@ -17,12 +20,17 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  cursor: pointer;
+  z-index: 700;
+}
+.membrane-halves-container {
+  position: absolute;
+  z-index: 800;
 }
 
 .membrane-half-top,
 .membrane-half-bottom {
   transition: 0.35s;
-  z-index: 1000;
 }
 
 .membrane-half-top {
@@ -45,10 +53,6 @@
 
 .membrane:hover .membrane-half-bottom {
   /* transform: translate(200px, 115px) rotate(320deg); */
-}
-
-.membrane-next {
-  cursor: pointer;
 }
 
 [class^='membrane-half'].exit {

@@ -1,14 +1,14 @@
-export const membraneString = `
-<div class="membrane">
-  <div class="membrane-next">next</div>
+export const membraneHalvesString = `
+<div class="membrane-halves-container">
   <div class="membrane-half-top"></div>
   <div class="membrane-half-bottom"></div>
 </div>
 `
-
-export const membraneHalvesString = `
-<div class="membrane-half-top"></div>
-<div class="membrane-half-bottom"></div>
+export const membraneString = `
+<div class="membrane">
+  ${membraneHalvesString}
+  <div class="membrane-next">next</div>
+</div>
 `
 
 export const membraneLinkString = `<div class="membrane-link-container"><a href="./membrane.html">hehe</a></div>`
