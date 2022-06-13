@@ -28,6 +28,28 @@
   z-index: 800;
 }
 
+.membrane-grid-container {
+  position: absolute;
+  z-index: 500;
+}
+
+.membrane-grid {
+  display: grid;
+  /* width: 600px; */
+  grid-gap: 50px;
+}
+
+.membrane-grid-cell-container {
+  width: 20px;
+  height: 20px;
+}
+
+.membrane-grid-cell {
+  background-color: aquamarine;
+  width: 20px;
+  height: 20px;
+}
+
 .membrane-half-top,
 .membrane-half-bottom {
   transition: 0.35s;

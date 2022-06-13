@@ -2,7 +2,7 @@ import { createApp } from './App'
 import { Layer } from './Layer'
 import layer1 from './layers/1/Layer1'
 import debugSquareLayer from './layers/global/DebugSquareLayer'
-import { addMembraneLink } from './membrane/insaneInTheMembrane'
+import { insertMembraneLink } from './membrane/insaneInTheMembrane'
 
 {
   // main
@@ -61,5 +61,5 @@ import { addMembraneLink } from './membrane/insaneInTheMembrane'
   }
 
   app.start()
-  addMembraneLink()
+  insertMembraneLink()
 }

@@ -2,10 +2,13 @@ import {
   membraneString,
   membraneHalvesString,
   membraneLinkString,
+  membraneGridString,
+  membraneGridCellString,
   containerSelector,
   membraneHalfSelector,
   membraneNextSelector,
   membraneSelector,
+  membraneGridSelector,
 } from './stringTemplates'
 
 const url = window.location.href
@@ -14,7 +17,20 @@ const containerElement = document.querySelector(containerSelector)
 
 const transitionTime = 350
 
-export function addMembraneLink() {
+const gridArray = [
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+]
+
+export function insertMembraneLink() {
   if (containerElement) {
     containerElement.insertAdjacentHTML('afterend', membraneLinkString)
   }
@@ -23,6 +39,28 @@ export function addMembraneLink() {
 function insertMembrane() {
   if (containerElement) {
     containerElement.insertAdjacentHTML('afterbegin', membraneString)
+  }
+}
+
+function insertMembraneGrid() {
+  if (membraneElement) {
+    membraneElement.insertAdjacentHTML('afterbegin', membraneGridString)
+  }
+  const numberOfColumns = gridArray[0].length
+  const numberOfRows = gridArray.length
+  const numberOfCells = numberOfRows * numberOfColumns
+  for (let i = 0; i < numberOfCells; i++) {
+    const membraneGridElement: HTMLDivElement | null =
+      document.querySelector(membraneGridSelector)
+    if (membraneGridElement) {
+      membraneGridElement.style.gridTemplateRows = `repeat(${numberOfRows}, 20px)`
+      membraneGridElement.style.gridTemplateColumns = `repeat(${numberOfColumns}, 1fr)`
+
+      membraneGridElement.insertAdjacentHTML(
+        'beforeend',
+        membraneGridCellString
+      )
+    }
   }
 }
 
@@ -102,6 +140,8 @@ if (membraneNextElement) {
 
 const membraneElement: HTMLDivElement | null =
   document.querySelector(membraneSelector)
+
+insertMembraneGrid()
 
 if (membraneElement) {
   membraneElement.addEventListener('mouseenter', () => {
