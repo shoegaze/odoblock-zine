@@ -6,7 +6,7 @@ export const membraneString = `
 </div>
 `
 
-const membraneHalvesString = `
+export const membraneHalvesString = `
 <div class="membrane-half-top"></div>
 <div class="membrane-half-bottom"></div>
 `

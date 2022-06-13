@@ -1,14 +1,17 @@
+import {
+  membraneString,
+  membraneHalvesString,
+  membraneLinkString,
+  containerSelector,
+  membraneHalfSelector,
+  membraneNextSelector,
+  membraneSelector,
+} from './stringTemplates'
+
 const url = window.location.href
 const onMembrane = /membrane/.test(url)
-const containerElement = document.querySelector('#container')
-const membraneLinkString = `<div class="membrane-link-container"><a href="./membrane.html">hehe</a></div>`
-const membraneString = `
-<div class="membrane">
-  <div class="membrane-next">next</div>
-  <div class="membrane-half-top"></div>
-  <div class="membrane-half-bottom"></div>
-</div>
-`
+const containerElement = document.querySelector(containerSelector)
+
 const transitionTime = 350
 
 export function addMembraneLink() {
@@ -24,7 +27,9 @@ function insertMembrane() {
 }
 
 function getMembraneHalves() {
-  return [...document.querySelectorAll('[class^="membrane-half"]')]
+  return [
+    ...document.querySelectorAll(membraneHalfSelector),
+  ] as HTMLDivElement[]
 }
 
 function handleNext() {
@@ -37,7 +42,7 @@ function handleNext() {
         half.remove()
       }, transitionTime)
     })
-    const membraneElement = document.querySelector('.membrane')
+    const membraneElement = document.querySelector(membraneSelector)
     if (membraneElement) {
       membraneElement.classList.add('--timeout')
     }
@@ -54,12 +59,8 @@ function handleNext() {
 
 function insertNextMembrane() {
   const membraneElement = document.querySelector('.membrane')
-  const halvesString = `
-    <div class="membrane-half-top"></div>
-    <div class="membrane-half-bottom"></div>
-    `
   if (membraneElement) {
-    membraneElement.insertAdjacentHTML('beforeend', halvesString)
+    membraneElement.insertAdjacentHTML('beforeend', membraneHalvesString)
   }
 }
 
@@ -92,25 +93,20 @@ function randomNumberFromRange(min: number, max: number): number {
 
 onMembrane && insertMembrane()
 
-const membraneNextElement = document.querySelector('.membrane-next')
+const membraneNextElement = document.querySelector(membraneNextSelector)
 
 if (membraneNextElement) {
   membraneNextElement.addEventListener('click', () => handleNext())
 }
 
-const membraneElement = document.querySelector('.membrane')
-
-function addMembraneListeners() {}
+const membraneElement = document.querySelector(membraneSelector)
 
 if (membraneElement) {
   membraneElement.addEventListener('mouseenter', () => {
     const membraneHalves = getMembraneHalves()
     console.log('got hovered')
     if (membraneHalves) {
-      setNewMembraneStyles(
-        membraneHalves[0] as HTMLDivElement,
-        membraneHalves[1] as HTMLDivElement
-      )
+      setNewMembraneStyles(membraneHalves[0], membraneHalves[1])
     }
   })
 
@@ -118,7 +114,6 @@ if (membraneElement) {
     const membraneHalves = getMembraneHalves()
     console.log('mouseleave')
     membraneHalves.forEach((half) => {
-      //@ts-ignore
       half.style.transform = ''
     })
   })
