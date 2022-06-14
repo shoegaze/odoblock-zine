@@ -155,13 +155,14 @@ if (membraneElement) {
       membraneNextElement.style.zIndex = '900'
     }
     // TESTING remove later
-    const firstCell: HTMLDivElement | null = document.querySelector(
+    const allCells = [...document.querySelectorAll<HTMLDivElement>(
       membraneGridCellSelector
-    )
-    if (firstCell) {
+    )]
+
+    if (allCells.length) {
       // TODO: use Math.abs() to find the difference from the center
       // of the current array row and col to calculate translate value
-      firstCell.style.transform = 'translate(-20px, -15px)'
+      allCells.forEach(cell => cell.style.transform = 'translate(-20px, -15px)')
     }
   })
 
@@ -175,11 +176,14 @@ if (membraneElement) {
       membraneNextElement.style.zIndex = '700'
     }
     // TESTING remove later
-    const firstCell: HTMLDivElement | null = document.querySelector(
+    const allCells = [...document.querySelectorAll<HTMLDivElement>(
       membraneGridCellSelector
-    )
-    if (firstCell) {
-      firstCell.style.transform = ''
+    )]
+    
+    if (allCells.length) {
+      // TODO: use Math.abs() to find the difference from the center
+      // of the current array row and col to calculate translate value
+      allCells.forEach(cell => cell.style.transform = '')
     }
   })
 }
