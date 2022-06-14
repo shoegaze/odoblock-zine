@@ -10,7 +10,11 @@ import {
   membraneSelector,
   membraneGridSelector,
   membraneGridCellSelector,
+  highBoxShadowString,
+  lowBoxShadowString
 } from './stringTemplates'
+
+import { insertMembraneGrid } from './membraneGrid'
 
 const url = window.location.href
 const onMembrane = /membrane/.test(url)
@@ -18,23 +22,10 @@ const containerElement = document.querySelector(containerSelector)
 
 const transitionTime = 350
 
-const gridCellTransitionMultiplier = 3
 
-const gridArray = [
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-]
 
-const gridColumnCenter = gridArray[0].length / 2
-const gridRowCenter = gridArray.length / 2
+
+
 
 export function insertMembraneLink() {
   if (containerElement) {
@@ -48,27 +39,6 @@ function insertMembrane() {
   }
 }
 
-function insertMembraneGrid() {
-  if (membraneElement) {
-    membraneElement.insertAdjacentHTML('afterbegin', membraneGridString)
-  }
-  const numberOfColumns = gridArray[0].length
-  const numberOfRows = gridArray.length
-  const numberOfCells = numberOfRows * numberOfColumns
-  for (let i = 0; i < numberOfCells; i++) {
-    const membraneGridElement: HTMLDivElement | null =
-      document.querySelector(membraneGridSelector)
-    if (membraneGridElement) {
-      membraneGridElement.style.gridTemplateRows = `repeat(${numberOfRows}, 20px)`
-      membraneGridElement.style.gridTemplateColumns = `repeat(${numberOfColumns}, 1fr)`
-
-      membraneGridElement.insertAdjacentHTML(
-        'beforeend',
-        membraneGridCellString
-      )
-    }
-  }
-}
 
 function getMembraneHalves() {
   return [
@@ -117,22 +87,32 @@ function setNewMembraneStyles(
   const translateDistance = randomNumberFromRange(120, 280)
   const topRotateDeg = randomNumberFromRange(20, 340)
   const bottomRotateDeg = randomNumberFromRange(20, 340)
+  const scaleUp = randomNumberFromRange(115, 150) / 100
+  const scaleDown = randomNumberFromRange(55, 95) / 100
+  const randomTrueFalse = pickRandomTrueFalse()
+
   const topTransform = `translate(-${translateDistance}px, -${
     translateDistance / 2
-  }px) rotate(${topRotateDeg}deg)`
+  }px) scale(${randomTrueFalse ? scaleUp: scaleDown}) rotate(${topRotateDeg}deg)`
   const topBgColor = 'black'
   const bottomTransform = `translate(${translateDistance}px, ${
     translateDistance / 2
-  }px) rotate(${bottomRotateDeg}deg)`
+  }px) scale(${!randomTrueFalse ? scaleUp: scaleDown}) rotate(${bottomRotateDeg}deg`
   const bottomBgColor = 'white'
   topHalf.style.transform = topTransform
   topHalf.style.backgroundColor = topBgColor
+  topHalf.style.boxShadow = randomTrueFalse ? highBoxShadowString : lowBoxShadowString
   bottomHalf.style.transform = bottomTransform
   bottomHalf.style.backgroundColor = bottomBgColor
+  bottomHalf.style.boxShadow = !randomTrueFalse ? highBoxShadowString : lowBoxShadowString
 }
 
 function randomNumberFromRange(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function pickRandomTrueFalse() {
+  return Math.floor(Math.random() * 100) % 2
 }
 
 onMembrane && insertMembrane()
@@ -147,7 +127,9 @@ if (membraneNextElement) {
 const membraneElement: HTMLDivElement | null =
   document.querySelector(membraneSelector)
 
-insertMembraneGrid()
+
+membraneElement && insertMembraneGrid()
+
 
 if (membraneElement) {
   membraneElement.addEventListener('mouseenter', () => {
@@ -176,6 +158,7 @@ if (membraneElement) {
     console.log('mouseleave')
     membraneHalves.forEach((half) => {
       half.style.transform = ''
+      half.style.boxShadow = ''
     })
     if (membraneNextElement) {
       membraneNextElement.style.zIndex = '700'
