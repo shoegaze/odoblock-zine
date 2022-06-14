@@ -9,6 +9,7 @@ import {
   membraneNextSelector,
   membraneSelector,
   membraneGridSelector,
+  membraneGridCellSelector,
 } from './stringTemplates'
 
 const url = window.location.href
@@ -153,6 +154,15 @@ if (membraneElement) {
     if (membraneNextElement) {
       membraneNextElement.style.zIndex = '900'
     }
+    // TESTING remove later
+    const firstCell: HTMLDivElement | null = document.querySelector(
+      membraneGridCellSelector
+    )
+    if (firstCell) {
+      // TODO: use Math.abs() to find the difference from the center
+      // of the current array row and col to calculate translate value
+      firstCell.style.transform = 'translate(-20px, -15px)'
+    }
   })
 
   membraneElement.addEventListener('mouseleave', () => {
@@ -163,6 +173,13 @@ if (membraneElement) {
     })
     if (membraneNextElement) {
       membraneNextElement.style.zIndex = '700'
+    }
+    // TESTING remove later
+    const firstCell: HTMLDivElement | null = document.querySelector(
+      membraneGridCellSelector
+    )
+    if (firstCell) {
+      firstCell.style.transform = ''
     }
   })
 }

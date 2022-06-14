@@ -32,3 +32,5 @@ export const membraneHalfSelector = '[class^="membrane-half"]'
 export const membraneNextSelector = '.membrane-next'
 
 export const membraneGridSelector = '.membrane-grid'
+
+export const membraneGridCellSelector = '.membrane-grid-cell'
