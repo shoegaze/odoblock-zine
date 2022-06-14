@@ -18,6 +18,8 @@ const containerElement = document.querySelector(containerSelector)
 
 const transitionTime = 350
 
+const gridCellTransitionMultiplier = 3
+
 const gridArray = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -30,6 +32,9 @@ const gridArray = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ]
+
+const gridColumnCenter = gridArray[0].length / 2
+const gridRowCenter = gridArray.length / 2
 
 export function insertMembraneLink() {
   if (containerElement) {
