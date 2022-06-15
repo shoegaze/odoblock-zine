@@ -14,7 +14,9 @@ import {
   lowBoxShadowString,
 } from './stringTemplates'
 
-import { insertMembraneGrid, allTransforms } from './membraneGrid'
+import { insertMembraneGrid, makeCellTransforms } from './membraneGrid'
+
+import { randomNumberFromRange, pickRandomTrueFalse } from './util'
 
 const url = window.location.href
 const onMembrane = /membrane/.test(url)
@@ -109,14 +111,6 @@ function setNewMembraneStyles(
     : lowBoxShadowString
 }
 
-function randomNumberFromRange(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
-function pickRandomTrueFalse() {
-  return Math.floor(Math.random() * 100) % 2
-}
-
 onMembrane && insertMembrane()
 
 const membraneNextElement: HTMLDivElement | null =
@@ -152,6 +146,8 @@ if (membraneElement) {
       // allCells.forEach(
       //   (cell) => (cell.style.transform = 'translate(-20px, -15px)')
       // )
+      const multiplier = randomNumberFromRange(15, 125)
+      const allTransforms = makeCellTransforms(multiplier)
       allCells.forEach((cell, i) => {
         cell.style.transform = allTransforms[i]
       })

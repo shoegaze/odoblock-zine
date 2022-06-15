@@ -6,6 +6,8 @@ import {
   membraneSelector,
 } from './stringTemplates'
 
+import { randomNumberFromRange, pickRandomTrueFalse } from './util'
+
 const gridArray = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -27,7 +29,7 @@ const numberOfCells = numberOfRows * numberOfColumns
 const gridColumnCenter = Math.floor(gridArray[0].length / 2)
 const gridRowCenter = Math.floor(gridArray.length / 2)
 
-export const gridCellTransitionMultiplier = 15
+// export const gridCellTransitionMultiplier = 15
 
 export function insertMembraneGrid() {
   const membraneElement = document.querySelector(membraneSelector)
@@ -59,12 +61,11 @@ export function findColumnRowAbsolute() {
   }
 }
 
-export function makeCellTransforms() {
+export function makeCellTransforms(multiplier: number) {
   const allTransforms: string[] = []
   // find y absolute
   const yAbsolutes = gridArray.map((col, i) => {
-    const distance =
-      Math.abs(i + 1 - gridColumnCenter) * gridCellTransitionMultiplier
+    const distance = Math.abs(i + 1 - gridColumnCenter) * multiplier
     const position = i + 1 < gridColumnCenter ? '-' : ''
     const transformString = `${position}${distance}`
     return transformString
@@ -73,8 +74,7 @@ export function makeCellTransforms() {
   //// find x absolute
   const xAbsolutes = gridArray[0].map((row, i) => {
     console.log(gridRowCenter)
-    const distance =
-      Math.abs(i - 1 - gridRowCenter) * gridCellTransitionMultiplier
+    const distance = Math.abs(i - 1 - gridRowCenter) * multiplier
     const position = i - 1 < gridRowCenter ? '-' : ''
     const transformString = `${position}${distance}`
     return transformString
@@ -99,5 +99,3 @@ export function makeCellTransforms() {
   // })
   return allTransforms
 }
-
-export const allTransforms = makeCellTransforms()
