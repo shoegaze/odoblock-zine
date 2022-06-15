@@ -11,21 +11,16 @@ import {
   membraneGridSelector,
   membraneGridCellSelector,
   highBoxShadowString,
-  lowBoxShadowString
+  lowBoxShadowString,
 } from './stringTemplates'
 
-import { insertMembraneGrid } from './membraneGrid'
+import { insertMembraneGrid, allTransforms } from './membraneGrid'
 
 const url = window.location.href
 const onMembrane = /membrane/.test(url)
 const containerElement = document.querySelector(containerSelector)
 
 const transitionTime = 350
-
-
-
-
-
 
 export function insertMembraneLink() {
   if (containerElement) {
@@ -38,7 +33,6 @@ function insertMembrane() {
     containerElement.insertAdjacentHTML('afterbegin', membraneString)
   }
 }
-
 
 function getMembraneHalves() {
   return [
@@ -93,18 +87,26 @@ function setNewMembraneStyles(
 
   const topTransform = `translate(-${translateDistance}px, -${
     translateDistance / 2
-  }px) scale(${randomTrueFalse ? scaleUp: scaleDown}) rotate(${topRotateDeg}deg)`
+  }px) scale(${
+    randomTrueFalse ? scaleUp : scaleDown
+  }) rotate(${topRotateDeg}deg)`
   const topBgColor = 'black'
   const bottomTransform = `translate(${translateDistance}px, ${
     translateDistance / 2
-  }px) scale(${!randomTrueFalse ? scaleUp: scaleDown}) rotate(${bottomRotateDeg}deg`
+  }px) scale(${
+    !randomTrueFalse ? scaleUp : scaleDown
+  }) rotate(${bottomRotateDeg}deg`
   const bottomBgColor = 'white'
   topHalf.style.transform = topTransform
   topHalf.style.backgroundColor = topBgColor
-  topHalf.style.boxShadow = randomTrueFalse ? highBoxShadowString : lowBoxShadowString
+  topHalf.style.boxShadow = randomTrueFalse
+    ? highBoxShadowString
+    : lowBoxShadowString
   bottomHalf.style.transform = bottomTransform
   bottomHalf.style.backgroundColor = bottomBgColor
-  bottomHalf.style.boxShadow = !randomTrueFalse ? highBoxShadowString : lowBoxShadowString
+  bottomHalf.style.boxShadow = !randomTrueFalse
+    ? highBoxShadowString
+    : lowBoxShadowString
 }
 
 function randomNumberFromRange(min: number, max: number): number {
@@ -127,9 +129,7 @@ if (membraneNextElement) {
 const membraneElement: HTMLDivElement | null =
   document.querySelector(membraneSelector)
 
-
 membraneElement && insertMembraneGrid()
-
 
 if (membraneElement) {
   membraneElement.addEventListener('mouseenter', () => {
@@ -142,14 +142,19 @@ if (membraneElement) {
       membraneNextElement.style.zIndex = '900'
     }
     // TESTING remove later
-    const allCells = [...document.querySelectorAll<HTMLDivElement>(
-      membraneGridCellSelector
-    )]
+    const allCells = [
+      ...document.querySelectorAll<HTMLDivElement>(membraneGridCellSelector),
+    ]
 
     if (allCells.length) {
       // TODO: use Math.abs() to find the difference from the center
       // of the current array row and col to calculate translate value
-      allCells.forEach(cell => cell.style.transform = 'translate(-20px, -15px)')
+      // allCells.forEach(
+      //   (cell) => (cell.style.transform = 'translate(-20px, -15px)')
+      // )
+      allCells.forEach((cell, i) => {
+        cell.style.transform = allTransforms[i]
+      })
     }
   })
 
@@ -164,14 +169,14 @@ if (membraneElement) {
       membraneNextElement.style.zIndex = '700'
     }
     // TESTING remove later
-    const allCells = [...document.querySelectorAll<HTMLDivElement>(
-      membraneGridCellSelector
-    )]
-    
+    const allCells = [
+      ...document.querySelectorAll<HTMLDivElement>(membraneGridCellSelector),
+    ]
+
     if (allCells.length) {
       // TODO: use Math.abs() to find the difference from the center
       // of the current array row and col to calculate translate value
-      allCells.forEach(cell => cell.style.transform = '')
+      allCells.forEach((cell) => (cell.style.transform = ''))
     }
   })
 }
