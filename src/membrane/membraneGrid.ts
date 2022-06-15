@@ -31,7 +31,7 @@ const gridRowCenter = Math.floor(gridArray.length / 2)
 
 // export const gridCellTransitionMultiplier = 15
 
-export function insertMembraneGrid() {
+export function insertMembraneGrid(differentiator: string) {
   const membraneElement = document.querySelector(membraneSelector)
   if (membraneElement) {
     membraneElement.insertAdjacentHTML('afterbegin', membraneGridString)
@@ -41,6 +41,7 @@ export function insertMembraneGrid() {
     const membraneGridElement: HTMLDivElement | null =
       document.querySelector(membraneGridSelector)
     if (membraneGridElement) {
+      membraneGridElement.classList.add(differentiator)
       membraneGridElement.style.gridTemplateRows = `repeat(${numberOfRows}, 20px)`
       membraneGridElement.style.gridTemplateColumns = `repeat(${numberOfColumns}, 1fr)`
 
@@ -87,9 +88,14 @@ export function makeCellTransforms(multiplier: number, mode: Mode) {
     const yAbsolute = yAbsolutes[i]
     col.forEach((row, n) => {
       const xAbsolute = xAbsolutes[n]
-      // const transformString = `translate(${yAbsolute}px, ${xAbsolute}px)`
-      const transformString = `translate(${xAbsolute}px, ${yAbsolute}px)`
-      allTransforms.push(transformString)
+      if (mode === 'twist') {
+        const transformString = `translate(${yAbsolute}px, ${xAbsolute}px)`
+        allTransforms.push(transformString)
+      }
+      if (mode === 'grow') {
+        const transformString = `translate(${xAbsolute}px, ${yAbsolute}px)`
+        allTransforms.push(transformString)
+      }
     })
   })
 

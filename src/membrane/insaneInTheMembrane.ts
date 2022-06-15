@@ -18,6 +18,7 @@ import {
 import { insertMembraneGrid, makeCellTransforms } from './membraneGrid'
 
 import { randomNumberFromRange, pickRandomTrueFalse } from './util'
+import { callbackify } from 'util'
 
 const url = window.location.href
 const onMembrane = /membrane/.test(url)
@@ -124,7 +125,8 @@ if (membraneNextElement) {
 const membraneElement: HTMLDivElement | null =
   document.querySelector(membraneSelector)
 
-membraneElement && insertMembraneGrid()
+membraneElement && insertMembraneGrid('g1')
+membraneElement && insertMembraneGrid('g2')
 
 const membraneHalvesContainer: HTMLDivElement | null = document.querySelector(
   membraneHalvesContainerSelector
@@ -141,19 +143,32 @@ if (membraneElement) {
       membraneNextElement.style.zIndex = '900'
     }
     // TESTING remove later
-    const allCells = [
-      ...document.querySelectorAll<HTMLDivElement>(membraneGridCellSelector),
+    const allCells1 = [
+      ...document.querySelectorAll<HTMLDivElement>(
+        `.g1 ${membraneGridCellSelector}`
+      ),
     ]
 
-    if (allCells.length) {
+    const allCells2 = [
+      ...document.querySelectorAll<HTMLDivElement>(
+        `.g2 ${membraneGridCellSelector}`
+      ),
+    ]
+
+    if (allCells1.length && allCells2.length) {
       // TODO: use Math.abs() to find the difference from the center
       // of the current array row and col to calculate translate value
       // allCells.forEach(
       //   (cell) => (cell.style.transform = 'translate(-20px, -15px)')
       // )
-      const multiplier = randomNumberFromRange(15, 25)
-      const allTransforms = makeCellTransforms(multiplier, 'twist')
-      allCells.forEach((cell, i) => {
+      allCells1.forEach((cell, i) => {
+        const multiplier = randomNumberFromRange(15, 115)
+        const allTransforms = makeCellTransforms(multiplier, 'twist')
+        cell.style.transform = allTransforms[i]
+      })
+      allCells2.forEach((cell, i) => {
+        const multiplier = randomNumberFromRange(15, 25)
+        const allTransforms = makeCellTransforms(multiplier, 'grow')
         cell.style.transform = allTransforms[i]
       })
     }
