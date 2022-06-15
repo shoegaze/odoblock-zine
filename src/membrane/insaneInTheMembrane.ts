@@ -12,6 +12,7 @@ import {
   membraneGridCellSelector,
   highBoxShadowString,
   lowBoxShadowString,
+  membraneHalvesContainerSelector,
 } from './stringTemplates'
 
 import { insertMembraneGrid, makeCellTransforms } from './membraneGrid'
@@ -125,6 +126,10 @@ const membraneElement: HTMLDivElement | null =
 
 membraneElement && insertMembraneGrid()
 
+const membraneHalvesContainer: HTMLDivElement | null = document.querySelector(
+  membraneHalvesContainerSelector
+)
+
 if (membraneElement) {
   membraneElement.addEventListener('mouseenter', () => {
     const membraneHalves = getMembraneHalves()
@@ -146,8 +151,8 @@ if (membraneElement) {
       // allCells.forEach(
       //   (cell) => (cell.style.transform = 'translate(-20px, -15px)')
       // )
-      const multiplier = randomNumberFromRange(15, 125)
-      const allTransforms = makeCellTransforms(multiplier)
+      const multiplier = randomNumberFromRange(15, 25)
+      const allTransforms = makeCellTransforms(multiplier, 'twist')
       allCells.forEach((cell, i) => {
         cell.style.transform = allTransforms[i]
       })

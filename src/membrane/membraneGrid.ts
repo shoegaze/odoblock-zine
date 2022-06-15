@@ -61,7 +61,9 @@ export function findColumnRowAbsolute() {
   }
 }
 
-export function makeCellTransforms(multiplier: number) {
+type Mode = 'grow' | 'twist'
+
+export function makeCellTransforms(multiplier: number, mode: Mode) {
   const allTransforms: string[] = []
   // find y absolute
   const yAbsolutes = gridArray.map((col, i) => {
@@ -85,7 +87,8 @@ export function makeCellTransforms(multiplier: number) {
     const yAbsolute = yAbsolutes[i]
     col.forEach((row, n) => {
       const xAbsolute = xAbsolutes[n]
-      const transformString = `translate(${yAbsolute}px, ${xAbsolute}px)`
+      // const transformString = `translate(${yAbsolute}px, ${xAbsolute}px)`
+      const transformString = `translate(${xAbsolute}px, ${yAbsolute}px)`
       allTransforms.push(transformString)
     })
   })
