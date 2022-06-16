@@ -11,7 +11,7 @@ import transitionLayer from './layers/global/transition/TransitionLayer'
 
   { // Add global layers
     const globalLayers = [
-      // debugSquareLayer,
+      debugSquareLayer,
       transitionLayer
     ]
 

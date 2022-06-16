@@ -19,6 +19,7 @@
     "webpack-dev-server": "^4.9.2"
   },
   "dependencies": {
-    "three": "^0.141.0"
+    "three": "^0.141.0",
+    "troika-three-text": "^0.46.4"
   }
 }
