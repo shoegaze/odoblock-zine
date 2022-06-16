@@ -1,6 +1,7 @@
 import { createApp } from './App'
 import { Layer } from './Layer'
 import layer1 from './layers/1/Layer1'
+import BackgroundLayer from './layers/global/background/BackgroundLayer'
 import debugSquareLayer from './layers/global/DebugSquareLayer'
 import transitionLayer from './layers/global/transition/TransitionLayer'
 
@@ -11,6 +12,7 @@ import transitionLayer from './layers/global/transition/TransitionLayer'
 
   { // Add global layers
     const globalLayers = [
+      BackgroundLayer,
       debugSquareLayer,
       transitionLayer
     ]
