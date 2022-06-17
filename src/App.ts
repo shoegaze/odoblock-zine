@@ -5,6 +5,7 @@ import AppCameraDragger from "./AppCameraDragger"
 import { Layer, layersDistance, toId } from "./Layer"
 import Physics from "./Physics"
 import homeLayer from "./layers/0/HomeLayer"
+import createBackground from "./Background"
 
 
 type AppLayerMethod = (this: App, layer: Layer) => void
@@ -60,6 +61,8 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
   renderer.debug = {
     checkShaderErrors: true
   }
+
+  const bg = createBackground(new THREE.Vector2(s, s))
 
   // TODO: Hoist to constructor
   const maxIdleTime = 0.1
@@ -296,10 +299,16 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
     },
 
     render() {
-      renderer.setClearColor(0x00ffff)
-      renderer.clear()
+      // renderer.setClearColor(0xff0000)
+      // renderer.clearColor()
 
-      renderer.autoClear = true
+      { // Render background
+        bg.updateUniforms(this)
+        renderer.render(bg.scene, bg.cam)
+        renderer.clearDepth()
+      }
+
+      // renderer.autoClear = false
       this.activeLayer.scenes.forEach((as: AnimatedScene) => {
         renderer.render(as.scene, cam)
 
