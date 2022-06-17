@@ -13,7 +13,6 @@ const createBackground = (sz: THREE.Vector2): Background => {
   const { x: w, y: h } = sz
 
   const scene = new THREE.Scene()
-
   const cam = new THREE.OrthographicCamera(
     -w / 2, +w / 2, // left, right
     +h / 2, -h / 2, // top, bottom
@@ -23,6 +22,8 @@ const createBackground = (sz: THREE.Vector2): Background => {
   const geo = new THREE.PlaneBufferGeometry(w, h)
   const mat = new THREE.ShaderMaterial({
     uniforms: {
+      'u_color0': { value: new THREE.Color(1.0, 1.0, 0.0) },
+      'u_color1': { value: new THREE.Color(0.0, 1.0, 1.0) },
       'u_time': { value: 0.0 },
       'u_resolution': { value: new THREE.Vector2(0.0, 0.0) },
       'u_speed': { value: 3.0 },
@@ -38,9 +39,10 @@ const createBackground = (sz: THREE.Vector2): Background => {
     fragmentShader: `
       varying vec2 v_uv;
 
-      // TODO: mix between u_color0 and u_color1
-      uniform vec2 u_resolution;
+      uniform vec3 u_color0;
+      uniform vec3 u_color1;
       uniform float u_time;
+      uniform vec2 u_resolution;
       uniform float u_speed;
 
       const float PI = 3.1415;
@@ -62,8 +64,8 @@ const createBackground = (sz: THREE.Vector2): Background => {
         float t = b;
 
         vec3 col = mix(
-            vec3(0.50, 0.66, 0.27),
-            vec3(0.75, 0.41, 0.55),
+            u_color0,
+            u_color1,
             t
         );
 

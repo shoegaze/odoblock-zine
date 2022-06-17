@@ -299,27 +299,22 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
     },
 
     render() {
-      // renderer.setClearColor(0xff0000)
-      // renderer.clearColor()
-
       { // Render background
         bg.updateUniforms(this)
         renderer.render(bg.scene, bg.cam)
         renderer.clearDepth()
       }
 
-      // renderer.autoClear = false
       this.activeLayer.scenes.forEach((as: AnimatedScene) => {
         renderer.render(as.scene, cam)
 
         // TODO: Create AnimatedScene.afterRender() method
         // Overlays next scene on top of this one
-        // renderer.clearDepth()
+        renderer.clearDepth()
         // Prevents next scene from clearing the previous scene's buffer
-        // renderer.autoClear = false
+        renderer.autoClear = false
       })
 
-      renderer.autoClear = false
       this.globalLayers.forEach((layer: Layer) => {
         layer.scenes.forEach((as: AnimatedScene) => {
           renderer.render(as.scene, cam)
