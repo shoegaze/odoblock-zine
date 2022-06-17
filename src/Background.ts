@@ -22,10 +22,10 @@ const createBackground = (sz: THREE.Vector2): Background => {
   const geo = new THREE.PlaneBufferGeometry(w, h)
   const mat = new THREE.ShaderMaterial({
     uniforms: {
-      'u_color0': { value: new THREE.Color(1.0, 1.0, 0.0) },
-      'u_color1': { value: new THREE.Color(0.0, 1.0, 1.0) },
-      'u_time': { value: 0.0 },
+      'u_color0': { value: new THREE.Color(0.50, 0.66, 0.27) },
+      'u_color1': { value: new THREE.Color(0.66, 0.45, 0.72) },
       'u_resolution': { value: new THREE.Vector2(0.0, 0.0) },
+      'u_time': { value: 0.0 },
       'u_speed': { value: 3.0 },
     },
     vertexShader: `
@@ -41,8 +41,8 @@ const createBackground = (sz: THREE.Vector2): Background => {
 
       uniform vec3 u_color0;
       uniform vec3 u_color1;
-      uniform float u_time;
       uniform vec2 u_resolution;
+      uniform float u_time;
       uniform float u_speed;
 
       const float PI = 3.1415;
@@ -51,7 +51,7 @@ const createBackground = (sz: THREE.Vector2): Background => {
       void main() {
         vec2 st = v_uv;
         st -= 0.5;
-        //st.x *= u_resolution.x/u_resolution.y;
+        st.x *= u_resolution.x/u_resolution.y;
 
         float r = length(st);
 
