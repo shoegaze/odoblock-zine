@@ -1,5 +1,6 @@
 import { createApp } from './app/App'
 import { localLayers, persistentLayers } from './app/data/layer'
+import { localThreads } from './app/data/thread'
 
 
 { // main
@@ -16,6 +17,12 @@ import { localLayers, persistentLayers } from './app/data/layer'
 
   // TODO: Rename to `app.getLayerManager()`?
   const layers = app.getLayers()
+
+  { // Add local threads
+    localThreads.forEach((thread) => {
+      layers.addLocalThread(thread)
+    })
+  }
 
   { // Add persistent layers
     persistentLayers.forEach((layer) => {

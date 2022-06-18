@@ -2,6 +2,7 @@ import { clamp } from "three/src/math/MathUtils"
 
 import { AppScene } from "../collection/scene/AppScene"
 import { Layer, zPosToId } from "../collection/layer/Layer"
+import { Thread } from "../collection/thread/Thread"
 import HomeLayer from "../data/layer/0/homeLayer"
 import { App } from "../App"
 
@@ -12,6 +13,7 @@ export interface AppLayers {
   getLocalLayers: () => Array<Layer>
   getClosestLayer: () => Layer
 
+  addLocalThread: (thread: Thread) => void
   addPersistentLayer: (layer: Layer) => void
   addLocalLayer: (layer: Layer) => void
 
@@ -37,6 +39,11 @@ export const createAppLayers: CreateAppLayers = (app, cam) => {
 
     getLocalLayers(): Array<Layer> {
       return localLayers
+    },
+
+    addLocalThread(thread): void {
+      // TODO:
+      new Error('TODO: Not implemented')
     },
 
     addPersistentLayer(layer: Layer): void {
