@@ -7,16 +7,14 @@ import { localLayers, persistentLayers } from './app/data/layer'
   const app = createApp(canvas)
 
   { // Add persistent layers
-    Object.values(persistentLayers).forEach((layer) => {
+    persistentLayers.forEach((layer) => {
       app.addPersistentLayer(layer)
     })
   }
 
   { // Add local layers
     // Filter out HomeLayer
-    const layers = Object.values(localLayers).slice(1)
-
-    layers.forEach((layer) => {
+    localLayers.slice(1).forEach((layer) => {
       app.addLayer(layer)
     })
   }

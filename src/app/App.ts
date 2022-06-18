@@ -80,9 +80,9 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
     cam,
     renderer,
     persistentLayers: [],
-    layers: [localLayers.HomeLayer],
+    layers: [localLayers[0]],
     // Initialize with HomeLayer for type safety
-    activeLayer: localLayers.HomeLayer,
+    activeLayer: localLayers[0],
     clock: new THREE.Clock(false),
     cameraDragger: new AppCameraDragger(cam),
 

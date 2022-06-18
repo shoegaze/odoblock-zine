@@ -5,16 +5,14 @@ import DebugSquareLayer from "./persistent/debug/DebugSquareLayer";
 import TransitionLayer from "./persistent/transition/TransitionLayer";
 
 
-type LayersMap = { [key: string]: Layer }
+type LayersList = Array<Layer>
 
-// TODO: Store tuple [layer, id] in export object
-export const persistentLayers: LayersMap = {
+export const persistentLayers: LayersList = [
   TransitionLayer,
   DebugSquareLayer
-}
+]
 
-// TODO: Store tuple [layer, id] in export object
-export const localLayers: LayersMap = {
+export const localLayers: LayersList = [
   HomeLayer,
   Layer1
-}
+]
