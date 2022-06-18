@@ -1,10 +1,11 @@
 import * as THREE from "three"
 import * as TroikaText from "troika-three-text"
-import { AnimatedScene, createAnimatedScene } from "../../AnimatedScene"
-import { App } from "../../App"
+
+import { AnimatedScene, createAnimatedScene } from "../../../../collections/AnimatedScene"
+import { App } from "../../../../app/App"
 
 
-const debugSquareScene: AnimatedScene = createAnimatedScene(
+export default createAnimatedScene(
   function setup(this: AnimatedScene, _) {
     const group = new THREE.Group()
 
@@ -35,7 +36,7 @@ const debugSquareScene: AnimatedScene = createAnimatedScene(
 
       text.text = 'Hello, world!'
       text.fontSize = 0.2
-      text.position.set(0.0, 0.0  , 1.0e-3)
+      text.position.set(0.0, 0.0, 1.0e-3)
       text.color = 0xffffff
       text.maxWidth = 1.0
       text.anchorX = 'center'
@@ -64,5 +65,3 @@ const debugSquareScene: AnimatedScene = createAnimatedScene(
     )
   }
 )
-
-export default debugSquareScene

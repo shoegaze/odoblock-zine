@@ -1,5 +1,6 @@
 import * as THREE from "three"
-import { App } from "./App"
+
+import { App } from "../app/App"
 
 
 type AnimatedSceneMethod = (this: AnimatedScene, app: App) => void
@@ -15,6 +16,7 @@ export interface AnimatedScene {
 
   setActive: (this: AnimatedScene, active: boolean) => void
 }
+
 
 type CreateAnimatedScene = (setup: AnimatedSceneMethod, animate: AnimatedSceneMethod) => AnimatedScene
 

@@ -1,5 +1,6 @@
 import * as THREE from "three"
-import Physics from "./Physics"
+
+import Physics from "./physics/Physics"
 
 
 type PhysicsLoopFn = (physics: Physics, dt: number) => void
