@@ -3,7 +3,7 @@ import transitionLayer from './app/data/layer/persistent/transition/TransitionLa
 import layer1 from './app/data/layer/1/Layer1'
 import { Layer } from './app/collection/Layer'
 import { createApp } from './app/App'
-
+import homeLayer from './app/data/layer/0/HomeLayer'
 
 { // main
   const canvas = document.querySelector('#screen') as HTMLCanvasElement
@@ -22,7 +22,7 @@ import { createApp } from './app/App'
 
   { // Add layers
     const layers = [
-      layer1
+      layer1,
     ]
 
     layers.forEach((layer: Layer) => {

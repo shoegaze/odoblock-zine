@@ -1,4 +1,4 @@
-import { AnimatedScene } from "./AnimatedScene";
+import { AppScene } from "./AppScene"
 
 
 export const fadeDistance = 125.0
@@ -7,7 +7,7 @@ export const layersDistance = 300.0
 export interface Layer {
   id: number
   zPos: number
-  scenes: Array<AnimatedScene>
+  scenes: Array<AppScene>
 
   setActive(this: Layer, active: boolean): void
 }
@@ -17,27 +17,27 @@ export const toZPos = (id: number): number => -id * layersDistance
 export const toId = (zPos: number): number => Math.abs(Math.min(0, Math.floor(zPos / layersDistance)))
 
 let id = 0
-export const createLayer = (...scenes: AnimatedScene[]): Layer => ({
+export const createLayer = (...scenes: AppScene[]): Layer => ({
   id: id++,
   zPos: toZPos(id - 1),
   scenes,
 
   setActive(active: boolean) {
-    this.scenes.forEach((as: AnimatedScene) => {
+    this.scenes.forEach((as: AppScene) => {
       as.setActive(active)
     })
   }
 })
 
 let idPersistent = 0
-export const createPersistentLayer = (...scenes: AnimatedScene[]): Layer => ({
+export const createPersistentLayer = (...scenes: AppScene[]): Layer => ({
   id: idPersistent++,
   zPos: 0.0,
   scenes,
 
   // TODO: Refactor this (DRY)
   setActive(active: boolean) {
-    this.scenes.forEach((as: AnimatedScene) => {
+    this.scenes.forEach((as: AppScene) => {
       as.setActive(active)
     })
   }

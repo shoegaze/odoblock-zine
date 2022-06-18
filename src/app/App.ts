@@ -2,6 +2,8 @@ import * as THREE from "three"
 import { clamp } from "three/src/math/MathUtils"
 
 import homeLayer from "./data/layer/0/HomeLayer"
+import { AppScene } from "./collection/AppScene"
+import { StaticScene } from "./collection/StaticScene"
 import { AnimatedScene } from "./collection/AnimatedScene"
 import { Layer, layersDistance, toId } from "./collection/Layer"
 import { Physics } from "./physics/Physics"
@@ -99,9 +101,9 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
 
         // TODO: Refactor this (DRY)
         const home = this.layers[0]
-        home.scenes.forEach((as: AnimatedScene) => {
-          as.setup(this)
-          as.scene.translateZ(home.zPos)
+        home.scenes.forEach((appScene: AppScene) => {
+          appScene.setup(this)
+          appScene.scene.translateZ(home.zPos)
         })
 
         this.setActiveLayer(0)
@@ -111,8 +113,8 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
     addPersistentLayer(layer: Layer) {
       this.persistentLayers.push(layer)
 
-      layer.scenes.forEach((as: AnimatedScene) => {
-        as.setup(this)
+      layer.scenes.forEach((appScene: AppScene) => {
+        appScene.setup(this)
       })
 
       layer.setActive(true)
@@ -121,7 +123,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
     addLayer(layer: Layer) {
       this.layers.push(layer)
 
-      layer.scenes.forEach((as: AnimatedScene) => {
+      layer.scenes.forEach((as: AppScene) => {
         as.setup(this)
 
         // TODO: Do this only when the containing layer is active ... O(n_obj)?
@@ -273,13 +275,13 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
         requestAnimationFrame(animate)
 
         // TODO: this.activeLayer.scenes.filter(s => s is AnimatedScene)
-        this.activeLayer.scenes.forEach((as: AnimatedScene) => {
-          as.animate(this)
+        this.activeLayer.scenes.forEach((appScene: AppScene | AnimatedScene) => {
+          (appScene as AnimatedScene).animate?.(this)
         })
 
         this.persistentLayers.forEach((layer: Layer) => {
-          layer.scenes.forEach((as: AnimatedScene) => {
-            as.animate(this)
+          layer.scenes.forEach((appScene: AppScene | AnimatedScene) => {
+            (appScene as AnimatedScene).animate?.(this)
           })
         })
 
@@ -306,7 +308,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
         renderer.clearDepth()
       }
 
-      this.activeLayer.scenes.forEach((as: AnimatedScene) => {
+      this.activeLayer.scenes.forEach((as: AppScene) => {
         renderer.render(as.scene, cam)
 
         // TODO: Create AnimatedScene.afterRender() method
@@ -317,7 +319,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
       })
 
       this.persistentLayers.forEach((layer: Layer) => {
-        layer.scenes.forEach((as: AnimatedScene) => {
+        layer.scenes.forEach((as: AppScene) => {
           renderer.render(as.scene, cam)
           renderer.clearDepth()
         })
