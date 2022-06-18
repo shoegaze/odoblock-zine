@@ -32,7 +32,6 @@ export const createAnimatedScene: CreateAnimatedScene = (setup, animate) => ({
 
     if (active) {
       this.scene.updateMatrix()
-      this.scene.updateMatrixWorld(true)
     }
   }
 })
