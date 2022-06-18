@@ -1,10 +1,10 @@
 import * as THREE from "three"
 import { clamp } from "three/src/math/MathUtils"
 
+import homeLayer from "../data/layers/0/HomeLayer"
 import { AnimatedScene } from "../collections/AnimatedScene"
 import { Layer, layersDistance, toId } from "../collections/Layer"
-import homeLayer from "../data/layers/0/HomeLayer"
-import Physics from "./physics/Physics"
+import { Physics } from "./physics/Physics"
 import AppCameraDragger from "./AppCameraDragger"
 import createBackground from "./Background"
 
