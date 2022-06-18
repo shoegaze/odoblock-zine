@@ -29,6 +29,7 @@ export interface App {
   resize: AppMethod
   render: AppMethod
 
+  addThread: (this: App, thread: Layer) => void
   addGlobalLayer: AppLayerMethod
   addLayer: AppLayerMethod
   setActiveLayer: AppLayerIdMethod
