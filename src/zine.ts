@@ -1,8 +1,5 @@
-import debugSquareLayer from './app/data/layer/persistent/debug/DebugSquareLayer'
-import transitionLayer from './app/data/layer/persistent/transition/TransitionLayer'
-import layer1 from './app/data/layer/1/Layer1'
-import { Layer } from './app/collection/Layer'
 import { createApp } from './app/App'
+import { localLayers, persistentLayers } from './app/data/layer'
 
 
 { // main
@@ -10,22 +7,16 @@ import { createApp } from './app/App'
   const app = createApp(canvas)
 
   { // Add persistent layers
-    const persistentLayers = [
-      debugSquareLayer,
-      transitionLayer
-    ]
-
-    persistentLayers.forEach((layer: Layer) => {
+    Object.values(persistentLayers).forEach((layer) => {
       app.addPersistentLayer(layer)
     })
   }
 
-  { // Add layers
-    const layers = [
-      layer1
-    ]
+  { // Add local layers
+    // Filter out HomeLayer
+    const layers = Object.values(localLayers).slice(1)
 
-    layers.forEach((layer: Layer) => {
+    layers.forEach((layer) => {
       app.addLayer(layer)
     })
   }
