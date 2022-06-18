@@ -1,31 +1,20 @@
-import debugSquareLayer from './app/data/layer/persistent/debug/DebugSquareLayer'
-import transitionLayer from './app/data/layer/persistent/transition/TransitionLayer'
-import layer1 from './app/data/layer/1/Layer1'
-import { Layer } from './app/collection/Layer'
 import { createApp } from './app/App'
+import { localLayers, persistentLayers } from './app/data/layer'
 
 
 { // main
   const canvas = document.querySelector('#screen') as HTMLCanvasElement
-  const app = createApp(canvas)
+  const app = createApp(canvas, { /* TODO: Options */ })
 
-  { // Add global layers
-    const globalLayers = [
-      debugSquareLayer,
-      transitionLayer
-    ]
-
-    globalLayers.forEach((layer: Layer) => {
-      app.addGlobalLayer(layer)
+  { // Add persistent layers
+    persistentLayers.forEach((layer) => {
+      app.addPersistentLayer(layer)
     })
   }
 
-  { // Add layers
-    const layers = [
-      layer1
-    ]
-
-    layers.forEach((layer: Layer) => {
+  { // Add local layers
+    // Filter out HomeLayer
+    localLayers.slice(1).forEach((layer) => {
       app.addLayer(layer)
     })
   }
@@ -55,7 +44,7 @@ import { createApp } from './app/App'
     }
   }
 
-  {
+  { // Zoom event
     canvas.onwheel = (ev) => {
       const { deltaY: dz } = ev
       app.queueZoom(dz)

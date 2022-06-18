@@ -1,12 +1,12 @@
 import * as THREE from "three"
 import { clamp } from "three/src/math/MathUtils"
 
-import homeLayer from "./data/layer/0/HomeLayer"
 import { AnimatedScene } from "./collection/AnimatedScene"
 import { Layer, layersDistance, toId } from "./collection/Layer"
 import { Physics } from "./physics/Physics"
 import AppCameraDragger from "./AppCameraDragger"
 import createBackground from "./Background"
+import { localLayers } from "./data/layer"
 
 
 type AppLayerMethod = (this: App, layer: Layer) => void
@@ -19,7 +19,7 @@ export interface App {
   clock: THREE.Clock
   cameraDragger: AppCameraDragger
 
-  globalLayers: Array<Layer>
+  persistentLayers: Array<Layer>
   layers: Array<Layer>
   activeLayer: Layer
 
@@ -29,7 +29,7 @@ export interface App {
   resize: AppMethod
   render: AppMethod
 
-  addGlobalLayer: AppLayerMethod
+  addPersistentLayer: AppLayerMethod
   addLayer: AppLayerMethod
   setActiveLayer: AppLayerIdMethod
   getClosestLayer: (this: App) => Layer
@@ -38,15 +38,44 @@ export interface App {
   queueZoom: (zoom: number) => void
 }
 
-export const createApp = (canvas: HTMLCanvasElement): App => {
+type CreateAppOptions = {
+  fov?: number
+  near?: number
+  far?: number
+  idleTimeBeforeDeceleration?: number
+  camMaxSpeed?: number
+  translationSensitivity?: number
+  zoomSensitivity?: number
+}
+
+const createAppOptionsDefault: CreateAppOptions = {
+  fov: 45.0,
+  near: 0.1,
+  far: 500.0,
+  idleTimeBeforeDeceleration: 0.1,
+  camMaxSpeed: 100.0,
+  translationSensitivity: 10.0,
+  zoomSensitivity: 10.0
+}
+
+export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsDefault): App => {
+  const {
+    fov,
+    near, far,
+    idleTimeBeforeDeceleration,
+    camMaxSpeed,
+    translationSensitivity,
+    zoomSensitivity
+  } = { ...createAppOptionsDefault, ...options }
+
   const { innerWidth: w, innerHeight: h } = window
   const s = Math.min(w, h)
 
   // TODO: Calculate far from layersDistance
   const cam = new THREE.PerspectiveCamera(
-    45,         // fov
-    1.0,        // aspect
-    0.1, 500.0  // near, far
+    fov,      // fov
+    s / s,    // aspect
+    near, far // near, far
   )
 
   const [zMax, zMin] = [layersDistance, -Infinity]
@@ -66,22 +95,19 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
   const bg = createBackground(new THREE.Vector2(s, s))
 
   // TODO: Hoist to constructor
-  const maxIdleTime = 0.1
   let lastInputTime = 0.0
 
   let queuedTranslation: THREE.Vector2 | null = null
   let queuedZoom: number | null = null
 
-  // TODO: Hoist this to AppCameraDragger
-  const maxSpeed = 100.0
-
 
   return {
     cam,
     renderer,
-    globalLayers: [],
-    layers: [homeLayer],
-    activeLayer: homeLayer,
+    persistentLayers: [],
+    layers: [localLayers[0]],
+    // Initialize with HomeLayer for type safety
+    activeLayer: localLayers[0],
     clock: new THREE.Clock(false),
     cameraDragger: new AppCameraDragger(cam),
 
@@ -93,7 +119,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
       }
 
       { // Initialize layers
-        this.globalLayers.forEach((layer: Layer) => {
+        this.persistentLayers.forEach((layer: Layer) => {
           layer.setActive(true)
         })
 
@@ -108,8 +134,8 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
       }
     },
 
-    addGlobalLayer(layer: Layer) {
-      this.globalLayers.push(layer)
+    addPersistentLayer(layer: Layer) {
+      this.persistentLayers.push(layer)
 
       layer.scenes.forEach((as: AnimatedScene) => {
         as.setup(this)
@@ -144,6 +170,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
       this.activeLayer.setActive(true)
     },
 
+    // TODO: Refactor this into its own object(s)
     getClosestLayer(): Layer {
       const z = this.cam.position.z
 
@@ -177,7 +204,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
           }
 
           { // Clamp speed of velocity
-            physics.velocity.clampLength(0, maxSpeed)
+            physics.velocity.clampLength(0, camMaxSpeed!)
           }
 
           { // Apply queued inputs as a force
@@ -197,7 +224,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
         (physics: Physics, dt: number) => { // afterUpdate
           { // Decelerate if no input received for t seconds
             const t = this.clock.getElapsedTime() - lastInputTime
-            if (t > maxIdleTime) {
+            if (t > idleTimeBeforeDeceleration!) {
               const s = 0.9
 
               const a = physics.acceleration.clone()
@@ -232,7 +259,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
             const axis = new THREE.Vector3(-dp.y, +dp.x, 0.0)
 
             const maxAngle = Math.PI / 4
-            const angle = maxAngle * (dp.length() / maxSpeed)
+            const angle = maxAngle * (dp.length() / camMaxSpeed!)
 
             // TODO: Fix jitter: lerp between previous axis/angle?
             this.cam.rotateOnAxis(axis, angle)
@@ -277,7 +304,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
           as.animate(this)
         })
 
-        this.globalLayers.forEach((layer: Layer) => {
+        this.persistentLayers.forEach((layer: Layer) => {
           layer.scenes.forEach((as: AnimatedScene) => {
             as.animate(this)
           })
@@ -316,7 +343,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
         renderer.autoClear = false
       })
 
-      this.globalLayers.forEach((layer: Layer) => {
+      this.persistentLayers.forEach((layer: Layer) => {
         layer.scenes.forEach((as: AnimatedScene) => {
           renderer.render(as.scene, cam)
           renderer.clearDepth()
@@ -327,12 +354,9 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
 
     // TODO: if ||<dx, dy>|| < threshold, decelerate
     queueTranslation(this: App, dx: number, dy: number) {
-      // TODO: Hoist this to AppCameraDragger
-      const sensitivity = 10.0
-
       // Convert (dx, dy) from screen axes to world axes
       queuedTranslation = new THREE.Vector2(-dx, +dy)
-        .multiplyScalar(sensitivity)
+        .multiplyScalar(translationSensitivity!)
 
       lastInputTime = this.clock.getElapsedTime()
     },
@@ -340,13 +364,10 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
     // dz < 0: zoom in ;
     // dz > 0: zoom out
     queueZoom(this: App, zoom: number) {
-      // TODO: Hoist this to AppCameraDragger
-      const sensitivity = 10.0
-
       // Right-most factor prevents the result from being in the range (-s, +s)
       //  where s is the sensitivity.
       //  When |s| < 1, without the factor we will zoom in no matter what.
-      queuedZoom = +zoom * sensitivity + (zoom < 0.0 ? 1.0 : 0.0)
+      queuedZoom = +zoom * zoomSensitivity! + (zoom < 0.0 ? 1.0 : 0.0)
 
       lastInputTime = this.clock.getElapsedTime()
     }
