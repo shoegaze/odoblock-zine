@@ -6,11 +6,11 @@ import { App } from "../../../../App"
 
 
 export default createAnimatedScene(
-  function setup(this: AnimatedScene, _) {
+  function setup(this: AnimatedScene, app: App) {
     const group = new THREE.Group()
 
     { // BG
-      const geo = new THREE.PlaneGeometry(1.0, 1.0)
+      const geo = new THREE.PlaneGeometry(2.0, 2.0)
       const mat = new THREE.ShaderMaterial({
         vertexShader: `
           varying vec2 v_uv;
@@ -31,23 +31,24 @@ export default createAnimatedScene(
       group.add(plane)
     }
 
-    { // Text
-      const text = new TroikaText.Text()
+    { // Cam info
+      const camInfo = new TroikaText.Text()
 
-      text.text = 'Hello, world!'
-      text.fontSize = 0.2
-      text.position.set(0.0, 0.0, 1.0e-3)
-      text.color = 0xffffff
-      text.maxWidth = 1.0
-      text.anchorX = 'center'
-      text.anchorY = 'middle'
-      text.textAlign = 'center'
-      text.strokeWidth = 0.005
-      text.outlineColor = 0x000000
-      text.outlineWidth = 0.01
-      text.sync()
+      camInfo.text = ''
+      camInfo.font = './font/ComicMono.ttf'
+      camInfo.fontSize = 0.12
+      camInfo.maxWidth = 2.0
+      camInfo.color = 0xffffff
+      camInfo.anchorX = 'left'
+      camInfo.anchorY = 'top'
+      camInfo.textAlign = 'left'
+      camInfo.strokeWidth = 0.005
+      camInfo.outlineColor = 0x000000
+      camInfo.outlineWidth = 0.01
+      camInfo.sync()
 
-      group.add(text)
+      camInfo.position.set(-0.98, +1.0, 1.0e-3)
+      group.add(camInfo)
     }
 
     this.scene.add(group)
@@ -59,9 +60,19 @@ export default createAnimatedScene(
 
     // TODO: Create method to set position to screen space
     group?.position.set(
-      x - 3.5,
-      y + 3.5,
+      x - 3.0,
+      y + 3.0,
       z - 10.0
     )
+
+    {
+      const cam = app.cam
+      const camInfo = group.children[1] as TroikaText.Text
+      camInfo.text =
+        `cam:\n` +
+        ` * pos = (${cam.position.x.toFixed(2)}, ${cam.position.y.toFixed(2)}, ${cam.position.z.toFixed(2)})`
+
+      camInfo.sync()
+    }
   }
 )

@@ -2,6 +2,7 @@ declare module 'troika-three-text' {
   // TODO
   export class Text extends THREE.Object3D<THREE.Event> {
     text: string
+    font: string
     fontSize: number
     color: number | THREE.Color
     // TODO: 'xx%'
