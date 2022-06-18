@@ -1,7 +1,7 @@
 import { AnimatedScene } from "./AnimatedScene";
 
 
-export const fadeDistance = 100.0
+export const fadeDistance = 125.0
 export const layersDistance = 300.0
 
 export interface Layer {
@@ -22,6 +22,20 @@ export const createLayer = (...scenes: AnimatedScene[]): Layer => ({
   zPos: toZPos(id - 1),
   scenes,
 
+  setActive(active: boolean) {
+    this.scenes.forEach((as: AnimatedScene) => {
+      as.setActive(active)
+    })
+  }
+})
+
+let idGlobal = 0
+export const createGlobalLayer = (...scenes: AnimatedScene[]): Layer => ({
+  id: idGlobal++,
+  zPos: 0.0,
+  scenes,
+
+  // TODO: Refactor this (DRY)
   setActive(active: boolean) {
     this.scenes.forEach((as: AnimatedScene) => {
       as.setActive(active)

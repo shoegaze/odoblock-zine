@@ -1,9 +1,10 @@
 import * as THREE from "three"
-import { AnimatedScene, createAnimatedScene } from "../../../AnimatedScene"
-import { App } from "../../../App"
+
+import { AnimatedScene, createAnimatedScene } from "../../../../collection/AnimatedScene"
+import { App } from "../../../../App"
 
 
-const scene2: AnimatedScene = createAnimatedScene(
+export default createAnimatedScene(
   function setup(this: AnimatedScene, _) {
     const geo = new THREE.PlaneGeometry(50.0, 50.0)
     const mat = new THREE.MeshBasicMaterial({
@@ -18,5 +19,3 @@ const scene2: AnimatedScene = createAnimatedScene(
 
   function animate(this: AnimatedScene, _: App) { }
 )
-
-export default scene2

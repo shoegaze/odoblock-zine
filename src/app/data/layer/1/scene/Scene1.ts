@@ -1,10 +1,11 @@
 import * as THREE from "three"
 import { lerp } from "three/src/math/MathUtils"
-import { AnimatedScene, createAnimatedScene } from "../../../AnimatedScene"
-import { App } from "../../../App"
+
+import { AnimatedScene, createAnimatedScene } from "../../../../collection/AnimatedScene"
+import { App } from "../../../../App"
 
 
-const scene1 = createAnimatedScene(
+export default createAnimatedScene(
   function setup(this: AnimatedScene, _) {
     for (let i = 0; i < 10; i++) {
       const w = i / 10.0
@@ -42,5 +43,3 @@ const scene1 = createAnimatedScene(
     }
   }
 )
-
-export default scene1

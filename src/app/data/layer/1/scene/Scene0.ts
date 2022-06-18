@@ -1,8 +1,10 @@
 import * as THREE from "three"
-import { AnimatedScene, createAnimatedScene } from "../../../AnimatedScene"
-import { App } from "../../../App"
 
-const scene0 = createAnimatedScene(
+import { AnimatedScene, createAnimatedScene } from "../../../../collection/AnimatedScene"
+import { App } from "../../../../App"
+
+
+export default createAnimatedScene(
   function setup(this: AnimatedScene, _) {
     const geo = new THREE.BoxGeometry(8.0, 8.0, 8.0)
     const mat = new THREE.MeshBasicMaterial({
@@ -24,5 +26,3 @@ const scene0 = createAnimatedScene(
     cube!.rotation.y += Math.PI / 3.0 * dt
   }
 )
-
-export default scene0

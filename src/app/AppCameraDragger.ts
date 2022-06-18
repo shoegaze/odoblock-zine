@@ -1,5 +1,6 @@
 import * as THREE from "three"
-import Physics from "./Physics"
+
+import { Physics, createPhysics } from "./physics/Physics"
 
 
 type PhysicsLoopFn = (physics: Physics, dt: number) => void
@@ -13,7 +14,7 @@ export default class CameraDragger {
     this.cam = cam
 
     const mass = 1.0
-    this.physics = new Physics(mass, cam.position)
+    this.physics = createPhysics(mass, cam.position)
   }
 
   private syncCamera(): void {
