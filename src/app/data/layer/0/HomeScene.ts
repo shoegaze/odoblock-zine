@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 
-import { AnimatedScene, createAnimatedScene } from '../../../collections/AnimatedScene'
+import { AnimatedScene, createAnimatedScene } from '../../../collection/AnimatedScene'
 
 
 export default  createAnimatedScene(

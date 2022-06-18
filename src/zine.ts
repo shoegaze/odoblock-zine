@@ -1,8 +1,8 @@
+import debugSquareLayer from './app/data/layer/persistent/debug/DebugSquareLayer'
+import transitionLayer from './app/data/layer/persistent/transition/TransitionLayer'
+import layer1 from './app/data/layer/1/Layer1'
+import { Layer } from './app/collection/Layer'
 import { createApp } from './app/App'
-import { Layer } from './collections/Layer'
-import layer1 from './data/layers/1/Layer1'
-import debugSquareLayer from './data/layers/globals/debug/DebugSquareLayer'
-import transitionLayer from './data/layers/globals/transition/TransitionLayer'
 
 
 { // main

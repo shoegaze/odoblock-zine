@@ -1,8 +1,8 @@
 import * as THREE from "three"
 import * as TroikaText from "troika-three-text"
 
-import { AnimatedScene, createAnimatedScene } from "../../../../collections/AnimatedScene"
-import { App } from "../../../../app/App"
+import { AnimatedScene, createAnimatedScene } from "../../../../collection/AnimatedScene"
+import { App } from "../../../../App"
 
 
 export default createAnimatedScene(

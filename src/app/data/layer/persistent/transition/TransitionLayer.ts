@@ -1,4 +1,4 @@
-import { createLayer } from "../../../../collections/Layer"
+import { createLayer } from "../../../../collection/Layer"
 import transitionLayerScene from "./TransitionLayerScene"
 
 

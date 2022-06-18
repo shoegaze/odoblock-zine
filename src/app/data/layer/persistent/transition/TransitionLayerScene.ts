@@ -1,8 +1,8 @@
 import * as THREE from "three"
 
-import { AnimatedScene, createAnimatedScene } from "../../../../collections/AnimatedScene"
-import { App } from "../../../../app/App"
-import { fadeDistance } from "../../../../collections/Layer"
+import { AnimatedScene, createAnimatedScene } from "../../../../collection/AnimatedScene"
+import { App } from "../../../../App"
+import { fadeDistance } from "../../../../collection/Layer"
 
 
 const transitionLayerScene = createAnimatedScene(
