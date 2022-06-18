@@ -4,7 +4,7 @@ import { localLayers, persistentLayers } from './app/data/layer'
 
 { // main
   const canvas = document.querySelector('#screen') as HTMLCanvasElement
-  const app = createApp(canvas)
+  const app = createApp(canvas, { /* TODO: Options */ })
 
   { // Add persistent layers
     persistentLayers.forEach((layer) => {
@@ -44,7 +44,7 @@ import { localLayers, persistentLayers } from './app/data/layer'
     }
   }
 
-  {
+  { // Zoom event
     canvas.onwheel = (ev) => {
       const { deltaY: dz } = ev
       app.queueZoom(dz)
