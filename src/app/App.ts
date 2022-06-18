@@ -19,7 +19,7 @@ export interface App {
   clock: THREE.Clock
   cameraDragger: AppCameraDragger
 
-  globalLayers: Array<Layer>
+  persistentLayers: Array<Layer>
   layers: Array<Layer>
   activeLayer: Layer
 
@@ -29,7 +29,7 @@ export interface App {
   resize: AppMethod
   render: AppMethod
 
-  addGlobalLayer: AppLayerMethod
+  addPersistentLayer: AppLayerMethod
   addLayer: AppLayerMethod
   setActiveLayer: AppLayerIdMethod
   getClosestLayer: (this: App) => Layer
@@ -79,7 +79,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
   return {
     cam,
     renderer,
-    globalLayers: [],
+    persistentLayers: [],
     layers: [homeLayer],
     activeLayer: homeLayer,
     clock: new THREE.Clock(false),
@@ -93,7 +93,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
       }
 
       { // Initialize layers
-        this.globalLayers.forEach((layer: Layer) => {
+        this.persistentLayers.forEach((layer: Layer) => {
           layer.setActive(true)
         })
 
@@ -108,8 +108,8 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
       }
     },
 
-    addGlobalLayer(layer: Layer) {
-      this.globalLayers.push(layer)
+    addPersistentLayer(layer: Layer) {
+      this.persistentLayers.push(layer)
 
       layer.scenes.forEach((as: AnimatedScene) => {
         as.setup(this)
@@ -277,7 +277,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
           as.animate(this)
         })
 
-        this.globalLayers.forEach((layer: Layer) => {
+        this.persistentLayers.forEach((layer: Layer) => {
           layer.scenes.forEach((as: AnimatedScene) => {
             as.animate(this)
           })
@@ -316,7 +316,7 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
         renderer.autoClear = false
       })
 
-      this.globalLayers.forEach((layer: Layer) => {
+      this.persistentLayers.forEach((layer: Layer) => {
         layer.scenes.forEach((as: AnimatedScene) => {
           renderer.render(as.scene, cam)
           renderer.clearDepth()

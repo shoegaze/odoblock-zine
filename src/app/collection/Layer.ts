@@ -29,9 +29,9 @@ export const createLayer = (...scenes: AnimatedScene[]): Layer => ({
   }
 })
 
-let idGlobal = 0
-export const createGlobalLayer = (...scenes: AnimatedScene[]): Layer => ({
-  id: idGlobal++,
+let idPersistent = 0
+export const createPersistentLayer = (...scenes: AnimatedScene[]): Layer => ({
+  id: idPersistent++,
   zPos: 0.0,
   scenes,
 

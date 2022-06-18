@@ -9,14 +9,14 @@ import { createApp } from './app/App'
   const canvas = document.querySelector('#screen') as HTMLCanvasElement
   const app = createApp(canvas)
 
-  { // Add global layers
-    const globalLayers = [
+  { // Add persistent layers
+    const persistentLayers = [
       debugSquareLayer,
       transitionLayer
     ]
 
-    globalLayers.forEach((layer: Layer) => {
-      app.addGlobalLayer(layer)
+    persistentLayers.forEach((layer: Layer) => {
+      app.addPersistentLayer(layer)
     })
   }
 
