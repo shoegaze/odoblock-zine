@@ -1,8 +1,8 @@
 import { Layer } from "../../collection/Layer";
 import HomeLayer from "./0/HomeLayer";
 import Layer1 from "./1/Layer1";
-import DebugSquareLayer from "./persistent/debug/DebugSquareLayer";
 import TransitionLayer from "./persistent/transition/TransitionLayer";
+import DebugSquareLayer from "./persistent/debug/DebugSquareLayer";
 
 
 type LayersList = Array<Layer>

@@ -31,9 +31,27 @@ export default createAnimatedScene(
       group.add(plane)
     }
 
-    { // Cam info
-      const camInfo = new TroikaText.Text()
+    const layersInfo = new TroikaText.Text()
+    { // Layers info
+      layersInfo.text = ''
+      layersInfo.font = './font/ComicMono.ttf'
+      layersInfo.fontSize = 0.12
+      layersInfo.maxWidth = 2.0
+      layersInfo.color = 0xffffff
+      layersInfo.anchorX = 'left'
+      layersInfo.anchorY = 'top'
+      layersInfo.textAlign = 'left'
+      layersInfo.strokeWidth = 0.005
+      layersInfo.outlineColor = 0x000000
+      layersInfo.outlineWidth = 0.01
+      layersInfo.sync()
 
+      layersInfo.position.set(-0.98, +1.0, 1.0e-3)
+      group.add(layersInfo)
+    }
+
+    const camInfo = new TroikaText.Text()
+    { // Cam info
       camInfo.text = ''
       camInfo.font = './font/ComicMono.ttf'
       camInfo.fontSize = 0.12
@@ -47,7 +65,8 @@ export default createAnimatedScene(
       camInfo.outlineWidth = 0.01
       camInfo.sync()
 
-      camInfo.position.set(-0.98, +1.0, 1.0e-3)
+      // const { bottom: camBottom } = layersInfo.get
+      camInfo.position.set(-0.98, -0.25, 1.0e-3)
       group.add(camInfo)
     }
 
@@ -59,17 +78,39 @@ export default createAnimatedScene(
     const { x, y, z } = app.cam.position
 
     // TODO: Create method to set position to screen space
-    group?.position.set(
+    group.position.set(
       x - 3.0,
       y + 3.0,
       z - 10.0
     )
 
-    {
+    { // Update layers info
+      const { activeLayer, layers, persistentLayers } = app
+      const layersInfo = group.children[1] as TroikaText.Text
+
+      layersInfo.text =
+        `Layers: n=${layers.length}\n` +
+        ` * Active Layer: ${activeLayer.id}\n` +
+        ` * Local Layers:\n`
+
+      layers.forEach(({ id }) => {
+        layersInfo.text += `  > ${id}\n`
+      })
+
+      layersInfo.text += ` * Persistent Layers:\n`
+
+      persistentLayers.forEach(({ id }) => {
+        layersInfo.text += `  > ${id}\n`
+      })
+
+      layersInfo.sync()
+    }
+
+    { // Update cam info
       const cam = app.cam
-      const camInfo = group.children[1] as TroikaText.Text
+      const camInfo = group.children[2] as TroikaText.Text
       camInfo.text =
-        `cam:\n` +
+        `Camera:\n` +
         ` * pos=(${cam.position.x.toFixed(2)},${cam.position.y.toFixed(2)},${cam.position.z.toFixed(2)})\n` +
         ` * rot=(${cam.rotation.x.toFixed(2)},${cam.rotation.y.toFixed(2)},${cam.rotation.z.toFixed(2)})\n`
 
