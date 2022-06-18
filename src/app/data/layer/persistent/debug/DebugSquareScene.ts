@@ -70,7 +70,8 @@ export default createAnimatedScene(
       const camInfo = group.children[1] as TroikaText.Text
       camInfo.text =
         `cam:\n` +
-        ` * pos = (${cam.position.x.toFixed(2)}, ${cam.position.y.toFixed(2)}, ${cam.position.z.toFixed(2)})`
+        ` * pos=(${cam.position.x.toFixed(2)},${cam.position.y.toFixed(2)},${cam.position.z.toFixed(2)})\n` +
+        ` * rot=(${cam.rotation.x.toFixed(2)},${cam.rotation.y.toFixed(2)},${cam.rotation.z.toFixed(2)})\n`
 
       camInfo.sync()
     }
