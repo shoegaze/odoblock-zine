@@ -1,5 +1,5 @@
 import { createLayer } from "../../../collection/Layer"
-import homeScene from "./HomeScene"
+import HomeScene from "./HomeScene"
 
 
-export default createLayer(homeScene)
+export default createLayer(HomeScene)

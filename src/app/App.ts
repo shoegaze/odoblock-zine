@@ -1,12 +1,12 @@
 import * as THREE from "three"
 import { clamp } from "three/src/math/MathUtils"
 
-import homeLayer from "./data/layer/0/HomeLayer"
 import { AnimatedScene } from "./collection/AnimatedScene"
 import { Layer, layersDistance, toId } from "./collection/Layer"
 import { Physics } from "./physics/Physics"
 import AppCameraDragger from "./AppCameraDragger"
 import createBackground from "./Background"
+import { localLayers } from "./data/layer"
 
 
 type AppLayerMethod = (this: App, layer: Layer) => void
@@ -80,8 +80,9 @@ export const createApp = (canvas: HTMLCanvasElement): App => {
     cam,
     renderer,
     persistentLayers: [],
-    layers: [homeLayer],
-    activeLayer: homeLayer,
+    layers: [localLayers.HomeLayer],
+    // Initialize with HomeLayer for type safety
+    activeLayer: localLayers.HomeLayer,
     clock: new THREE.Clock(false),
     cameraDragger: new AppCameraDragger(cam),
 
