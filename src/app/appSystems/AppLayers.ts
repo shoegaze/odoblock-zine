@@ -1,7 +1,8 @@
+import { clamp } from "three/src/math/MathUtils"
+
+import HomeLayer from "../data/layer/0/HomeLayer"
 import { AppScene } from "../collection/scene/AppScene"
 import { Layer, toId } from "../collection/Layer"
-import HomeLayer from "../data/layer/0/HomeLayer"
-import { clamp } from "three/src/math/MathUtils"
 import { App } from "../App"
 
 
