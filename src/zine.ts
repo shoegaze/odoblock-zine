@@ -1,7 +1,6 @@
 import { createApp } from './app/App'
 import { localLayers, persistentLayers } from './app/data/layer'
 
-
 { // main
   const canvas = document.querySelector('#screen') as HTMLCanvasElement
   const app = createApp(canvas, { /* TODO: Options */ })

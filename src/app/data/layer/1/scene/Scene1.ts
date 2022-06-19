@@ -1,7 +1,7 @@
 import * as THREE from "three"
 import { lerp } from "three/src/math/MathUtils"
 
-import { AnimatedScene, createAnimatedScene } from "../../../../collection/AnimatedScene"
+import { AnimatedScene, createAnimatedScene } from "../../../../collection/scene/AnimatedScene"
 import { App } from "../../../../App"
 
 

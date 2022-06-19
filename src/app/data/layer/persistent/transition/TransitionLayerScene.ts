@@ -1,10 +1,11 @@
 import * as THREE from "three"
 
-import { AnimatedScene, createAnimatedScene } from "../../../../collection/AnimatedScene"
+import { AnimatedScene, createAnimatedScene } from "../../../../collection/scene/AnimatedScene"
 import { App } from "../../../../App"
 import { fadeDistance } from "../../../../collection/Layer"
 
 
+// TODO: Convert to just use THREE.Scene
 const transitionLayerScene = createAnimatedScene(
   function setup(this: AnimatedScene, _) {
     // TODO: Calculate geo size based on screen size
