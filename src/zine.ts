@@ -7,7 +7,7 @@ import { localLayers, persistentLayers } from './app/data/layer'
   const app = createApp(canvas, {
     idleTimeBeforeDeceleration: 0.75,
     translationSensitivity: 10.0,
-    zoomSensitivity: 10.0
+    zoomSensitivity: 40.0
   })
 
   // TODO: Rename to `app.getLayerManager()`?
