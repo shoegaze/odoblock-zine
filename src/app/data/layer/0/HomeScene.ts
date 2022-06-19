@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 
-import { createStaticScene, StaticScene } from '../../../collection/StaticScene'
+import { createStaticScene, StaticScene } from '../../../collection/scene/StaticScene'
 
 
 export default createStaticScene(

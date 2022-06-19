@@ -1,6 +1,6 @@
 import * as THREE from "three"
 
-import { App } from "../App"
+import { App } from "../../App"
 import { AppScene, genericSetActive } from "./AppScene"
 
 

@@ -1,8 +1,8 @@
 import * as THREE from "three"
 import { clamp } from "three/src/math/MathUtils"
 
-import { AppScene } from "./collection/AppScene"
-import { AnimatedScene } from "./collection/AnimatedScene"
+import { AppScene } from "./collection/scene/AppScene"
+import { AnimatedScene } from "./collection/scene/AnimatedScene"
 import { Layer, layersDistance, toId } from "./collection/Layer"
 import { Physics } from "./physics/Physics"
 import AppCameraDragger from "./AppCameraDragger"

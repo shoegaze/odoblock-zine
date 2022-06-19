@@ -1,5 +1,5 @@
-import { AppScene } from "./AppScene"
-import { AnimatedScene } from "./AnimatedScene"
+import { AppScene } from "./scene/AppScene"
+import { AnimatedScene } from "./scene/AnimatedScene"
 
 
 export const fadeDistance = 125.0
