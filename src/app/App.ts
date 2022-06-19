@@ -15,8 +15,6 @@ import { Physics } from "./physics/Physics"
 type AppMethod = (this: App) => void
 
 export interface App {
-  clock: THREE.Clock
-
   getCamera: () => THREE.Camera
   getRendererSize: () => THREE.Vector2
   getLayers: () => AppLayers
@@ -64,9 +62,9 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
     zMin: -Infinity
   })
 
-  const app: App = {
-    clock: new THREE.Clock(false),
+  const clock = new THREE.Clock(false)
 
+  const app: App = {
     getCamera: () => {
       return cam
     },
@@ -86,7 +84,7 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
 
     start() {
       { // Start loops
-        this.clock.start()
+        clock.start()
         this.startPhysics()
         this.startAnimation()
       }
@@ -130,7 +128,7 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
         },
         (physics: Physics, dt: number) => { // afterUpdate
           { // Decelerate if no input received for t seconds
-            const t = this.clock.getElapsedTime()
+            const t = clock.getElapsedTime()
             const lastInputTime = input.getLastInputTime()
 
             if (t - lastInputTime > idleTimeBeforeDeceleration!) {
