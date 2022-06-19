@@ -1,6 +1,7 @@
 import * as THREE from "three"
 import { clamp } from "three/src/math/MathUtils"
 
+import { AppScene } from "./collection/AppScene"
 import { AnimatedScene } from "./collection/AnimatedScene"
 import { Layer, layersDistance, toId } from "./collection/Layer"
 import { Physics } from "./physics/Physics"

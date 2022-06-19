@@ -1,4 +1,5 @@
 import { AppScene } from "./AppScene"
+import { AnimatedScene } from "./AnimatedScene"
 
 
 export const fadeDistance = 125.0
@@ -17,7 +18,7 @@ export const toZPos = (id: number): number => -id * layersDistance
 export const toId = (zPos: number): number => Math.abs(Math.min(0, Math.floor(zPos / layersDistance)))
 
 let idLayer = 0
-export const createLayer = (...scenes: AnimatedScene[]): Layer => ({
+export const createLayer = (...scenes: AppScene[]): Layer => ({
   id: idLayer++,
   zPos: toZPos(idLayer - 1),
   scenes,
