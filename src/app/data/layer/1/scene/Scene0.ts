@@ -1,11 +1,10 @@
 import * as THREE from "three"
 
-import { AnimatedScene, createAnimatedScene } from "../../../../collection/scene/AnimatedScene"
-import { App } from "../../../../App"
+import { createAnimatedScene } from "../../../../collection/scene/AnimatedScene"
 
 
 export default createAnimatedScene(
-  function setup(this: AnimatedScene, _) {
+  function setup(this, _) {
     const geo = new THREE.BoxGeometry(8.0, 8.0, 8.0)
     const mat = new THREE.MeshBasicMaterial({
       color: 0xff00ff
@@ -18,11 +17,10 @@ export default createAnimatedScene(
     this.scene.add(cube)
   },
 
-  function animate(this: AnimatedScene, app: App) {
+  function animate(this, _/*, dt: number*/) {
     const cube = this.scene.getObjectByName('cube')
-    const dt = app.clock.getDelta()
 
-    cube!.rotation.x += Math.PI / 2.0 * dt
-    cube!.rotation.y += Math.PI / 3.0 * dt
+    cube!.rotation.x += Math.PI / 2.0 * 1.0/60.0
+    cube!.rotation.y += Math.PI / 3.0 * 1.0/60.0
   }
 )

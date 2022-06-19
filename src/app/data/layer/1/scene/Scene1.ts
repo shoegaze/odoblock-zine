@@ -28,7 +28,7 @@ export default createAnimatedScene(
   },
 
   function animate(this: AnimatedScene, app: App) {
-    const t = app.clock.elapsedTime
+    const t = app.getSeconds()
 
     for (let i = 0; i < 10; i++) {
       const sphere = this.scene.getObjectByName(`sphere_${i}`)

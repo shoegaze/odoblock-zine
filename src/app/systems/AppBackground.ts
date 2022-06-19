@@ -10,8 +10,8 @@ interface Background {
   updateUniforms(app: App): void
 }
 
-const createAppBackground = (sz: THREE.Vector2): Background => {
-  const { x: w, y: h } = sz
+const createAppBackground = (size: THREE.Vector2, clock: THREE.Clock): Background => {
+  const { x: w, y: h } = size
 
   const scene = new THREE.Scene()
   const cam = new THREE.OrthographicCamera(
@@ -85,7 +85,7 @@ const createAppBackground = (sz: THREE.Vector2): Background => {
     cam,
 
     updateUniforms(app: App) {
-      mat.uniforms.u_time.value = app.clock.getElapsedTime()
+      mat.uniforms.u_time.value = clock.getElapsedTime()
       mat.uniforms.u_resolution.value = app.getRendererSize()
 
       mat.uniformsNeedUpdate = true

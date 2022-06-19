@@ -18,6 +18,7 @@ export interface App {
   getCamera: () => THREE.Camera
   getRendererSize: () => THREE.Vector2
   getLayers: () => AppLayers
+  getSeconds: () => number
 
   start: AppMethod
   startPhysics: AppMethod
@@ -80,6 +81,10 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
 
     getLayers: () => {
       return layers
+    },
+
+    getSeconds: () => {
+      return clock.getElapsedTime()
     },
 
     start() {
@@ -286,7 +291,7 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
     }
   }
 
-  const bg = createAppBackground(new THREE.Vector2(s, s))
+  const bg = createAppBackground(new THREE.Vector2(s, s), new THREE.Clock(true))
   const input = createAppInput(new THREE.Clock(true))
   const layers = createAppLayers(app, cam)
   const cameraController = createCameraController(cam)

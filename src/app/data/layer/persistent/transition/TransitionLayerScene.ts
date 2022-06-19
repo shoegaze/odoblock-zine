@@ -104,7 +104,7 @@ const transitionLayerScene = createAnimatedScene(
       mat.uniforms.u_t.value = t
       // mat.uniforms.u_color.value = new THREE.Color(1.0, 0.0, 0.0)
 
-      mat.uniforms.u_time.value = app.clock.getElapsedTime()
+      mat.uniforms.u_time.value = app.getSeconds()
       mat.uniforms.u_resolution.value = app.getRendererSize()
 
       // const mouse = app.getQueuedMousePosition()
