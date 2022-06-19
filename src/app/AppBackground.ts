@@ -86,7 +86,7 @@ const createAppBackground = (sz: THREE.Vector2): Background => {
 
     updateUniforms(app: App) {
       mat.uniforms.u_time.value = app.clock.getElapsedTime()
-      app.renderer.getSize(mat.uniforms.u_resolution.value)
+      mat.uniforms.u_resolution.value = app.getRendererSize()
 
       mat.uniformsNeedUpdate = true
     }

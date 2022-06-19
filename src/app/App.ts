@@ -5,25 +5,22 @@ import { AppScene } from "./collection/scene/AppScene"
 import { AnimatedScene } from "./collection/scene/AnimatedScene"
 import { Layer, layersDistance, toId } from "./collection/Layer"
 import { Physics } from "./physics/Physics"
-import AppCameraDragger from "./AppCameraDragger"
 import createAppBackground from "./AppBackground"
-import { localLayers } from "./data/layer"
 import { AppInputType, createAppInput } from "./AppInput"
+import createAppGraphics from "./AppGraphics"
+import createCameraController from "./AppCameraController"
+import { Vector2 } from "three"
+import { AppLayers, createAppLayers } from "./AppLayers"
 
 
-type AppLayerMethod = (this: App, layer: Layer) => void
-type AppLayerIdMethod = (this: App, id: number) => void
 type AppMethod = (this: App) => void
 
 export interface App {
-  cam: THREE.PerspectiveCamera
-  renderer: THREE.WebGLRenderer
   clock: THREE.Clock
-  cameraDragger: AppCameraDragger
 
-  persistentLayers: Array<Layer>
-  layers: Array<Layer>
-  activeLayer: Layer
+  getCamera: () => THREE.Camera
+  getRendererSize: () => THREE.Vector2
+  getLayers: () => AppLayers
 
   start: AppMethod
   startPhysics: AppMethod
@@ -31,15 +28,11 @@ export interface App {
   resize: AppMethod
   render: AppMethod
 
-  addPersistentLayer: AppLayerMethod
-  addLayer: AppLayerMethod
-  setActiveLayer: AppLayerIdMethod
-  getClosestLayer: (this: App) => Layer
-
   queueTranslation: (dx: number, dy: number) => void
   queueZoom: (zoom: number) => void
 }
 
+// TODO: Mark all options as required
 type CreateAppOptions = {
   fov?: number
   near?: number
@@ -63,7 +56,8 @@ const createAppOptionsDefault: CreateAppOptions = {
 export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsDefault): App => {
   const {
     fov,
-    near, far,
+    near,
+    far,
     idleTimeBeforeDeceleration,
     camMaxSpeed,
     translationSensitivity,
@@ -71,43 +65,36 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
   } = { ...createAppOptionsDefault, ...options }
 
   const { innerWidth: w, innerHeight: h } = window
-  // Square frame
-  const s = Math.min(w, h)
-
-  // TODO: Calculate far from layersDistance
-  const cam = new THREE.PerspectiveCamera(
-    fov,      // fov
-    s / s,    // aspect
-    near, far // near, far
-  )
+  let s = Math.min(w, h)
 
   const [zMax, zMin] = [layersDistance, -Infinity]
-  cam.position.z = zMax
-
-  const renderer = new THREE.WebGLRenderer({
-    canvas
+  const { cam, renderer } = createAppGraphics(canvas, new Vector2(s, s), {
+    fov: fov!,
+    near: near!,
+    far: far!,
+    zMax: layersDistance,
+    zMin: -Infinity
   })
 
-  renderer.setSize(s, s)
-
-  // TODO: Disable debug mode in production
-  renderer.debug = {
-    checkShaderErrors: true
-  }
-
-  const bg = createAppBackground(new THREE.Vector2(s, s))
-  const input = createAppInput(new THREE.Clock(true))
-  const HomeLayer = localLayers[0]
-
-  return {
-    cam,
-    renderer,
-    persistentLayers: [],
-    layers: [HomeLayer],
-    // Initialize with HomeLayer for type safety
-    activeLayer: HomeLayer,
+  const app: App = {
     clock: new THREE.Clock(false),
-    cameraDragger: new AppCameraDragger(cam),
+
+    getCamera: () => {
+      return cam
+    },
+
+    getRendererSize: () => {
+      const size = new THREE.Vector2()
+      renderer.getSize(size)
+
+      s = Math.min(size.x, size.y)
+
+      return size
+    },
+
+    getLayers: () => {
+      return layers
+    },
 
     start() {
       { // Start loops
@@ -117,88 +104,26 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
       }
 
       { // Initialize layers
-        this.persistentLayers.forEach((layer: Layer) => {
+        layers.getPersistentLayers().forEach((layer: Layer) => {
           layer.setActive(true)
         })
 
         // TODO: Refactor this (DRY)
-        const home = this.layers[0]
+        const home = layers.getLocalLayers()[0]
         home.scenes.forEach((appScene: AppScene) => {
           appScene.setup(this)
           appScene.scene.translateZ(home.zPos)
         })
 
-        this.setActiveLayer(0)
+        layers.setActiveLayer(0)
       }
-    },
-
-    addPersistentLayer(layer: Layer) {
-      this.persistentLayers.push(layer)
-
-      layer.scenes.forEach((appScene: AppScene) => {
-        appScene.setup(this)
-      })
-
-      layer.setActive(true)
-    },
-
-    addLayer(layer: Layer) {
-      this.layers.push(layer)
-
-      layer.scenes.forEach((as: AppScene) => {
-        as.setup(this)
-
-        // TODO: Do this only when the containing layer is active ... O(n_obj)?
-        // Convert to all objects to their layer-spaces
-        as.scene.translateZ(layer.zPos)
-      })
-
-      layer.setActive(false)
-    },
-
-    setActiveLayer(id: number) {
-      const layer = this.layers[id]
-
-      if (!layer) {
-        throw Error(`No layer with id ${id}`)
-      }
-
-      this.activeLayer.setActive(false)
-      this.activeLayer = layer
-      this.activeLayer.setActive(true)
-    },
-
-    // TODO: Refactor this into its own object(s)
-    getClosestLayer(): Layer {
-      const z = this.cam.position.z
-
-      if (z >= 0.0) {
-        return this.layers[0]
-      }
-
-      const zLast = this.layers[this.layers.length - 1].zPos
-      if (z <= zLast) {
-        return this.layers[this.layers.length - 1]
-      }
-
-      const idNow = toId(z)
-      const layerNow = this.layers[idNow]
-
-      // Can we assume that idNow :: [1, n-1] ?
-      const idPrev = clamp(idNow - 1, 0, this.layers.length - 1)
-      const layerPrev = this.layers[idPrev]
-
-      const distNow = Math.abs(cam.position.z - layerNow.zPos)
-      const distPrev = Math.abs(cam.position.z - layerPrev.zPos)
-
-      return distNow < distPrev ? layerNow : layerPrev
     },
 
     startPhysics() {
-      this.cameraDragger.startPhysicsLoop(
-        (physics: Physics, _) => { // beforeUpdate
+      cameraController.startPhysicsLoop(
+        (physics: Physics, _: number) => { // beforeUpdate
           { // Reset camera rotation
-            this.cam.rotation.set(0.0, 0.0, 0.0)
+            cam.rotation.set(0.0, 0.0, 0.0)
           }
 
           { // Clamp speed of velocity
@@ -258,17 +183,17 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
             const angle = maxAngle * (dp.length() / camMaxSpeed!)
 
             // TODO: Fix jitter: lerp between previous axis/angle?
-            this.cam.rotateOnAxis(axis, angle)
+            cam.rotateOnAxis(axis, angle)
           }
 
           { // Clamp camera z
             const z = clamp(
-              this.cam.position.z,
+              cam.position.z,
               zMin,
               zMax
             )
 
-            this.cam.position.z = z
+            cam.position.z = z
 
             // TODO: Reset velocity and acceleration when it bumps against zMin/zMax
             // const epsilon = 1.0e-3
@@ -281,11 +206,13 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
           }
 
           { // Update active layer
-            const id = toId(this.cam.position.z)
-            const i = Math.min(id, this.layers.length - 1)
+            const id = toId(cam.position.z)
+            const i = Math.min(id, layers.getLocalLayers().length - 1)
 
-            if (this.activeLayer !== this.layers[i]) {
-              this.setActiveLayer(i)
+            const localLayers = layers.getLocalLayers()
+
+            if (layers.getActiveLayer() !== localLayers[i]) {
+              layers.setActiveLayer(i)
             }
           }
         }
@@ -296,12 +223,14 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
       const animate = () => {
         requestAnimationFrame(animate)
 
+        const activeLayer = layers.getActiveLayer()
         // TODO: this.activeLayer.scenes.filter(s => s is AnimatedScene)
-        this.activeLayer.scenes.forEach((appScene: AppScene | AnimatedScene) => {
+        activeLayer.scenes.forEach((appScene: AppScene | AnimatedScene) => {
           (appScene as AnimatedScene).animate?.(this)
         })
 
-        this.persistentLayers.forEach((layer: Layer) => {
+        const persistentLayers = layers.getPersistentLayers()
+        persistentLayers.forEach((layer: Layer) => {
           layer.scenes.forEach((appScene: AppScene | AnimatedScene) => {
             (appScene as AnimatedScene).animate?.(this)
           })
@@ -330,7 +259,8 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
         renderer.clearDepth()
       }
 
-      this.activeLayer.scenes.forEach((as: AppScene) => {
+      const activeLayer = layers.getActiveLayer()
+      activeLayer.scenes.forEach((as: AppScene) => {
         renderer.render(as.scene, cam)
 
         // TODO: Create AnimatedScene.afterRender() method
@@ -340,14 +270,14 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
         renderer.autoClear = false
       })
 
-      this.persistentLayers.forEach((layer: Layer) => {
+      const persistentLayers = layers.getPersistentLayers()
+      persistentLayers.forEach((layer: Layer) => {
         layer.scenes.forEach((as: AppScene) => {
           renderer.render(as.scene, cam)
           renderer.clearDepth()
         })
       })
     },
-
 
     // TODO: if ||<dx, dy>|| < threshold, decelerate
     queueTranslation(this: App, dx: number, dy: number) {
@@ -369,4 +299,11 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
       input.receiveInput(AppInputType.Zoom, dz)
     }
   }
+
+  const bg = createAppBackground(new THREE.Vector2(s, s))
+  const input = createAppInput(new THREE.Clock(true))
+  const layers = createAppLayers(app, cam)
+  const cameraController = createCameraController(cam)
+
+  return app
 }
