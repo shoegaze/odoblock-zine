@@ -10,7 +10,7 @@ import { localLayers, persistentLayers } from './app/data/layer'
     far: 500.0,
     idleTimeBeforeDeceleration: 0.75,
     camMaxSpeed: 100.0,
-    translationSensitivity: 10.0,
+    translationSensitivity: 90.0,
     zoomSensitivity: 40.0,
   })
 
