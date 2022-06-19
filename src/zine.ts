@@ -1,23 +1,34 @@
-import { AnimatedScene } from './AnimatedScene'
-import { createApp } from './App'
-import scene0 from './scenes/Scene0'
-import scene1 from './scenes/Scene1'
-import scene2 from './scenes/Scene2'
+import { createApp } from './app/App'
+import { localLayers, persistentLayers } from './app/data/layer'
 
 
 { // main
   const canvas = document.querySelector('#screen') as HTMLCanvasElement
-  const app = createApp(canvas)
-
-  const scenes: Array<AnimatedScene> = [
-    scene2,
-    scene1,
-    scene0
-  ]
-
-  scenes.forEach(scene => {
-    app.addScene(scene)
+  const app = createApp(canvas, {
+    fov: 45.0,
+    near: 0.1,
+    far: 500.0,
+    idleTimeBeforeDeceleration: 0.75,
+    camMaxSpeed: 100.0,
+    translationSensitivity: 90.0,
+    zoomSensitivity: 40.0,
   })
+
+  // TODO: Rename to `app.getLayerManager()`?
+  const layers = app.getLayers()
+
+  { // Add persistent layers
+    persistentLayers.forEach((layer) => {
+      layers.addPersistentLayer(layer)
+    })
+  }
+
+  { // Add local layers
+    // Filter out HomeLayer
+    localLayers.slice(1).forEach((layer) => {
+      layers.addLocalLayer(layer)
+    })
+  }
 
   window.onresize = () => {
     app.resize()
@@ -44,13 +55,12 @@ import scene2 from './scenes/Scene2'
     }
   }
 
-  {
+  { // Zoom event
     canvas.onwheel = (ev) => {
       const { deltaY: dz } = ev
       app.queueZoom(dz)
     }
   }
 
-  app.startPhysics()
-  app.startAnimation()
+  app.start()
 }
