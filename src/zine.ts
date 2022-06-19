@@ -4,7 +4,11 @@ import { localLayers, persistentLayers } from './app/data/layer'
 
 { // main
   const canvas = document.querySelector('#screen') as HTMLCanvasElement
-  const app = createApp(canvas, { /* TODO: Options */ })
+  const app = createApp(canvas, {
+    idleTimeBeforeDeceleration: 1.0,
+    translationSensitivity: 100.0,
+    zoomSensitivity: 100.0
+  })
 
   { // Add persistent layers
     persistentLayers.forEach((layer) => {

@@ -1,5 +1,4 @@
 import * as THREE from "three"
-import { Vector2 } from "three"
 
 
 export enum AppInputType {
@@ -70,7 +69,7 @@ export const createAppInput = (clock: THREE.Clock): AppInput => {
     },
 
     resetQueuedInputs(this: AppInput) {
-      (inputsQueue[AppInputType.Translation] as Vector2).set(0.0, 0.0)
+      (inputsQueue[AppInputType.Translation] as THREE.Vector2).set(0.0, 0.0)
       inputsQueue[AppInputType.Zoom] = 0.0
     },
 
@@ -80,10 +79,10 @@ export const createAppInput = (clock: THREE.Clock): AppInput => {
         const lastInput = Object.values(lastInputTimes)
           .reduce((acc, t) => Math.max(acc, t), 0.0)
 
-        return this.clock.getElapsedTime() - lastInput
+        return lastInput
       }
 
-      return this.clock.getElapsedTime() - lastInputTimes[inputType]
+      return lastInputTimes[inputType]
     }
   }
 }

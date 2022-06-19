@@ -71,6 +71,7 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
   } = { ...createAppOptionsDefault, ...options }
 
   const { innerWidth: w, innerHeight: h } = window
+  // Square frame
   const s = Math.min(w, h)
 
   // TODO: Calculate far from layersDistance
@@ -95,18 +96,16 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
   }
 
   const bg = createAppBackground(new THREE.Vector2(s, s))
-
-  const inputClock = new THREE.Clock(true)
-  const input = createAppInput(inputClock)
-
+  const input = createAppInput(new THREE.Clock(true))
+  const HomeLayer = localLayers[0]
 
   return {
     cam,
     renderer,
     persistentLayers: [],
-    layers: [localLayers[0]],
+    layers: [HomeLayer],
     // Initialize with HomeLayer for type safety
-    activeLayer: localLayers[0],
+    activeLayer: HomeLayer,
     clock: new THREE.Clock(false),
     cameraDragger: new AppCameraDragger(cam),
 
@@ -218,8 +217,10 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
         },
         (physics: Physics, dt: number) => { // afterUpdate
           { // Decelerate if no input received for t seconds
-            const t = this.clock.getElapsedTime() - input.getLastInputTime()
-            if (t > idleTimeBeforeDeceleration!) {
+            const t = this.clock.getElapsedTime()
+            const lastInputTime = input.getLastInputTime()
+
+            if (t - lastInputTime > idleTimeBeforeDeceleration!) {
               const s = 0.9
 
               const a = physics.acceleration.clone()
@@ -227,7 +228,7 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
                 .multiplyScalar(s)
                 .multiplyScalar(physics.mass)
 
-              if (f.length() > 1.0e-3) {
+              if (f.lengthSq() > 1.0e-6) {
                 physics.addForce(f)
                 physics.velocity.multiplyScalar(s)
               }
