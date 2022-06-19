@@ -284,8 +284,9 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
             const id = toId(this.cam.position.z)
             const i = Math.min(id, this.layers.length - 1)
 
-            // TODO: Only update active layer when this.activeLayer !== this.layers[i]
-            this.setActiveLayer(i)
+            if (this.activeLayer !== this.layers[i]) {
+              this.setActiveLayer(i)
+            }
           }
         }
       )
