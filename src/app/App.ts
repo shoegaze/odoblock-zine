@@ -31,28 +31,17 @@ export interface App {
   queueZoom: (zoom: number) => void
 }
 
-// TODO: Mark all options as required
 type CreateAppOptions = {
-  fov?: number
-  near?: number
-  far?: number
-  idleTimeBeforeDeceleration?: number
-  camMaxSpeed?: number
-  translationSensitivity?: number
-  zoomSensitivity?: number
+  fov: number
+  near: number
+  far: number
+  idleTimeBeforeDeceleration: number
+  camMaxSpeed: number
+  translationSensitivity: number
+  zoomSensitivity: number
 }
 
-const createAppOptionsDefault: CreateAppOptions = {
-  fov: 45.0,
-  near: 0.1,
-  far: 500.0,
-  idleTimeBeforeDeceleration: 0.1,
-  camMaxSpeed: 100.0,
-  translationSensitivity: 10.0,
-  zoomSensitivity: 10.0
-}
-
-export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsDefault): App => {
+export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions): App => {
   const {
     fov,
     near,
@@ -61,16 +50,16 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
     camMaxSpeed,
     translationSensitivity,
     zoomSensitivity
-  } = { ...createAppOptionsDefault, ...options }
+  } = options
 
   const { innerWidth: w, innerHeight: h } = window
   let s = Math.min(w, h)
 
   const [zMax, zMin] = [layersDistance, -Infinity]
   const { cam, renderer } = createAppGraphics(canvas, new THREE.Vector2(s, s), {
-    fov: fov!,
-    near: near!,
-    far: far!,
+    fov,
+    near,
+    far,
     zMax: layersDistance,
     zMin: -Infinity
   })
