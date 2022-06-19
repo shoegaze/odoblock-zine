@@ -10,7 +10,7 @@ interface Background {
   updateUniforms(app: App): void
 }
 
-const createBackground = (sz: THREE.Vector2): Background => {
+const createAppBackground = (sz: THREE.Vector2): Background => {
   const { x: w, y: h } = sz
 
   const scene = new THREE.Scene()
@@ -93,4 +93,4 @@ const createBackground = (sz: THREE.Vector2): Background => {
   }
 }
 
-export default createBackground
+export default createAppBackground

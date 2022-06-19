@@ -6,8 +6,9 @@ import { AnimatedScene } from "./collection/scene/AnimatedScene"
 import { Layer, layersDistance, toId } from "./collection/Layer"
 import { Physics } from "./physics/Physics"
 import AppCameraDragger from "./AppCameraDragger"
-import createBackground from "./Background"
+import createAppBackground from "./AppBackground"
 import { localLayers } from "./data/layer"
+import { AppInputType, createAppInput } from "./AppInput"
 
 
 type AppLayerMethod = (this: App, layer: Layer) => void
@@ -93,13 +94,10 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
     checkShaderErrors: true
   }
 
-  const bg = createBackground(new THREE.Vector2(s, s))
+  const bg = createAppBackground(new THREE.Vector2(s, s))
 
-  // TODO: Hoist to constructor
-  let lastInputTime = 0.0
-
-  let queuedTranslation: THREE.Vector2 | null = null
-  let queuedZoom: number | null = null
+  const inputClock = new THREE.Clock(true)
+  const input = createAppInput(inputClock)
 
 
   return {
@@ -209,22 +207,18 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
           }
 
           { // Apply queued inputs as a force
-            const force = new THREE.Vector3(
-              queuedTranslation?.x ?? 0.0,
-              queuedTranslation?.y ?? 0.0,
-              queuedZoom ?? 0.0
-            )
+            const { x: dx, y: dy } = input.getQueuedInput(AppInputType.Translation) as THREE.Vector2
+            const dz = input.getQueuedInput(AppInputType.Zoom) as number
 
+            const force = new THREE.Vector3(dx, dy, dz)
             physics.addForce(force)
 
-            // Reset force to be applied next step
-            queuedTranslation = null
-            queuedZoom = null
+            input.resetQueuedInputs()
           }
         },
         (physics: Physics, dt: number) => { // afterUpdate
           { // Decelerate if no input received for t seconds
-            const t = this.clock.getElapsedTime() - lastInputTime
+            const t = this.clock.getElapsedTime() - input.getLastInputTime()
             if (t > idleTimeBeforeDeceleration!) {
               const s = 0.9
 
