@@ -75,7 +75,7 @@ export default createAnimatedScene(
 
   function animate(this: AnimatedScene, app: App) {
     const group = this.scene.children[0]
-    const { x, y, z } = app.cam.position
+    const { x, y, z } = app.getCamera().position
 
     // TODO: Create method to set position to screen space
     group.position.set(
@@ -85,15 +85,19 @@ export default createAnimatedScene(
     )
 
     { // Update layers info
-      const { activeLayer, layers, persistentLayers } = app
+      const appLayers = app.getLayers()
+      const activeLayer = appLayers.getActiveLayer()
+      const localLayers = appLayers.getLocalLayers()
+      const persistentLayers = appLayers.getPersistentLayers()
+
       const layersInfo = group.children[1] as TroikaText.Text
 
       layersInfo.text =
-        `Layers: n=${layers.length}\n` +
+        `Layers: n=${localLayers.length}\n` +
         ` * Active Layer: ${activeLayer.id}\n` +
         ` * Local Layers:\n`
 
-      layers.forEach(({ id }) => {
+      localLayers.forEach(({ id }) => {
         layersInfo.text += `  > ${id}\n`
       })
 
@@ -107,7 +111,7 @@ export default createAnimatedScene(
     }
 
     { // Update cam info
-      const cam = app.cam
+      const cam = app.getCamera()
       const camInfo = group.children[2] as TroikaText.Text
       camInfo.text =
         `Camera:\n` +

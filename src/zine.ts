@@ -1,20 +1,28 @@
 import { createApp } from './app/App'
 import { localLayers, persistentLayers } from './app/data/layer'
 
+
 { // main
   const canvas = document.querySelector('#screen') as HTMLCanvasElement
-  const app = createApp(canvas, { /* TODO: Options */ })
+  const app = createApp(canvas, {
+    idleTimeBeforeDeceleration: 0.75,
+    translationSensitivity: 10.0,
+    zoomSensitivity: 10.0
+  })
+
+  // TODO: Rename to `app.getLayerManager()`?
+  const layers = app.getLayers()
 
   { // Add persistent layers
     persistentLayers.forEach((layer) => {
-      app.addPersistentLayer(layer)
+      layers.addPersistentLayer(layer)
     })
   }
 
   { // Add local layers
     // Filter out HomeLayer
     localLayers.slice(1).forEach((layer) => {
-      app.addLayer(layer)
+      layers.addLocalLayer(layer)
     })
   }
 

@@ -10,7 +10,7 @@ interface Background {
   updateUniforms(app: App): void
 }
 
-const createBackground = (sz: THREE.Vector2): Background => {
+const createAppBackground = (sz: THREE.Vector2): Background => {
   const { x: w, y: h } = sz
 
   const scene = new THREE.Scene()
@@ -86,11 +86,11 @@ const createBackground = (sz: THREE.Vector2): Background => {
 
     updateUniforms(app: App) {
       mat.uniforms.u_time.value = app.clock.getElapsedTime()
-      app.renderer.getSize(mat.uniforms.u_resolution.value)
+      mat.uniforms.u_resolution.value = app.getRendererSize()
 
       mat.uniformsNeedUpdate = true
     }
   }
 }
 
-export default createBackground
+export default createAppBackground
