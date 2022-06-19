@@ -6,11 +6,11 @@ import { App } from "../../../../App"
 
 
 export default createAnimatedScene(
-  function setup(this: AnimatedScene, _) {
+  function setup(this: AnimatedScene, app: App) {
     const group = new THREE.Group()
 
     { // BG
-      const geo = new THREE.PlaneGeometry(1.0, 1.0)
+      const geo = new THREE.PlaneGeometry(2.0, 2.0)
       const mat = new THREE.ShaderMaterial({
         vertexShader: `
           varying vec2 v_uv;
@@ -31,23 +31,43 @@ export default createAnimatedScene(
       group.add(plane)
     }
 
-    { // Text
-      const text = new TroikaText.Text()
+    const layersInfo = new TroikaText.Text()
+    { // Layers info
+      layersInfo.text = ''
+      layersInfo.font = './font/ComicMono.ttf'
+      layersInfo.fontSize = 0.12
+      layersInfo.maxWidth = 2.0
+      layersInfo.color = 0xffffff
+      layersInfo.anchorX = 'left'
+      layersInfo.anchorY = 'top'
+      layersInfo.textAlign = 'left'
+      layersInfo.strokeWidth = 0.005
+      layersInfo.outlineColor = 0x000000
+      layersInfo.outlineWidth = 0.01
+      layersInfo.sync()
 
-      text.text = 'Hello, world!'
-      text.fontSize = 0.2
-      text.position.set(0.0, 0.0, 1.0e-3)
-      text.color = 0xffffff
-      text.maxWidth = 1.0
-      text.anchorX = 'center'
-      text.anchorY = 'middle'
-      text.textAlign = 'center'
-      text.strokeWidth = 0.005
-      text.outlineColor = 0x000000
-      text.outlineWidth = 0.01
-      text.sync()
+      layersInfo.position.set(-0.98, +1.0, 1.0e-3)
+      group.add(layersInfo)
+    }
 
-      group.add(text)
+    const camInfo = new TroikaText.Text()
+    { // Cam info
+      camInfo.text = ''
+      camInfo.font = './font/ComicMono.ttf'
+      camInfo.fontSize = 0.12
+      camInfo.maxWidth = 2.0
+      camInfo.color = 0xffffff
+      camInfo.anchorX = 'left'
+      camInfo.anchorY = 'top'
+      camInfo.textAlign = 'left'
+      camInfo.strokeWidth = 0.005
+      camInfo.outlineColor = 0x000000
+      camInfo.outlineWidth = 0.01
+      camInfo.sync()
+
+      // const { bottom: camBottom } = layersInfo.get
+      camInfo.position.set(-0.98, -0.25, 1.0e-3)
+      group.add(camInfo)
     }
 
     this.scene.add(group)
@@ -58,10 +78,43 @@ export default createAnimatedScene(
     const { x, y, z } = app.cam.position
 
     // TODO: Create method to set position to screen space
-    group?.position.set(
-      x - 3.5,
-      y + 3.5,
+    group.position.set(
+      x - 3.0,
+      y + 3.0,
       z - 10.0
     )
+
+    { // Update layers info
+      const { activeLayer, layers, persistentLayers } = app
+      const layersInfo = group.children[1] as TroikaText.Text
+
+      layersInfo.text =
+        `Layers: n=${layers.length}\n` +
+        ` * Active Layer: ${activeLayer.id}\n` +
+        ` * Local Layers:\n`
+
+      layers.forEach(({ id }) => {
+        layersInfo.text += `  > ${id}\n`
+      })
+
+      layersInfo.text += ` * Persistent Layers:\n`
+
+      persistentLayers.forEach(({ id }) => {
+        layersInfo.text += `  > ${id}\n`
+      })
+
+      layersInfo.sync()
+    }
+
+    { // Update cam info
+      const cam = app.cam
+      const camInfo = group.children[2] as TroikaText.Text
+      camInfo.text =
+        `Camera:\n` +
+        ` * pos=(${cam.position.x.toFixed(2)},${cam.position.y.toFixed(2)},${cam.position.z.toFixed(2)})\n` +
+        ` * rot=(${cam.rotation.x.toFixed(2)},${cam.rotation.y.toFixed(2)},${cam.rotation.z.toFixed(2)})\n`
+
+      camInfo.sync()
+    }
   }
 )
