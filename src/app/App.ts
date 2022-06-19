@@ -350,10 +350,10 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
     // TODO: if ||<dx, dy>|| < threshold, decelerate
     queueTranslation(this: App, dx: number, dy: number) {
       // Convert (dx, dy) from screen axes to world axes
-      queuedTranslation = new THREE.Vector2(-dx, +dy)
+      const dp = new THREE.Vector2(-dx, +dy)
         .multiplyScalar(translationSensitivity!)
 
-      lastInputTime = this.clock.getElapsedTime()
+      input.receiveInput(AppInputType.Translation, dp)
     },
 
     // dz < 0: zoom in ;
@@ -362,9 +362,9 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
       // Right-most factor prevents the result from being in the range (-s, +s)
       //  where s is the sensitivity.
       //  When |s| < 1, without the factor we will zoom in no matter what.
-      queuedZoom = +zoom * zoomSensitivity! + (zoom < 0.0 ? 1.0 : 0.0)
+      const dz = +zoom * zoomSensitivity! + (zoom < 0.0 ? 1.0 : 0.0)
 
-      lastInputTime = this.clock.getElapsedTime()
+      input.receiveInput(AppInputType.Zoom, dz)
     }
   }
 }
