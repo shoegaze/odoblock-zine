@@ -4,13 +4,12 @@ import { clamp } from "three/src/math/MathUtils"
 import { AppScene } from "./collection/scene/AppScene"
 import { AnimatedScene } from "./collection/scene/AnimatedScene"
 import { Layer, layersDistance, toId } from "./collection/Layer"
+import createAppBackground from "./systems/AppBackground"
+import createAppGraphics from "./systems/AppGraphics"
+import createCameraController from "./systems/AppCameraController"
+import { AppInputType, createAppInput } from "./systems/AppInput"
+import { AppLayers, createAppLayers } from "./systems/AppLayers"
 import { Physics } from "./physics/Physics"
-import createAppBackground from "./AppBackground"
-import { AppInputType, createAppInput } from "./AppInput"
-import createAppGraphics from "./AppGraphics"
-import createCameraController from "./AppCameraController"
-import { Vector2 } from "three"
-import { AppLayers, createAppLayers } from "./AppLayers"
 
 
 type AppMethod = (this: App) => void
@@ -68,7 +67,7 @@ export const createApp = (canvas: HTMLCanvasElement, options = createAppOptionsD
   let s = Math.min(w, h)
 
   const [zMax, zMin] = [layersDistance, -Infinity]
-  const { cam, renderer } = createAppGraphics(canvas, new Vector2(s, s), {
+  const { cam, renderer } = createAppGraphics(canvas, new THREE.Vector2(s, s), {
     fov: fov!,
     near: near!,
     far: far!,
