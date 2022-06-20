@@ -1,7 +1,8 @@
-import { AppScene } from "../collection/scene/AppScene"
-import { Layer, toId } from "../collection/Layer"
-import HomeLayer from "../data/layer/0/HomeLayer"
 import { clamp } from "three/src/math/MathUtils"
+
+import { AppScene } from "../collection/scene/AppScene"
+import { Layer, zPosToId } from "../collection/layer/Layer"
+import HomeLayer from "../data/layer/0/HomeLayer"
 import { App } from "../App"
 
 
@@ -48,6 +49,7 @@ export const createAppLayers: CreateAppLayers = (app, cam) => {
       layer.setActive(true)
     },
 
+    // What happens when [l_0, ..., undefined, ..., l_{n-1}] ?
     addLocalLayer(layer: Layer) {
       localLayers.push(layer)
 
@@ -62,11 +64,13 @@ export const createAppLayers: CreateAppLayers = (app, cam) => {
       layer.setActive(false)
     },
 
+    // TODO: Pre-cache next n layer(s)
     setActiveLayer(id: number): void {
       const layer = localLayers[id]
 
       if (!layer) {
-        throw Error(`No layer with id ${id}`)
+        console.error(`No layer with id ${id}`)
+        return
       }
 
       activeLayer.setActive(false)
@@ -89,7 +93,7 @@ export const createAppLayers: CreateAppLayers = (app, cam) => {
         return lastLayer
       }
 
-      const idNow = toId(z)
+      const idNow = zPosToId(z)
       const layerNow = localLayers[idNow]
 
       // Can we assume that idNow :: [1, n-1] ?

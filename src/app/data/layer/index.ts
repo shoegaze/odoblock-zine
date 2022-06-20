@@ -1,4 +1,4 @@
-import { Layer } from "../../collection/Layer";
+import { Layer } from "../../collection/layer/Layer";
 import HomeLayer from "./0/HomeLayer";
 import Layer1 from "./1/Layer1";
 import TransitionLayer from "./persistent/transition/TransitionLayer";

@@ -2,7 +2,7 @@ import * as THREE from "three"
 
 import { AnimatedScene, createAnimatedScene } from "../../../../collection/scene/AnimatedScene"
 import { App } from "../../../../App"
-import { fadeDistance } from "../../../../collection/Layer"
+import { fadeDistance } from "../../../../collection/layer/Layer"
 
 
 // TODO: Convert to just use THREE.Scene
