@@ -1,5 +1,5 @@
 import { createLayer } from "../../../../collection/layer/Layer"
-import transitionLayerScene from "./TransitionLayerScene"
+import transitionLayerScene from "./transitionLayerScene"
 
 
 const transitionLayer = createLayer(transitionLayerScene)

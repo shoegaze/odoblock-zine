@@ -1,12 +1,11 @@
 import * as THREE from "three"
 import { lerp } from "three/src/math/MathUtils"
 
-import { AnimatedScene, createAnimatedScene } from "../../../../collection/scene/AnimatedScene"
-import { App } from "../../../../App"
+import { createAnimatedScene } from "../../../../collection/scene/AnimatedScene"
 
 
 export default createAnimatedScene(
-  function setup(this: AnimatedScene, _) {
+  function setup(this) {
     for (let i = 0; i < 10; i++) {
       const w = i / 10.0
 
@@ -27,7 +26,7 @@ export default createAnimatedScene(
     }
   },
 
-  function animate(this: AnimatedScene, app: App) {
+  function animate(this, app) {
     const t = app.getSeconds()
 
     for (let i = 0; i < 10; i++) {

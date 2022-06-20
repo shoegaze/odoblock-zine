@@ -4,7 +4,7 @@ import { createAnimatedScene } from "../../../../collection/scene/AnimatedScene"
 
 
 export default createAnimatedScene(
-  function setup(this, _) {
+  function setup(this) {
     const geo = new THREE.BoxGeometry(8.0, 8.0, 8.0)
     const mat = new THREE.MeshBasicMaterial({
       color: 0xff00ff
@@ -17,7 +17,7 @@ export default createAnimatedScene(
     this.scene.add(cube)
   },
 
-  function animate(this, _/*, dt: number*/) {
+  function animate(this/*, dt: number*/) {
     const cube = this.scene.getObjectByName('cube')
 
     cube!.rotation.x += Math.PI / 2.0 * 1.0/60.0

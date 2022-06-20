@@ -2,7 +2,7 @@ import { clamp } from "three/src/math/MathUtils"
 
 import { AppScene } from "../collection/scene/AppScene"
 import { Layer, zPosToId } from "../collection/layer/Layer"
-import HomeLayer from "../data/layer/0/HomeLayer"
+import HomeLayer from "../data/layer/0/homeLayer"
 import { App } from "../App"
 
 

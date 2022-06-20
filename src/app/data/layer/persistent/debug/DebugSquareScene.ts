@@ -6,7 +6,7 @@ import { App } from "../../../../App"
 
 
 export default createAnimatedScene(
-  function setup(this: AnimatedScene, app: App) {
+  function setup(this) {
     const group = new THREE.Group()
 
     { // BG
@@ -73,7 +73,7 @@ export default createAnimatedScene(
     this.scene.add(group)
   },
 
-  function animate(this: AnimatedScene, app: App) {
+  function animate(this, app) {
     const group = this.scene.children[0]
     const { x, y, z } = app.getCamera().position
 
