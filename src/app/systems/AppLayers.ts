@@ -77,24 +77,27 @@ export const createAppLayers: CreateAppLayers = (app, cam) => {
     getClosestLayer(): Layer {
       const z = cam.position.z
 
+      // We can assume localLayers.length >= 1
       if (z >= 0.0) {
         return localLayers[0]
       }
 
-      const zLast = localLayers[localLayers.length - 1].zPos
+      const lastIndex = localLayers.length - 1
+      const lastLayer = localLayers[lastIndex]
+      const zLast = lastLayer.zPos
       if (z <= zLast) {
-        return localLayers[localLayers.length - 1]
+        return lastLayer
       }
 
       const idNow = toId(z)
       const layerNow = localLayers[idNow]
 
       // Can we assume that idNow :: [1, n-1] ?
-      const idPrev = clamp(idNow - 1, 0, localLayers.length - 1)
+      const idPrev = clamp(idNow - 1, 0, lastIndex)
       const layerPrev = localLayers[idPrev]
 
-      const distNow = Math.abs(cam.position.z - layerNow.zPos)
-      const distPrev = Math.abs(cam.position.z - layerPrev.zPos)
+      const distNow = Math.abs(z - layerNow.zPos)
+      const distPrev = Math.abs(z - layerPrev.zPos)
 
       return distNow < distPrev ? layerNow : layerPrev
     }
