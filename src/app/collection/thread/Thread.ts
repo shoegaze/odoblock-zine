@@ -14,8 +14,8 @@ type LayersGroup = {
   [key: LayersGroupKey]: Layer[]
 }
 
-type ThreadLayersGroupBy = (grouper: (layer: Layer) => LayersGroupKey, threads: Thread[]) => LayersGroup
-export const threadLayersGroupBy: ThreadLayersGroupBy = (grouper, threads) => {
+type ThreadGroupByLayers = (grouper: (layer: Layer) => LayersGroupKey, threads: Thread[]) => LayersGroup
+export const threadGroupByLayers: ThreadGroupByLayers = (grouper, threads) => {
   let layers: LayersGroup = {}
 
   threads.forEach(thread => {
