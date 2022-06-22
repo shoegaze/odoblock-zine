@@ -3,7 +3,7 @@ import { clamp } from "three/src/math/MathUtils"
 
 import { AppScene } from "./collection/scene/AppScene"
 import { AnimatedScene } from "./collection/scene/AnimatedScene"
-import { Layer, layersDistance, zPosToId } from "./collection/layer/Layer"
+import { Layer, layersDistance, zPosToZid } from "./collection/layer/Layer"
 import createAppBackground from "./systems/AppBackground"
 import createAppGraphics from "./systems/AppGraphics"
 import createCameraController from "./systems/AppCameraController"
@@ -197,7 +197,7 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
           }
 
           { // Update active layer
-            const id = zPosToId(cam.position.z)
+            const id = zPosToZid(cam.position.z)
             const i = Math.min(id, layers.getLocalLayers().length - 1)
 
             const localLayers = layers.getLocalLayers()

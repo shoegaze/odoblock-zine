@@ -18,22 +18,22 @@ import { localThreads } from './app/data/thread'
   // TODO: Rename to `app.getLayerManager()`?
   const layers = app.getLayers()
 
-  { // Add local threads
-    localThreads.forEach((thread) => {
-      layers.addLocalThread(thread)
-    })
-  }
+  // { // Add local threads
+  //   localThreads.forEach((thread) => {
+  //     layers.addLocalThread(thread)
+  //   })
+  // }
 
   { // Add persistent layers
-    persistentLayers.forEach((layer) => {
-      layers.addPersistentLayer(layer)
+    persistentLayers.forEach((layerCreator) => {
+      layers.addPersistentLayer(layerCreator())
     })
   }
 
   { // Add local layers
     // Filter out HomeLayer
-    localLayers.slice(1).forEach((layer) => {
-      layers.addLocalLayer(layer)
+    localLayers.slice(1).forEach((layerCreator) => {
+      layers.addLocalLayer(layerCreator())
     })
   }
 

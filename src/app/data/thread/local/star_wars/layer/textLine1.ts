@@ -1,11 +1,11 @@
 import * as THREE from "three"
 import { Text } from "troika-three-text"
 
-import { createLayer } from "../../../../../collection/layer/Layer"
+import { createLocalLayer } from "../../../../../collection/layer/Layer"
 import { createStaticScene } from "../../../../../collection/scene/StaticScene"
 
 
-const textLine1 = createLayer(
+const textLine1 = createLocalLayer(
   createStaticScene(
     function setup(this) {
       const geo = new THREE.PlaneGeometry(1.0, 1.0)
