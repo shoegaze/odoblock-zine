@@ -1,17 +1,17 @@
 import * as THREE from "three"
 
 import { Physics, createPhysics } from "../physics/Physics"
-import { App } from "../App"
 
 
 type PhysicsLoopFn = (physics: Physics, dt: number) => void
 
-interface CameraController {
+export interface CameraController {
+  getPhysics: () => Physics
   startPhysicsLoop(beforeUpdate?: PhysicsLoopFn, afterUpdate?: PhysicsLoopFn): void
   endPhysicsLoop(): void
 }
 
-const createCameraController = (cam: THREE.Camera): CameraController => {
+export const createCameraController = (cam: THREE.Camera): CameraController => {
   // TODO: Inject via options
   const mass = 1.0
   const physics = createPhysics(mass, cam.position)
@@ -22,6 +22,10 @@ const createCameraController = (cam: THREE.Camera): CameraController => {
   }
 
   return {
+    getPhysics() {
+      return physics
+    },
+
     startPhysicsLoop(beforeUpdate?, afterUpdate?): void {
       if (physicsLoopId) {
         console.error('CameraDragger.startPhysicsLoop: Can only have one loop active')
@@ -53,5 +57,3 @@ const createCameraController = (cam: THREE.Camera): CameraController => {
     },
   }
 }
-
-export default createCameraController
