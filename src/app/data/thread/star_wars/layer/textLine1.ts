@@ -1,8 +1,8 @@
 import * as THREE from "three"
 import { Text } from "troika-three-text"
 
-import { createLocalLayer } from "../../../../../collection/layer/Layer"
-import { createStaticScene } from "../../../../../collection/scene/StaticScene"
+import { createLocalLayer } from "../../../../collection/layer/Layer"
+import { createStaticScene } from "../../../../collection/scene/StaticScene"
 
 
 const textLine1 = createLocalLayer(

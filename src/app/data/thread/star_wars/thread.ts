@@ -1,4 +1,4 @@
-import { createThread } from "../../../../collection/thread/Thread"
+import { createThread } from "../../../collection/thread/Thread"
 import textLine0 from "./layer/textLine0"
 import textLine1 from "./layer/textLine1"
 import textLine2 from "./layer/textLine2"

@@ -17,10 +17,11 @@ import { localThreads } from './app/data/thread'
 
   // TODO: Rename to `app.getLayerManager()`?
   const layers = app.getLayers()
+  // const threads = app.getThreads()
 
   // { // Add local threads
   //   localThreads.forEach((thread) => {
-  //     layers.addLocalThread(thread)
+  //     threads.addLocalThread(thread)
   //   })
   // }
 
