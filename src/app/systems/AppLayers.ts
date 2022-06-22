@@ -1,10 +1,10 @@
 import { clamp } from "three/src/math/MathUtils"
 
 import { AppScene } from "../collection/scene/AppScene"
-import { Layer, zPosToId } from "../collection/layer/Layer"
+import { Layer, zPosToZid } from "../collection/layer/Layer"
 import { Thread } from "../collection/thread/Thread"
-import HomeLayer from "../data/layer/0/homeLayer"
 import { App } from "../App"
+import createHome from "../data/layer/createHomeLayer"
 
 
 export interface AppLayers {
@@ -23,9 +23,10 @@ export interface AppLayers {
 type CreateAppLayers = (app: App, cam: THREE.Camera) => AppLayers
 export const createAppLayers: CreateAppLayers = (app, cam) => {
   // Initialize with HomeLayer for type safety
-  let activeLayer = HomeLayer
+  const home = createHome()
+  let activeLayer = home
 
-  const localLayers: Array<Layer> = [HomeLayer]
+  const localLayers: Array<Layer> = [home]
   const persistentLayers: Array<Layer> = []
 
   return {
@@ -100,7 +101,7 @@ export const createAppLayers: CreateAppLayers = (app, cam) => {
         return lastLayer
       }
 
-      const idNow = zPosToId(z)
+      const idNow = zPosToZid(z)
       const layerNow = localLayers[idNow]
 
       // Can we assume that idNow :: [1, n-1] ?
