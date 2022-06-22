@@ -1,7 +1,7 @@
 import * as THREE from "three"
 import * as TroikaText from "troika-three-text"
 
-import { createPersistentLayer } from "../../../../collection/layer/Layer"
+import { createPersistentLayer, zIdToZPos } from "../../../../collection/layer/Layer"
 import { createAnimatedScene } from "../../../../collection/scene/AnimatedScene"
 
 
@@ -95,17 +95,15 @@ const createDebugPanel = () => createPersistentLayer(
 
         layersInfo.text =
           `Layers: n=${localLayers.length}\n` +
-          ` * Active Layer: ${activeLayer.zId}\n` +
-          ` * Local Layers:\n`
-
-        localLayers.forEach(({ zId: id }) => {
-          layersInfo.text += `  > ${id}\n`
-        })
+          ` * Active Layer: ${activeLayer.zId}\n`
 
         layersInfo.text += ` * Persistent Layers:\n`
+        layersInfo.text += `  > [${persistentLayers.map((({ zId }) => zId)).join(', ')}]\n`
 
-        persistentLayers.forEach(({ zId: id }) => {
-          layersInfo.text += `  > ${id}\n`
+        layersInfo.text += ` * Local Layers:\n`
+        localLayers.forEach(({ zId }) => {
+          const zPos = zIdToZPos(zId).toFixed(2)
+          layersInfo.text += `  > ${zId} (${zPos})\n`
         })
 
         layersInfo.sync()
@@ -116,6 +114,7 @@ const createDebugPanel = () => createPersistentLayer(
         const camInfo = group.children[2] as TroikaText.Text
         camInfo.text =
           `Camera:\n` +
+          ` * speed=${app.getCameraController().getPhysics().velocity.length()}\n` +
           ` * pos=(${cam.position.x.toFixed(2)},${cam.position.y.toFixed(2)},${cam.position.z.toFixed(2)})\n` +
           ` * rot=(${cam.rotation.x.toFixed(2)},${cam.rotation.y.toFixed(2)},${cam.rotation.z.toFixed(2)})\n`
 
