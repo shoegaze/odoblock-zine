@@ -4,21 +4,24 @@ import { clamp } from "three/src/math/MathUtils"
 import { AppScene } from "./collection/scene/AppScene"
 import { AnimatedScene } from "./collection/scene/AnimatedScene"
 import { Layer, layersDistance, zPosToZid } from "./collection/layer/Layer"
-import createAppBackground from "./systems/AppBackground"
 import createAppGraphics from "./systems/AppGraphics"
-import createCameraController from "./systems/AppCameraController"
+import createAppBackground from "./systems/AppBackground"
 import { AppInputType, createAppInput } from "./systems/AppInput"
+import { AppThreads, createAppThreads } from "./systems/AppThreads"
 import { AppLayers, createAppLayers } from "./systems/AppLayers"
+import { CameraController, createCameraController } from "./systems/AppCameraController"
 import { Physics } from "./physics/Physics"
 
 
 type AppMethod = (this: App) => void
 
 export interface App {
+  getSeconds: () => number
   getCamera: () => THREE.Camera
   getRendererSize: () => THREE.Vector2
+  getThreads: () => AppThreads
   getLayers: () => AppLayers
-  getSeconds: () => number
+  getCameraController: () => CameraController
 
   start: AppMethod
   startPhysics: AppMethod
@@ -66,6 +69,10 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
   const clock = new THREE.Clock(false)
 
   const app: App = {
+    getSeconds: () => {
+      return clock.getElapsedTime()
+    },
+
     getCamera: () => {
       return cam
     },
@@ -79,12 +86,16 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
       return size
     },
 
+    getThreads: () => {
+      return threads
+    },
+
     getLayers: () => {
       return layers
     },
 
-    getSeconds: () => {
-      return clock.getElapsedTime()
+    getCameraController: () => {
+      return cameraController
     },
 
     start() {
@@ -112,7 +123,7 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
 
     startPhysics() {
       cameraController.startPhysicsLoop(
-        (physics: Physics, _: number) => { // beforeUpdate
+        (physics: Physics, _: number) => {
           { // Reset camera rotation
             cam.rotation.set(0.0, 0.0, 0.0)
           }
@@ -131,7 +142,7 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
             input.resetQueuedInputs()
           }
         },
-        (physics: Physics, dt: number) => { // afterUpdate
+        (physics: Physics, dt: number) => {
           { // Decelerate if no input received for t seconds
             const t = clock.getElapsedTime()
             const lastInputTime = input.getLastInputTime()
@@ -163,10 +174,8 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
             ).multiplyScalar(dt)
 
             // const k = new THREE.Vector3(0.0, 0.0, +1.0)
-
             // dp `cross` k = (-dp_y, +dp_x, 0)^T
             //  when dp_z = 0
-
             // TODO: Normalize axis
             const axis = new THREE.Vector3(-dp.y, +dp.x, 0.0)
 
@@ -293,6 +302,7 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
 
   const bg = createAppBackground(new THREE.Vector2(s, s), new THREE.Clock(true))
   const input = createAppInput(new THREE.Clock(true))
+  const threads = createAppThreads()
   const layers = createAppLayers(app, cam)
   const cameraController = createCameraController(cam)
 

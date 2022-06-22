@@ -2,14 +2,14 @@ import { Layer } from "../collection/layer/Layer"
 import { Thread } from "../collection/thread/Thread"
 
 
-export interface AppThread {
+export interface AppThreads {
   getActiveThreads: () => Thread[]
   getActiveLayers: () => Layer[]
   incrementPointer: () => void
   decrementPointer: () => void
 }
 
-export const createAppThread = (): AppThread => {
+export const createAppThreads = (): AppThreads => {
   const allThreads: Thread[] = []
 
   let pointer = 0

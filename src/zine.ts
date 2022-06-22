@@ -21,7 +21,7 @@ import { localThreads } from './app/data/thread'
 
   // { // Add local threads
   //   localThreads.forEach((thread) => {
-  //     threads.addLocalThread(thread)
+  //     threads.addThread(thread)
   //   })
   // }
 
