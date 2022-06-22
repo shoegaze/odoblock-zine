@@ -114,7 +114,7 @@ const createDebugPanel = () => createPersistentLayer(
         const camInfo = group.children[2] as TroikaText.Text
         camInfo.text =
           `Camera:\n` +
-          ` * speed=${app.getCameraController().getPhysics().velocity.length()}\n` +
+          ` * speed=${app.getCameraController().getPhysics().velocity.length().toFixed(2)}\n` +
           ` * pos=(${cam.position.x.toFixed(2)},${cam.position.y.toFixed(2)},${cam.position.z.toFixed(2)})\n` +
           ` * rot=(${cam.rotation.x.toFixed(2)},${cam.rotation.y.toFixed(2)},${cam.rotation.z.toFixed(2)})\n`
 
