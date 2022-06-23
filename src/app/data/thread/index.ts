@@ -1,7 +1,10 @@
 import { Thread } from "../../collection/thread/Thread"
-import threadStarWars from "./star_wars/thread"
+import home from "./home/thread"
+import starWars from "./star_wars/thread"
 
 
 export const localThreads: Thread[] = [
-  threadStarWars
+  home,
+  // test,
+  starWars
 ]

@@ -5,6 +5,7 @@ import textLine2 from "./layer/textLine2"
 
 
 const starWars = createThread(
+  "Star Wars",
   textLine0,
   textLine1,
   textLine2
