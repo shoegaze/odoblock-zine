@@ -1,10 +1,10 @@
 import * as THREE from 'three'
 
-import { createLocalLayer } from "../../collection/layer/Layer"
-import { createStaticScene } from "../../collection/scene/StaticScene"
+import { createLocalLayer } from "../../../../collection/layer/Layer"
+import { createStaticScene } from "../../../../collection/scene/StaticScene"
 
 
-const createHome = () => createLocalLayer(
+const homeLayer = createLocalLayer(
   0,
   createStaticScene(
     function setup(this) {
@@ -21,4 +21,4 @@ const createHome = () => createLocalLayer(
   )
 )
 
-export default createHome
+export default homeLayer

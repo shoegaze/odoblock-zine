@@ -7,6 +7,7 @@ import { createStaticScene } from "../../collection/scene/StaticScene"
 
 
 const createLayer1 = () => createLocalLayer(
+  1, // TODO: Split layers up
   // Scene 2
   createStaticScene(
     function setup(this) {
@@ -78,8 +79,8 @@ const createLayer1 = () => createLocalLayer(
     function animate(this/*, dt: number*/) {
       const cube = this.scene.getObjectByName('cube')
 
-      cube!.rotation.x += Math.PI / 2.0 * 1.0/60.0
-      cube!.rotation.y += Math.PI / 3.0 * 1.0/60.0
+      cube!.rotation.x += Math.PI / 2.0 * 1.0 / 60.0
+      cube!.rotation.y += Math.PI / 3.0 * 1.0 / 60.0
     }
   )
 )
