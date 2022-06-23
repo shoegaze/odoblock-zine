@@ -90,39 +90,39 @@ const transitionLayer = () => createPersistentLayer(
       const mesh = this.scene.getObjectByName('mesh')! as THREE.Mesh
 
       { // Update uniforms
-        const mat = mesh.material as THREE.ShaderMaterial
+        //   const mat = mesh.material as THREE.ShaderMaterial
 
-        const cam = app.getCamera()
-        const layers = app.getLayers()
+        //   const cam = app.getCamera()
+        //   const layers = app.getLayers()
 
-        // TODO: Use truncated triangle for u_t?
-        const zCam = cam.position.z
-        const zLayer = layers.getClosestLayer().zPos
-        // https://graphtoy.com/?f1(x,t)=1%20-%20abs(%20(x%20-%204)/2%20)&v1=false&f2(x,t)=max(f1(x),%200)&v2=true&f3(x,t)=&v3=false&f4(x,t)=&v4=false&f5(x,t)=&v5=false&f6(x,t)=&v6=false&grid=1&coords=4.64315003434978,1.734851413907519,5.155202479020844
-        const t = Math.max(0.0, 1.0 - Math.abs((zCam - zLayer) / fadeDistance))
+        //   // TODO: Use truncated triangle for u_t?
+        //   const zCam = cam.position.z
+        //   const zLayer = layers.getClosestLayer().zPos
+        //   // https://graphtoy.com/?f1(x,t)=1%20-%20abs(%20(x%20-%204)/2%20)&v1=false&f2(x,t)=max(f1(x),%200)&v2=true&f3(x,t)=&v3=false&f4(x,t)=&v4=false&f5(x,t)=&v5=false&f6(x,t)=&v6=false&grid=1&coords=4.64315003434978,1.734851413907519,5.155202479020844
+        //   const t = Math.max(0.0, 1.0 - Math.abs((zCam - zLayer) / fadeDistance))
 
-        mat.uniforms.u_t.value = t
-        // mat.uniforms.u_color.value = new THREE.Color(1.0, 0.0, 0.0)
+        //   mat.uniforms.u_t.value = t
+        //   // mat.uniforms.u_color.value = new THREE.Color(1.0, 0.0, 0.0)
 
-        mat.uniforms.u_time.value = app.getSeconds()
-        mat.uniforms.u_resolution.value = app.getRendererSize()
+        //   mat.uniforms.u_time.value = app.getSeconds()
+        //   mat.uniforms.u_resolution.value = app.getRendererSize()
 
-        // const mouse = app.getQueuedMousePosition()
-        // mat.uniforms.u_mouse.value = mouse.divide(resolution)
+        //   // const mouse = app.getQueuedMousePosition()
+        //   // mat.uniforms.u_mouse.value = mouse.divide(resolution)
 
-        mat.uniformsNeedUpdate = true
-      }
+        //   mat.uniformsNeedUpdate = true
+        // }
 
-      { // Update mesh position
-        const { position, rotation } = app.getCamera()
-        const { x, y, z } = position
-        // TODO: Create method to set position to screen space
-        // TODO: Use camera normal for position
-        mesh.position.set(x, y, z - 1.0)
+        // { // Update mesh position
+        //   const { position, rotation } = app.getCamera()
+        //   const { x, y, z } = position
+        //   // TODO: Create method to set position to screen space
+        //   // TODO: Use camera normal for position
+        //   mesh.position.set(x, y, z - 1.0)
 
-        // TODO: Rearrange animate timing
-        const { x: rx, y: ry, z: rz } = rotation
-        mesh.rotation.set(rx, ry, rz)
+        //   // TODO: Rearrange animate timing
+        //   const { x: rx, y: ry, z: rz } = rotation
+        //   mesh.rotation.set(rx, ry, rz)
       }
     }
   )

@@ -86,39 +86,40 @@ const createDebugPanel = () => createPersistentLayer(
       )
 
       { // Update layers info
-        const appLayers = app.getLayers()
-        const activeLayer = appLayers.getActiveLayer()
-        const localLayers = appLayers.getLocalLayers()
-        const persistentLayers = appLayers.getPersistentLayers()
+        //   const appLayers = app.getLayers()
+        //   const activeLayer = appLayers.getActiveLayer()
+        //   const localLayers = appLayers.getLocalLayers()
+        //   const persistentLayers = appLayers.getPersistentLayers()
 
-        const layersInfo = group.children[1] as TroikaText.Text
+        //   const layersInfo = group.children[1] as TroikaText.Text
 
-        layersInfo.text =
-          `Layers: n=${localLayers.length}\n` +
-          ` * Active Layer: ${activeLayer.zId}\n`
+        //   layersInfo.text =
+        //     `Layers: n=${localLayers.length}\n` +
+        //     ` * Active Layer: ${activeLayer.zId}\n`
 
-        layersInfo.text += ` * Persistent Layers:\n`
-        layersInfo.text += `  > [${persistentLayers.map((({ zId }) => zId)).join(', ')}]\n`
+        //   layersInfo.text += ` * Persistent Layers:\n`
+        //   layersInfo.text += `  > [${persistentLayers.map((({ zId }) => zId)).join(', ')}]\n`
 
-        layersInfo.text += ` * Local Layers:\n`
-        localLayers.forEach(({ zId }) => {
-          const zPos = zIdToZPos(zId).toFixed(2)
-          layersInfo.text += `  > ${zId} (${zPos})\n`
-        })
+        //   layersInfo.text += ` * Local Layers:\n`
+        //   localLayers.forEach(({ zId }) => {
+        //     const zPos = zIdToZPos(zId).toFixed(2)
+        //     layersInfo.text += `  > ${zId} (${zPos})\n`
+        //   })
 
-        layersInfo.sync()
-      }
+        //   layersInfo.sync()
+        // }
 
-      { // Update cam info
-        const cam = app.getCamera()
-        const camInfo = group.children[2] as TroikaText.Text
-        camInfo.text =
-          `Camera:\n` +
-          ` * speed=${app.getCameraController().getPhysics().velocity.length().toFixed(2)}\n` +
-          ` * pos=(${cam.position.x.toFixed(2)},${cam.position.y.toFixed(2)},${cam.position.z.toFixed(2)})\n` +
-          ` * rot=(${cam.rotation.x.toFixed(2)},${cam.rotation.y.toFixed(2)},${cam.rotation.z.toFixed(2)})\n`
+        // { // Update cam info
+        //   const cam = app.getCamera()
+        //   const camInfo = group.children[2] as TroikaText.Text
+        //   camInfo.text =
+        //     `Camera:\n` +
+        //     ` * speed=${app.getCameraController().getPhysics().velocity.length().toFixed(2)}\n` +
+        //     ` * pos=(${cam.position.x.toFixed(2)},${cam.position.y.toFixed(2)},${cam.position.z.toFixed(2)})\n` +
+        //     ` * rot=(${cam.rotation.x.toFixed(2)},${cam.rotation.y.toFixed(2)},${cam.rotation.z.toFixed(2)})\n`
 
-        camInfo.sync()
+        //   camInfo.sync()
+        // }
       }
     }
   )
