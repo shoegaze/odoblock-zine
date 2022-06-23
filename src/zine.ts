@@ -1,5 +1,4 @@
 import { createApp } from './app/App'
-import { localLayers, persistentLayers } from './app/data/layer'
 import { localThreads } from './app/data/thread'
 
 
@@ -12,29 +11,14 @@ import { localThreads } from './app/data/thread'
     idleTimeBeforeDeceleration: 0.75,
     camMaxSpeed: 100.0,
     translationSensitivity: 90.0,
-    zoomSensitivity: 40.0,
+    zoomSensitivity: 90.0,
   })
 
-  // TODO: Rename to `app.getLayerManager()`?
-  const layers = app.getLayers()
-  // const threads = app.getThreads()
+  const threads = app.getThreads()
 
-  // { // Add local threads
-  //   localThreads.forEach((thread) => {
-  //     threads.addThread(thread)
-  //   })
-  // }
-
-  { // Add persistent layers
-    persistentLayers.forEach((layerCreator) => {
-      layers.addPersistentLayer(layerCreator())
-    })
-  }
-
-  { // Add local layers
-    // Filter out HomeLayer
-    localLayers.slice(1).forEach((layerCreator) => {
-      layers.addLocalLayer(layerCreator())
+  { // Add local threads
+    localThreads.forEach((thread) => {
+      threads.addThread(thread)
     })
   }
 
