@@ -1,8 +1,8 @@
 import { AppScene } from "../scene/AppScene"
 
 
-export const fadeDistance = 125.0
-export const layersDistance = 300.0
+export const fadeDistance = 50.0
+export const layersDistance = 150.0
 
 export interface Layer {
   zId: number
