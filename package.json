@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx webpack",
     "build:watch": "npx webpack --watch",
-    "serve": "npx webpack-dev-server --hot"
+    "serve": "npx webpack-dev-server --mode development --hot"
   },
   "author": "ODOBLOCK",
   "license": "ISC",
