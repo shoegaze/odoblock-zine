@@ -1,6 +1,6 @@
 import * as THREE from "three"
 
-import { createPersistentLayer, zIdToZPos } from "../../../../collection/layer/Layer"
+import { createPersistentLayer, zIdToZPos, ZPos } from "../../../../collection/layer/Layer"
 import { createAnimatedScene } from "../../../../collection/scene/AnimatedScene"
 import { fadeDistance } from "../../../../collection/layer/Layer"
 
@@ -94,11 +94,10 @@ const transitionLayer = createPersistentLayer([
 
           const cam = app.getCamera()
           const threads = app.getThreads()
-          // const layers = app.getLayers()
 
           // TODO: Use truncated triangle for u_t?
           const zCam = cam.position.z
-          const zClosest = zIdToZPos(threads.getClosestZid(zCam))
+          const zClosest: ZPos = zIdToZPos(threads.getClosestZid(zCam))
           // https://graphtoy.com/?f1(x,t)=1%20-%20abs(%20(x%20-%204)/2%20)&v1=false&f2(x,t)=max(f1(x),%200)&v2=true&f3(x,t)=&v3=false&f4(x,t)=&v4=false&f5(x,t)=&v5=false&f6(x,t)=&v6=false&grid=1&coords=4.64315003434978,1.734851413907519,5.155202479020844
           const t = Math.max(0.0, 1.0 - Math.abs((zCam - zClosest) / fadeDistance))
 
