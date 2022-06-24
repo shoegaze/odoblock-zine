@@ -5,7 +5,7 @@ import { createPersistentLayer } from "../../../../collection/layer/Layer"
 import { createAnimatedScene } from "../../../../collection/scene/AnimatedScene"
 
 
-const createDebugPanel = createPersistentLayer([
+const debugPanel = createPersistentLayer([
   createAnimatedScene(
     function setup(this) {
       const group = new THREE.Group()
@@ -125,4 +125,4 @@ const createDebugPanel = createPersistentLayer([
   )
 ])
 
-export default createDebugPanel
+export default debugPanel

@@ -5,7 +5,7 @@ import { createAnimatedScene } from "../../../../collection/scene/AnimatedScene"
 import { fadeDistance } from "../../../../collection/layer/Layer"
 
 
-const transitionLayer = () => createPersistentLayer([
+const transitionLayer = createPersistentLayer([
   createAnimatedScene(
     function setup(this) {
       // TODO: Calculate geo size based on screen size

@@ -1,4 +1,5 @@
 import { createApp } from './app/App'
+import { persistentLayers } from './app/data/layer'
 import { localThreads } from './app/data/thread'
 
 
@@ -19,6 +20,12 @@ import { localThreads } from './app/data/thread'
   { // Add local threads
     localThreads.forEach((thread) => {
       threads.addThread(thread)
+    })
+  }
+
+  { // Add persistent layers
+    persistentLayers.forEach((layer) => {
+      threads.addPersistentLayer(layer)
     })
   }
 
