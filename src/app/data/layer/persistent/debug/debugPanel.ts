@@ -1,7 +1,7 @@
 import * as THREE from "three"
 import * as TroikaText from "troika-three-text"
 
-import { createPersistentLayer } from "../../../../collection/layer/Layer"
+import { createPersistentLayer, zPosToZid } from "../../../../collection/layer/Layer"
 import { createAnimatedScene } from "../../../../collection/scene/AnimatedScene"
 
 
@@ -67,7 +67,7 @@ const debugPanel = createPersistentLayer([
         camInfo.sync()
 
         // const { bottom: camBottom } = layersInfo.get
-        camInfo.position.set(-0.98, -0.25, 1.0e-3)
+        camInfo.position.set(-0.98, -0.15, 1.0e-3)
         group.add(camInfo)
       }
 
@@ -94,9 +94,9 @@ const debugPanel = createPersistentLayer([
 
         threadsInfo.text = `Threads (${activeThreads.length}/${allThreads.length})\n`
 
-        threadsInfo.text += ` > All Threads:\n`
+        threadsInfo.text += ` > All Threads: [${appThreads.getBounds().join(', ')}]\n`
         allThreads.forEach((thread) => {
-          threadsInfo.text += `  [${(activeThreads.find((t) => t === thread)) ? '*' : ' '}] ${thread.name}\n`
+          threadsInfo.text += `  [${(activeThreads.find((t) => t === thread)) ? '*' : ' '}] ${thread.name}: [${thread.zIdBounds.join(', ')}]\n`
         })
       }
 
@@ -105,6 +105,8 @@ const debugPanel = createPersistentLayer([
         const camInfo = group.children[2] as TroikaText.Text
         camInfo.text =
           `Camera:\n` +
+          ` * current zId=${zPosToZid(cam.position.z)}\n` +
+          ` * closest zId=${app.getThreads().getClosestZid(cam.position.z)}\n` +
           ` * speed=${app.getCameraController().getPhysics().velocity.length().toFixed(2)}\n` +
           ` * pos=(${cam.position.x.toFixed(2)},${cam.position.y.toFixed(2)},${cam.position.z.toFixed(2)})\n` +
           ` * rot=(${cam.rotation.x.toFixed(2)},${cam.rotation.y.toFixed(2)},${cam.rotation.z.toFixed(2)})\n`
