@@ -5,8 +5,7 @@ import { createLocalLayer } from "../../../../collection/layer/Layer"
 import { createStaticScene } from "../../../../collection/scene/StaticScene"
 
 
-const text2 = createLocalLayer(
-  2,
+const text2 = createLocalLayer(2, [
   createStaticScene(
     function setup(this) {
       const geo = new THREE.PlaneGeometry(7.5, 7.5)
@@ -29,6 +28,6 @@ const text2 = createLocalLayer(
       this.scene.add(text)
     }
   )
-)
+])
 
 export default text2

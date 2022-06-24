@@ -5,9 +5,8 @@ import { createLocalLayer } from "../../../../collection/layer/Layer"
 import { createAnimatedScene } from "../../../../collection/scene/AnimatedScene"
 import { createStaticScene } from "../../../../collection/scene/StaticScene"
 
-
-const testLayer = createLocalLayer(
-  1, // TODO: Split layers up
+// TODO: Split layers up
+const testLayer = createLocalLayer(1, [
   // Scene 2
   createStaticScene(
     function setup(this) {
@@ -84,6 +83,6 @@ const testLayer = createLocalLayer(
       cube!.rotation.y += Math.PI / 3.0 * dt
     }
   )
-)
+])
 
 export default testLayer

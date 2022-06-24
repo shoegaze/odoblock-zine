@@ -1,11 +1,11 @@
 import * as THREE from "three"
 import * as TroikaText from "troika-three-text"
 
-import { createPersistentLayer, zIdToZPos } from "../../../../collection/layer/Layer"
+import { createPersistentLayer } from "../../../../collection/layer/Layer"
 import { createAnimatedScene } from "../../../../collection/scene/AnimatedScene"
 
 
-const createDebugPanel = () => createPersistentLayer(
+const createDebugPanel = createPersistentLayer([
   createAnimatedScene(
     function setup(this) {
       const group = new THREE.Group()
@@ -123,6 +123,6 @@ const createDebugPanel = () => createPersistentLayer(
       }
     }
   )
-)
+])
 
 export default createDebugPanel

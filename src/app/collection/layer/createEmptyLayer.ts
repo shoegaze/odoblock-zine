@@ -1,8 +1,8 @@
-import { createLocalLayer } from "./Layer";
+import { createLocalLayer } from "./Layer"
 
 
 const createEmptyLayer = (zId: number) => (
-  createLocalLayer(zId)
+  createLocalLayer(zId, [])
 )
 
 export default createEmptyLayer
