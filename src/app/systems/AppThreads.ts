@@ -1,7 +1,8 @@
 import * as THREE from "three"
+import { clamp } from "three/src/math/MathUtils"
 
 import { App } from "../App"
-import { Layer } from "../collection/layer/Layer"
+import { Layer, layersDistance } from "../collection/layer/Layer"
 import { AnimatedScene } from "../collection/scene/AnimatedScene"
 import { createThread, Thread } from "../collection/thread/Thread"
 
@@ -20,6 +21,8 @@ export interface AppThreads {
   getPointer: () => number
   incrementPointer: () => void
   decrementPointer: () => void
+
+  getClosestZid: (zPos: number) => number
 
   animate: () => void
   render: (renderer: THREE.WebGLRenderer) => void
@@ -182,6 +185,25 @@ export const createAppThreads = (app: App): AppThreads => {
       // Activate new layers
       updateActiveThreads()
       setLayersActive(true)
+    },
+
+    // Get closest populated zId
+    getClosestZid(zPos) {
+      const [zIdStart, zIdEnd] = this.getBounds()
+
+      // TODO: Can we assume threads are not empty?
+      // if (zIdStart === -Infinity || zIdEnd === +Infinity) {
+      //   return null
+      // }
+
+      // https://graphtoy.com/?f1(x,t)=2&v1=true&f2(x,t)=7&v2=true&f3(x,t)=5&v3=false&f4(x,t)=clamp(%20floor(%20(%20x%20%20+%20f3(x)/2%20)/f3(x)%20+%20f1(x)),%20f1(x),%20f2(x)%20)&v4=false&f5(x,t)=clamp(%20floor(%20(%20x/f3(x)%20%20+%200.5%20)%20+%20f1(x)),%20f1(x),%20f2(x)%20)&v5=true&f6(x,t)=&v6=false&grid=1
+      const zId = Math.floor(-zPos/layersDistance + zIdStart + 0.5)
+
+      return clamp(
+        zId,
+        zIdStart,
+        zIdEnd
+      )
     },
 
     animate() {
