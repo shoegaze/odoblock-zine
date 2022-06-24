@@ -3,12 +3,14 @@ import * as THREE from "three"
 import { App } from "../App"
 import { Layer } from "../collection/layer/Layer"
 import { AnimatedScene } from "../collection/scene/AnimatedScene"
-import { Thread } from "../collection/thread/Thread"
+import { createThread, Thread } from "../collection/thread/Thread"
 
 
 export interface AppThreads {
   addThread: (thread: Thread) => void
-  // addPersistentLayer: (layer: Layer) => void
+  addPersistentLayer: (layer: Layer) => void
+  addLocalLayer: (layer: Layer) => void
+
   getActiveThreads: () => Thread[]
   getActiveLayers: () => Layer[]
   getBounds: () => [number, number]
@@ -23,7 +25,8 @@ export interface AppThreads {
 
 export const createAppThreads = (app: App): AppThreads => {
   // TODO:
-  // const persistentThread: Thread = {}
+  const persistentThread: Thread = createThread(".persistent", [])
+  const floatingLocalsThread: Thread = createThread(".float-local", [])
 
   // TODO: Optimize by sorting by zId
   const allThreads: Thread[] = []
@@ -85,6 +88,32 @@ export const createAppThreads = (app: App): AppThreads => {
       //     layer.setActive(true)
       //   })
       // }
+    },
+
+    addPersistentLayer(layer) {
+      return new Error("TODO: Implement addLocalLayer")
+
+      if (persistentThread.layers.find((l) => l === layer)) {
+        console.warn(`Layer ${layer} is already present in AppThreads/.persistent`)
+        return
+      }
+
+      persistentThread.layers.push(layer)
+      // TODO:
+
+    },
+
+    addLocalLayer(layer) {
+      return new Error("TODO: Implement addLocalLayer")
+
+      if (floatingLocalsThread.layers.find((l) => l === layer)) {
+        console.warn(`Layer ${layer} is already present in AppThreads/.float-local`)
+        return
+      }
+
+      floatingLocalsThread.layers.push(layer)
+      // TODO:
+
     },
 
     getActiveThreads() {
