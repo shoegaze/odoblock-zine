@@ -103,20 +103,17 @@ export const createAppThreads = (app: App): AppThreads => {
         return
       }
 
-      persistentThread.layers.push(layer)
+      persistentThread.addLayer(layer)
     },
 
     addLocalLayer(layer) {
-      return new Error("TODO: Implement addLocalLayer")
-
       if (floatingLocalsThread.hasLayer(layer)) {
         console.warn(`Layer ${layer} is already present in AppThreads/.float-local`)
         return
       }
 
-      floatingLocalsThread.layers.push(layer)
-      // TODO:
-
+      // TODO: Handle skips inside of thread
+      floatingLocalsThread.addLayer(layer)
     },
 
     getActiveThreads() {
