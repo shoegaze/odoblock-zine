@@ -144,7 +144,7 @@ out
 
 # End of https://www.toptal.com/developers/gitignore/api/node
 
-.DS_STORE
+.DS_Store
 
 .github
 static/js/dist/*
