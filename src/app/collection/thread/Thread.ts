@@ -5,7 +5,7 @@ export interface Thread {
   name: string
   // TODO: Convert to { [zId: number]: Layer[] }
   layers: Layer[]
-  idBounds: [number, number] // [start, end]
+  zIdBounds: [number, number] // [start, end]
 
   hasLayer: (layer: Layer) => boolean
   addLayer: (layer: Layer) => void
@@ -14,7 +14,7 @@ export interface Thread {
 export const createThread = (name: string, layers: Layer[]): Thread => ({
   name,
   layers,
-  idBounds: [
+  zIdBounds: [
     // TODO: Combine into one pass
     layers.reduce((acc, layer) => Math.min(acc, layer.zId), +Infinity),
     layers.reduce((acc, layer) => Math.max(acc, layer.zId), -Infinity)
@@ -27,8 +27,8 @@ export const createThread = (name: string, layers: Layer[]): Thread => ({
   addLayer(layer) {
     this.layers.push(layer)
 
-    const [start, end] = this.idBounds
-    this.idBounds = [
+    const [start, end] = this.zIdBounds
+    this.zIdBounds = [
       Math.min(start, layer.zId),
       Math.max(end, layer.zId)
     ]

@@ -39,7 +39,9 @@ export const createAppThreads = (app: App): AppThreads => {
 
   const updateActiveThreads = (): void => {
     // TODO: Include the one after the current pointer, too
-    activeThreads = allThreads.filter(({ idBounds: [start, end] }) => start <= pointer && pointer <= end)
+    activeThreads = allThreads.filter(({ zIdBounds: [start, end] }) => (
+      start <= pointer && pointer <= end
+    ))
 
     // TODO: Optimize arrays concatenation with `.concat()`
     //  > Maybe activeLayers.length is small enough?
@@ -70,6 +72,10 @@ export const createAppThreads = (app: App): AppThreads => {
       }
 
       allThreads.push(thread)
+      // TODO: Just insert the thread sorted = O(n)
+      allThreads.sort(({ zIdBounds: [startA, _endA] }, { zIdBounds: [startB, _endB] }) => (
+        startA - startB
+      ))
 
       // Setup
       thread.layers.forEach((layer) => {
@@ -134,8 +140,8 @@ export const createAppThreads = (app: App): AppThreads => {
     getBounds() {
       // if (dirty) {
       // TODO: Collapse into one pass
-      const start = allThreads.reduce((acc, { idBounds: [start, _] }) => Math.min(acc, start), +Infinity)
-      const end = allThreads.reduce((acc, { idBounds: [_, end] }) => Math.max(acc, end), -Infinity)
+      const start = allThreads.reduce((acc, { zIdBounds: [start, _] }) => Math.min(acc, start), +Infinity)
+      const end = allThreads.reduce((acc, { zIdBounds: [_, end] }) => Math.max(acc, end), -Infinity)
       // }
       // else {
       //   return bounds
