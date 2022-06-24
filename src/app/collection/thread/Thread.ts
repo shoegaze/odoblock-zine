@@ -24,11 +24,6 @@ export const createThread = (name: string, layers: Layer[]): Thread => ({
   },
 
   addLayer(layer) {
-    if (this.hasLayer(layer)) {
-      console.warn(`Layer ${layer} is already present in Thread "${this.name}"`)
-      return
-    }
-
     this.layers.push(layer)
   }
 })
