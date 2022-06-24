@@ -4,6 +4,12 @@ import { localThreads } from './app/data/thread'
 
 
 { // main
+  { // DEBUG: Testing audio
+    const audio = new Audio('./sound/mp3/bgm.mp3')
+    audio.loop = true
+    audio.play()
+  }
+
   const canvas = document.querySelector('#screen') as HTMLCanvasElement
   const app = createApp(canvas, {
     fov: 45.0,
