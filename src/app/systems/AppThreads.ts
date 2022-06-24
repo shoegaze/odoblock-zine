@@ -7,6 +7,8 @@ import { createThread, Thread } from "../collection/thread/Thread"
 
 
 export interface AppThreads {
+  hasThread: (thread: Thread) => boolean
+
   addThread: (thread: Thread) => void
   addPersistentLayer: (layer: Layer) => void
   addLocalLayer: (layer: Layer) => void
@@ -55,10 +57,15 @@ export const createAppThreads = (app: App): AppThreads => {
   }
 
   return {
-    addThread: (thread) => {
+    hasThread(thread) {
+      return allThreads.find((t) => t === thread) !== undefined
+    },
+
+    addThread(thread) {
       // Ignore duplicates
       //  Is this necessary?
-      if (allThreads.find((t) => t === thread)) {
+      if (this.hasThread(thread)) {
+        console.warn(`Thread "${thread.name}" is already present`)
         return
       }
 
@@ -93,7 +100,7 @@ export const createAppThreads = (app: App): AppThreads => {
     addPersistentLayer(layer) {
       return new Error("TODO: Implement addLocalLayer")
 
-      if (persistentThread.layers.find((l) => l === layer)) {
+      if (persistentThread.hasLayer(layer)) {
         console.warn(`Layer ${layer} is already present in AppThreads/.persistent`)
         return
       }
@@ -106,7 +113,7 @@ export const createAppThreads = (app: App): AppThreads => {
     addLocalLayer(layer) {
       return new Error("TODO: Implement addLocalLayer")
 
-      if (floatingLocalsThread.layers.find((l) => l === layer)) {
+      if (floatingLocalsThread.hasLayer(layer)) {
         console.warn(`Layer ${layer} is already present in AppThreads/.float-local`)
         return
       }
