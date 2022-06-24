@@ -1,10 +1,10 @@
-import { createThread } from "../../../collection/thread/Thread";
-import homeLayer from "./layer/homeLayer";
+import { createThread } from "../../../collection/thread/Thread"
+import homeLayer from "./layer/home"
 
 
-const home = createThread(
+const homeThread = createThread(
   "Home",
   homeLayer
 )
 
-export default home
+export default homeThread

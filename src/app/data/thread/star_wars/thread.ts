@@ -1,14 +1,14 @@
 import { createThread } from "../../../collection/thread/Thread"
-import textLine0 from "./layer/textLine0"
-import textLine1 from "./layer/textLine1"
-import textLine2 from "./layer/textLine2"
+import text0 from "./layer/text0"
+import text1 from "./layer/text1"
+import text2 from "./layer/text2"
 
 
-const starWars = createThread(
+const starWarsThread = createThread(
   "Star Wars",
-  textLine0,
-  textLine1,
-  textLine2
+  text0,
+  text1,
+  text2
 )
 
-export default starWars
+export default starWarsThread

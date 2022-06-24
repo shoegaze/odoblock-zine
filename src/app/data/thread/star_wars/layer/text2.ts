@@ -5,15 +5,15 @@ import { createLocalLayer } from "../../../../collection/layer/Layer"
 import { createStaticScene } from "../../../../collection/scene/StaticScene"
 
 
-const textLine1 = createLocalLayer(
-  1,
+const text2 = createLocalLayer(
+  2,
   createStaticScene(
     function setup(this) {
       const geo = new THREE.PlaneGeometry(7.5, 7.5)
       const mat = new THREE.Material()
       const text = new Text(geo, mat)
 
-      text.text = "Thread 0.1:\nSuspendisse dictum ultricies magna, id ultricies ex dictum nec."
+      text.text = "Thread 0.2:\nCurabitur leo mi, hendrerit id ligula eu, placerat lobortis quam."
       text.anchorX = 'center'
       text.font = './font/ComicMono.ttf'
       text.textAlign = 'center'
@@ -31,4 +31,4 @@ const textLine1 = createLocalLayer(
   )
 )
 
-export default textLine1
+export default text2

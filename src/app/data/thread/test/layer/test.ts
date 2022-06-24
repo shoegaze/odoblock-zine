@@ -1,12 +1,12 @@
 import * as THREE from "three"
 import { lerp } from "three/src/math/MathUtils"
 
-import { createLocalLayer } from "../../collection/layer/Layer"
-import { createAnimatedScene } from "../../collection/scene/AnimatedScene"
-import { createStaticScene } from "../../collection/scene/StaticScene"
+import { createLocalLayer } from "../../../../collection/layer/Layer"
+import { createAnimatedScene } from "../../../../collection/scene/AnimatedScene"
+import { createStaticScene } from "../../../../collection/scene/StaticScene"
 
 
-const createLayer1 = () => createLocalLayer(
+const testLayer = createLocalLayer(
   1, // TODO: Split layers up
   // Scene 2
   createStaticScene(
@@ -78,11 +78,12 @@ const createLayer1 = () => createLocalLayer(
 
     function animate(this/*, dt: number*/) {
       const cube = this.scene.getObjectByName('cube')
+      const dt = 1.0 / 60.0
 
-      cube!.rotation.x += Math.PI / 2.0 * 1.0 / 60.0
-      cube!.rotation.y += Math.PI / 3.0 * 1.0 / 60.0
+      cube!.rotation.x += Math.PI / 2.0 * dt
+      cube!.rotation.y += Math.PI / 3.0 * dt
     }
   )
 )
 
-export default createLayer1
+export default testLayer
