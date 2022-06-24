@@ -98,16 +98,12 @@ export const createAppThreads = (app: App): AppThreads => {
     },
 
     addPersistentLayer(layer) {
-      return new Error("TODO: Implement addLocalLayer")
-
       if (persistentThread.hasLayer(layer)) {
         console.warn(`Layer ${layer} is already present in AppThreads/.persistent`)
         return
       }
 
       persistentThread.layers.push(layer)
-      // TODO:
-
     },
 
     addLocalLayer(layer) {
