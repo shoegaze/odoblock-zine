@@ -6,9 +6,11 @@ import text2 from "./layer/text2"
 
 const starWarsThread = createThread(
   "Star Wars",
-  text0,
-  text1,
-  text2
+  [
+    text0,
+    text1,
+    text2
+  ]
 )
 
 export default starWarsThread

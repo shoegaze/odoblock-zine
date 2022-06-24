@@ -7,7 +7,7 @@ export interface Thread {
   idBounds: [number, number] // [start, end]
 }
 
-export const createThread = (name: string, ...layers: Layer[]): Thread => ({
+export const createThread = (name: string, layers: Layer[]): Thread => ({
   name,
   layers,
   idBounds: [

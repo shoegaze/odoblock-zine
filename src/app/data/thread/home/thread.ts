@@ -4,7 +4,9 @@ import homeLayer from "./layer/home"
 
 const homeThread = createThread(
   "Home",
-  homeLayer
+  [
+    homeLayer
+  ]
 )
 
 export default homeThread

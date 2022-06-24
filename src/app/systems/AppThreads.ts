@@ -53,7 +53,7 @@ export const createAppThreads = (app: App): AppThreads => {
 
   return {
     addThread: (thread) => {
-      // No need to do anything if thread is already present
+      // Ignore duplicates
       //  Is this necessary?
       if (allThreads.find((t) => t === thread)) {
         return
