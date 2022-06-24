@@ -3,6 +3,7 @@ import { Layer } from "../layer/Layer"
 
 export interface Thread {
   name: string
+  // TODO: Convert to { [zId: number]: Layer[] }
   layers: Layer[]
   idBounds: [number, number] // [start, end]
 
@@ -25,5 +26,11 @@ export const createThread = (name: string, layers: Layer[]): Thread => ({
 
   addLayer(layer) {
     this.layers.push(layer)
+
+    const [start, end] = this.idBounds
+    this.idBounds = [
+      Math.min(start, layer.zId),
+      Math.max(end, layer.zId)
+    ]
   }
 })

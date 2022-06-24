@@ -32,23 +32,23 @@ const debugPanel = createPersistentLayer([
         group.add(plane)
       }
 
-      const layersInfo = new TroikaText.Text()
+      const threadsInfo = new TroikaText.Text()
       { // Layers info
-        layersInfo.text = ''
-        layersInfo.font = './font/ComicMono.ttf'
-        layersInfo.fontSize = 0.12
-        layersInfo.maxWidth = 2.0
-        layersInfo.color = 0xffffff
-        layersInfo.anchorX = 'left'
-        layersInfo.anchorY = 'top'
-        layersInfo.textAlign = 'left'
-        layersInfo.strokeWidth = 0.005
-        layersInfo.outlineColor = 0x000000
-        layersInfo.outlineWidth = 0.01
-        layersInfo.sync()
+        threadsInfo.text = ''
+        threadsInfo.font = './font/ComicMono.ttf'
+        threadsInfo.fontSize = 0.12
+        threadsInfo.maxWidth = 2.0
+        threadsInfo.color = 0xffffff
+        threadsInfo.anchorX = 'left'
+        threadsInfo.anchorY = 'top'
+        threadsInfo.textAlign = 'left'
+        threadsInfo.strokeWidth = 0.005
+        threadsInfo.outlineColor = 0x000000
+        threadsInfo.outlineWidth = 0.01
+        threadsInfo.sync()
 
-        layersInfo.position.set(-0.98, +1.0, 1.0e-3)
-        group.add(layersInfo)
+        threadsInfo.position.set(-0.98, +0.95, 1.0e-3)
+        group.add(threadsInfo)
       }
 
       const camInfo = new TroikaText.Text()
@@ -85,41 +85,31 @@ const debugPanel = createPersistentLayer([
         z - 10.0
       )
 
-      { // Update layers info
-        //   const appLayers = app.getLayers()
-        //   const activeLayer = appLayers.getActiveLayer()
-        //   const localLayers = appLayers.getLocalLayers()
-        //   const persistentLayers = appLayers.getPersistentLayers()
+      { // Update threads info
+        const appThreads = app.getThreads()
+        const activeThreads = appThreads.getActiveThreads()
+        const allThreads = appThreads.getAllThreads()
 
-        //   const layersInfo = group.children[1] as TroikaText.Text
+        const threadsInfo = group.children[1] as TroikaText.Text
 
-        //   layersInfo.text =
-        //     `Layers: n=${localLayers.length}\n` +
-        //     ` * Active Layer: ${activeLayer.zId}\n`
+        threadsInfo.text = `Threads (${activeThreads.length}/${allThreads.length})\n`
 
-        //   layersInfo.text += ` * Persistent Layers:\n`
-        //   layersInfo.text += `  > [${persistentLayers.map((({ zId }) => zId)).join(', ')}]\n`
+        threadsInfo.text += ` > All Threads:\n`
+        allThreads.forEach((thread) => {
+          threadsInfo.text += `  [${(activeThreads.find((t) => t === thread)) ? '*' : ' '}] ${thread.name}\n`
+        })
+      }
 
-        //   layersInfo.text += ` * Local Layers:\n`
-        //   localLayers.forEach(({ zId }) => {
-        //     const zPos = zIdToZPos(zId).toFixed(2)
-        //     layersInfo.text += `  > ${zId} (${zPos})\n`
-        //   })
+      { // Update cam info
+        const cam = app.getCamera()
+        const camInfo = group.children[2] as TroikaText.Text
+        camInfo.text =
+          `Camera:\n` +
+          ` * speed=${app.getCameraController().getPhysics().velocity.length().toFixed(2)}\n` +
+          ` * pos=(${cam.position.x.toFixed(2)},${cam.position.y.toFixed(2)},${cam.position.z.toFixed(2)})\n` +
+          ` * rot=(${cam.rotation.x.toFixed(2)},${cam.rotation.y.toFixed(2)},${cam.rotation.z.toFixed(2)})\n`
 
-        //   layersInfo.sync()
-        // }
-
-        // { // Update cam info
-        //   const cam = app.getCamera()
-        //   const camInfo = group.children[2] as TroikaText.Text
-        //   camInfo.text =
-        //     `Camera:\n` +
-        //     ` * speed=${app.getCameraController().getPhysics().velocity.length().toFixed(2)}\n` +
-        //     ` * pos=(${cam.position.x.toFixed(2)},${cam.position.y.toFixed(2)},${cam.position.z.toFixed(2)})\n` +
-        //     ` * rot=(${cam.rotation.x.toFixed(2)},${cam.rotation.y.toFixed(2)},${cam.rotation.z.toFixed(2)})\n`
-
-        //   camInfo.sync()
-        // }
+        camInfo.sync()
       }
     }
   )

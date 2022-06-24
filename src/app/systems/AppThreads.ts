@@ -8,11 +8,12 @@ import { createThread, Thread } from "../collection/thread/Thread"
 
 export interface AppThreads {
   hasThread: (thread: Thread) => boolean
-
   addThread: (thread: Thread) => void
   addPersistentLayer: (layer: Layer) => void
   addLocalLayer: (layer: Layer) => void
 
+  getAllThreads: () => Thread[]
+  getThread: (name: string) => Thread | undefined
   getActiveThreads: () => Thread[]
   getActiveLayers: () => Layer[]
   getBounds: () => [number, number]
@@ -41,6 +42,12 @@ export const createAppThreads = (app: App): AppThreads => {
   const updateActiveThreads = (): void => {
     // TODO: Include the one after the current pointer, too
     activeThreads = allThreads.filter(({ idBounds: [start, end] }) => start <= pointer && pointer <= end)
+
+    // Register floating threads:
+    // activeThreads.concat(persistentThread)
+    // Simple concat won't suffice for .float-local
+    // activeThreads.concat(floatingLocalsThread)
+
     // TODO: Optimize arrays concatenation with `.concat()`
     //  > Maybe activeLayers.length is small enough?
     // TODO: Activate current+next pointer layers?
@@ -48,9 +55,12 @@ export const createAppThreads = (app: App): AppThreads => {
       ...acc,
       ...layers.filter((layer) => layer.zId === pointer)
     ]), [] as Layer[])
+
+    // Re-add persistentThread bc. it gets filtered out above
+    // activeLayers.concat(persistentThread.layers)
   }
 
-  const activateLayers = (active: boolean): void => {
+  const setLayersActive = (active: boolean): void => {
     activeLayers.forEach(layer => {
       layer.setActive(active)
     })
@@ -80,7 +90,7 @@ export const createAppThreads = (app: App): AppThreads => {
       })
 
       updateActiveThreads()
-      activateLayers(true)
+      setLayersActive(true)
 
       // Set activity
       //  TODO: Layers.activate(i: number): void
@@ -104,6 +114,13 @@ export const createAppThreads = (app: App): AppThreads => {
       }
 
       persistentThread.addLayer(layer)
+
+      // Set up this layer
+      // TODO: Factor this out
+      layer.scenes.forEach((scene) => {
+        scene.setup(app)
+        scene.scene.translateZ(layer.zPos)
+      })
     },
 
     addLocalLayer(layer) {
@@ -112,8 +129,25 @@ export const createAppThreads = (app: App): AppThreads => {
         return
       }
 
-      // TODO: Handle skips inside of thread
+      // TODO: Handle skips inside of thread with empty layers
       floatingLocalsThread.addLayer(layer)
+
+      // Set up this layer
+      // TODO: Factor this out
+      layer.scenes.forEach((scene) => {
+        scene.setup(app)
+        scene.scene.translateZ(layer.zPos)
+      })
+    },
+
+    getAllThreads() {
+      return allThreads
+    },
+
+    getThread(name) {
+      return allThreads.find((thread) => (
+        thread.name === name
+      ))
     },
 
     getActiveThreads() {
@@ -143,7 +177,7 @@ export const createAppThreads = (app: App): AppThreads => {
 
     incrementPointer() {
       // Deactivate previous layers
-      activateLayers(false)
+      setLayersActive(false)
 
       // TODO:
       //  const maxId = allThreads.reduce((acc, { idBounds: [_, end] }) => Math.max(acc, end), -Infinity)
@@ -152,12 +186,12 @@ export const createAppThreads = (app: App): AppThreads => {
 
       // Activate new layers
       updateActiveThreads()
-      activateLayers(true)
+      setLayersActive(true)
     },
 
     decrementPointer() {
       // Deactivate previous layers
-      activateLayers(false)
+      setLayersActive(false)
 
       // TODO:
       //  pointer = max(0, pointer - 1)
@@ -168,12 +202,19 @@ export const createAppThreads = (app: App): AppThreads => {
 
       // Activate new layers
       updateActiveThreads()
-      activateLayers(true)
+      setLayersActive(true)
     },
 
     animate() {
       // TODO: Activate persistent layers
       activeLayers.forEach((layer) => {
+        layer.scenes.forEach((scene) => {
+          (scene as AnimatedScene).animate?.(app)
+        })
+      })
+
+      // HACK: Animate persistent layers
+      persistentThread.layers.forEach((layer) => {
         layer.scenes.forEach((scene) => {
           (scene as AnimatedScene).animate?.(app)
         })
@@ -195,7 +236,12 @@ export const createAppThreads = (app: App): AppThreads => {
         })
       })
 
-      // TODO: Render persistent layers
+      // HACK: Render persistent layers
+      persistentThread.layers.forEach((layer) => {
+        layer.scenes.forEach((scene) => {
+          renderer.render(scene.scene, cam)
+        })
+      })
     }
   }
 }
