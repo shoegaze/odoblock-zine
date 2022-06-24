@@ -10,7 +10,6 @@ export interface AppThreads {
   hasThread: (thread: Thread) => boolean
   addThread: (thread: Thread) => void
   addPersistentLayer: (layer: Layer) => void
-  addLocalLayer: (layer: Layer) => void
 
   getAllThreads: () => Thread[]
   getThread: (name: string) => Thread | undefined
@@ -29,7 +28,6 @@ export interface AppThreads {
 export const createAppThreads = (app: App): AppThreads => {
   // TODO:
   const persistentThread: Thread = createThread(".persistent", [])
-  const floatingLocalsThread: Thread = createThread(".float-local", [])
 
   // TODO: Optimize by sorting by zId
   const allThreads: Thread[] = []
@@ -43,11 +41,6 @@ export const createAppThreads = (app: App): AppThreads => {
     // TODO: Include the one after the current pointer, too
     activeThreads = allThreads.filter(({ idBounds: [start, end] }) => start <= pointer && pointer <= end)
 
-    // Register floating threads:
-    // activeThreads.concat(persistentThread)
-    // Simple concat won't suffice for .float-local
-    // activeThreads.concat(floatingLocalsThread)
-
     // TODO: Optimize arrays concatenation with `.concat()`
     //  > Maybe activeLayers.length is small enough?
     // TODO: Activate current+next pointer layers?
@@ -55,9 +48,6 @@ export const createAppThreads = (app: App): AppThreads => {
       ...acc,
       ...layers.filter((layer) => layer.zId === pointer)
     ]), [] as Layer[])
-
-    // Re-add persistentThread bc. it gets filtered out above
-    // activeLayers.concat(persistentThread.layers)
   }
 
   const setLayersActive = (active: boolean): void => {
@@ -114,23 +104,6 @@ export const createAppThreads = (app: App): AppThreads => {
       }
 
       persistentThread.addLayer(layer)
-
-      // Set up this layer
-      // TODO: Factor this out
-      layer.scenes.forEach((scene) => {
-        scene.setup(app)
-        scene.scene.translateZ(layer.zPos)
-      })
-    },
-
-    addLocalLayer(layer) {
-      if (floatingLocalsThread.hasLayer(layer)) {
-        console.warn(`Layer ${layer} is already present in AppThreads/.float-local`)
-        return
-      }
-
-      // TODO: Handle skips inside of thread with empty layers
-      floatingLocalsThread.addLayer(layer)
 
       // Set up this layer
       // TODO: Factor this out
