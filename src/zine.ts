@@ -5,7 +5,7 @@ import { localThreads } from './app/data/thread'
 
 { // main
   { // DEBUG: Testing audio
-    const audio = new Audio('./sound/mp3/bgm.mp3')
+    const audio = new Audio('./sound/mp3/bgm-3.mp3')
     audio.loop = true
     audio.play()
   }
