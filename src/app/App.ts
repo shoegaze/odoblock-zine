@@ -57,8 +57,8 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
     fov,
     near,
     far,
-    zMax: layersDistance,
-    zMin: -Infinity
+    zMax,
+    zMin
   })
 
   const clock = new THREE.Clock(false)
