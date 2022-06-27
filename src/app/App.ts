@@ -7,6 +7,7 @@ import createAppBackground from "./systems/AppBackground"
 import { AppInputType, createAppInput } from "./systems/AppInput"
 import { AppThreads, createAppThreads } from "./systems/AppThreads"
 import { CameraController, createCameraController } from "./systems/AppCameraController"
+import { Howl } from "howler"
 
 
 type AppMethod = (this: App) => void
@@ -195,6 +196,21 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
             else if (i < pointer) {
               threads.decrementPointer()
             }
+          }
+
+          { // Update audio contexts
+            const { x: px, y: py, z: pz } = cam.position
+
+            const dir = new THREE.Vector3(0, 0, -1.0)
+            dir.applyQuaternion(cam.quaternion)
+
+            const { x: dx, y: dy, z: dz } = dir
+
+            // Howler.pos(px, py, pz)
+            Howler.orientation(
+              px, py, pz,
+              dx, dy, dz
+            )
           }
         }
       )

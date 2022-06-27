@@ -34,7 +34,7 @@ const homeLayer = createLocalLayer(0, [
             console.log(`Howler finished playing audio with id=${soundId}`)
           }
         })
-
+        
         sound.play()
       }
 
