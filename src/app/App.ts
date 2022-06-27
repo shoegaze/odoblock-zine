@@ -123,12 +123,14 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
             const t = clock.getElapsedTime()
             const lastInputTime = input.getLastInputTime()
 
-            if (t - lastInputTime > idleTimeBeforeDeceleration!) {
+            if (t - lastInputTime > idleTimeBeforeDeceleration) {
               const s = 0.9
-
-              const a = physics.acceleration.clone()
-              const f = a.negate()
-                .multiplyScalar(s)
+              const f = physics.acceleration.clone()
+                .lerp(
+                  new THREE.Vector3(0.0),
+                  s * dt
+                )
+                .negate()
                 .multiplyScalar(physics.mass)
 
               if (f.lengthSq() > 1.0e-6) {
