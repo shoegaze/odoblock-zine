@@ -33,7 +33,8 @@ type CreateAppOptions = {
   near: number
   far: number
   idleTimeBeforeDeceleration: number
-  camMaxSpeed: number
+  translationMaxSpeed: number
+  zoomMaxSpeed: number
   translationSensitivity: number
   zoomSensitivity: number
 }
@@ -44,7 +45,8 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
     near,
     far,
     idleTimeBeforeDeceleration,
-    camMaxSpeed,
+    translationMaxSpeed,
+    zoomMaxSpeed,
     translationSensitivity,
     zoomSensitivity
   } = options
@@ -104,8 +106,20 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
             cam.rotation.set(0.0, 0.0, 0.0)
           }
 
-          { // Clamp speed of velocity
-            physics.velocity.clampLength(0, camMaxSpeed!)
+          { // Clamp to max speeds
+            const vTranslation = new THREE.Vector3(
+              physics.velocity.x,
+              physics.velocity.y,
+              0.0
+            ).clampLength(0, translationMaxSpeed)
+
+            const vZoom = clamp(physics.velocity.z, -zoomMaxSpeed, +zoomMaxSpeed)
+
+            physics.velocity.set(
+              vTranslation.x,
+              vTranslation.y,
+              vZoom
+            )
           }
 
           { // Apply queued inputs as a force
@@ -155,10 +169,11 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
             // dp `cross` k = (-dp_y, +dp_x, 0)^T
             //  when dp_z = 0
             // TODO: Normalize axis
-            const axis = new THREE.Vector3(-dp.y, +dp.x, 0.0)
+            const axis = new THREE.Vector3(-dp.y, +dp.x, 0.0).normalize()
 
-            const maxAngle = Math.PI / 4
-            const angle = maxAngle * (dp.length() / camMaxSpeed!)
+            const maxAngle = Math.PI / 4.0
+            const rotationSensitivity = 4.0
+            const angle = maxAngle * Math.min(1.0, rotationSensitivity * dp.length() / translationMaxSpeed)
 
             // TODO: Fix jitter: lerp between previous axis/angle?
             cam.rotateOnAxis(axis, angle)
@@ -237,7 +252,7 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
     queueTranslation(this: App, dx: number, dy: number) {
       // Convert (dx, dy) from screen axes to world axes
       const dp = new THREE.Vector2(-dx, +dy)
-        .multiplyScalar(translationSensitivity!)
+        .multiplyScalar(translationSensitivity)
 
       input.receiveInput(AppInputType.Translation, dp)
     },
@@ -248,7 +263,7 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
       // Right-most factor prevents the result from being in the range (-s, +s)
       //  where s is the sensitivity.
       //  When |s| < 1, without the factor we will zoom in no matter what.
-      const dz = +zoom * zoomSensitivity! + (zoom < 0.0 ? 1.0 : 0.0)
+      const dz = +zoom * zoomSensitivity + (zoom < 0.0 ? 1.0 : 0.0)
 
       input.receiveInput(AppInputType.Zoom, dz)
     }
