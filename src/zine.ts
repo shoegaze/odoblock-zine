@@ -1,32 +1,32 @@
-import { createApp } from './App'
-import { Layer } from './Layer'
-import layer1 from './layers/1/Layer1'
-import layer2 from './layers/2/Layer2'
-import debugSquareLayer from './layers/global/DebugSquareLayer'
+import { createApp } from './app/App'
+import { persistentLayers } from './app/data/layer'
+import { localThreads } from './app/data/thread'
 
 
 { // main
   const canvas = document.querySelector('#screen') as HTMLCanvasElement
-  const app = createApp(canvas)
+  const app = createApp(canvas, {
+    fov: 45.0,
+    near: 0.1,
+    far: 500.0,
+    idleTimeBeforeDeceleration: 0.25,
+    translationMaxSpeed: 200.0,
+    zoomMaxSpeed: 100.0,
+    translationSensitivity: 150.0,
+    zoomSensitivity: 90.0,
+  })
 
-  { // Add global layers
-    const globalLayers = [
-      debugSquareLayer
-    ]
+  const threads = app.getThreads()
 
-    globalLayers.forEach((layer: Layer) => {
-      app.addGlobalLayer(layer)
+  { // Add local threads
+    localThreads.forEach((thread) => {
+      threads.addThread(thread)
     })
   }
 
-  { // Add layers
-    const layers = [
-      layer1,
-      layer2
-    ]
-
-    layers.forEach((layer: Layer) => {
-      app.addLayer(layer)
+  { // Add persistent layers
+    persistentLayers.forEach((layer) => {
+      threads.addPersistentLayer(layer)
     })
   }
 
@@ -55,7 +55,7 @@ import debugSquareLayer from './layers/global/DebugSquareLayer'
     }
   }
 
-  {
+  { // Zoom event
     canvas.onwheel = (ev) => {
       const { deltaY: dz } = ev
       app.queueZoom(dz)

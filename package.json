@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx webpack",
     "build:watch": "npx webpack --watch",
-    "serve": "npx webpack-dev-server --hot"
+    "serve": "npx webpack-dev-server --mode development --hot"
   },
   "author": "ODOBLOCK",
   "license": "ISC",
@@ -19,6 +19,7 @@
     "webpack-dev-server": "^4.9.2"
   },
   "dependencies": {
-    "three": "^0.141.0"
+    "three": "^0.141.0",
+    "troika-three-text": "^0.46.4"
   }
 }
