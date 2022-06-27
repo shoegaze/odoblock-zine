@@ -9,14 +9,19 @@ const homeLayer = createLocalLayer(0, [
   createStaticScene(
     function setup(this) {
       { // Howler
+        // TODO: Support spatial audio
+        //  1. create interface AudioScene
+        //  2. register AudioScene events to App
+        //  3. when camera moves, update spatial biases
         const sound = new Howl({
           src: ['audio/mp3/bgm-1.mp3'],
           autoplay: false,
           loop: true,
           volume: 0.5,
+          html5: true,
+
           onload: (soundId) => {
             console.log(`Howler loaded audio with id=${soundId}`)
-            sound.play()
           },
           onloaderror: (soundId, error) => {
             console.error(`Howler failed to load audio with id=${soundId}`)
@@ -30,7 +35,7 @@ const homeLayer = createLocalLayer(0, [
           }
         })
 
-        // sound.play()
+        sound.play()
       }
 
       { // THREE
