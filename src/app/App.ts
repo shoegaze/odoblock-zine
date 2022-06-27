@@ -168,7 +168,6 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
             // const k = new THREE.Vector3(0.0, 0.0, +1.0)
             // dp `cross` k = (-dp_y, +dp_x, 0)^T
             //  when dp_z = 0
-            // TODO: Normalize axis
             const axis = new THREE.Vector3(-dp.y, +dp.x, 0.0).normalize()
 
             const maxAngle = Math.PI / 4.0
