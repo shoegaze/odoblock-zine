@@ -149,6 +149,7 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
 
               if (f.lengthSq() > 1.0e-6) {
                 physics.addForce(f)
+                // TODO: Make this time dependent
                 physics.velocity.multiplyScalar(s)
               }
               else {
