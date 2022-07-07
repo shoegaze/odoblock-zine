@@ -1,5 +1,6 @@
 import * as THREE from "three"
 import { clamp } from "three/src/math/MathUtils"
+import { Howler } from "howler"
 
 import { layersDistance, zPosToZid } from "./collection/layer/Layer"
 import createAppGraphics from "./systems/AppGraphics"
@@ -7,7 +8,7 @@ import createAppBackground from "./systems/AppBackground"
 import { AppInputType, createAppInput } from "./systems/AppInput"
 import { AppThreads, createAppThreads } from "./systems/AppThreads"
 import { CameraController, createCameraController } from "./systems/AppCameraController"
-import { Howl } from "howler"
+import { AudioScene } from "./collection/scene/AudioScene"
 
 
 type AppMethod = (this: App) => void
@@ -199,18 +200,30 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
           }
 
           { // Update audio contexts
-            const { x: px, y: py, z: pz } = cam.position
+            // if (cam.moved) {
 
-            const dir = new THREE.Vector3(0, 0, -1.0)
-            dir.applyQuaternion(cam.quaternion)
+            threads.getActiveLayers().forEach(layer => {
+              layer.scenes.forEach(scene => {
+                const audioScene = scene as AudioScene
 
-            const { x: dx, y: dy, z: dz } = dir
+                audioScene.updateStereo?.(cam)
+                audioScene.updateVolume?.(cam)
+              })
+            })
 
-            // Howler.pos(px, py, pz)
-            Howler.orientation(
-              px, py, pz,
-              dx, dy, dz
-            )
+            // }
+
+            // const { x: px, y: py, z: pz } = cam.position
+            // const dir = new THREE.Vector3(0, 0, -1.0)
+            // dir.applyQuaternion(cam.quaternion)
+
+            // const { x: dx, y: dy, z: dz } = dir
+
+            // // Howler.pos(px, py, pz)
+            // Howler.orientation(
+            //   px, py, pz,
+            //   dx, dy, dz
+            // )
           }
         }
       )
