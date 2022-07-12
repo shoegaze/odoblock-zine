@@ -9,9 +9,10 @@ import { localThreads } from './app/data/thread'
     fov: 45.0,
     near: 0.1,
     far: 500.0,
-    idleTimeBeforeDeceleration: 0.75,
-    camMaxSpeed: 100.0,
-    translationSensitivity: 90.0,
+    idleTimeBeforeDeceleration: 0.25,
+    translationMaxSpeed: 200.0,
+    zoomMaxSpeed: 100.0,
+    translationSensitivity: 150.0,
     zoomSensitivity: 90.0,
   })
 

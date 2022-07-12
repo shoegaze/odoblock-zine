@@ -10,7 +10,7 @@ const homeLayer = createLocalLayer(0, [
     function setup() {
       const geo = new THREE.PlaneGeometry(50.0, 50.0)
       const mat = new THREE.MeshBasicMaterial({
-        map: new THREE.TextureLoader().load('./img/jpg/mando.jpg'),
+        map: new THREE.TextureLoader().load('./img/mando.jpg'),
       })
 
       const mesh = new THREE.Mesh(geo, mat)
