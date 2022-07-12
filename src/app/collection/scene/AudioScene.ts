@@ -25,15 +25,15 @@ export const createAudioScene: CreateAudioScene = (setup, options) => {
     }),
 
     updateStereo(cam): void {
-      const dx = cam.position.x - this.scene.position.x
+      const dx = this.scene.position.x - cam.position.x
       const spread = 50.0
-      const stereo = -clamp(dx / spread, -1.0, +1.0)
+      const stereo = clamp(dx / spread, -1.0, +1.0)
 
       this.sound.stereo(stereo)
     },
 
     updateVolume(cam): void {
-      const dist = cam.position.z - this.scene.position.z
+      const dist = cam.position.distanceTo(this.scene.position)
       const spread = layersDistance / 2.0
       const volume = Math.min(spread / dist, 1.0)
 
