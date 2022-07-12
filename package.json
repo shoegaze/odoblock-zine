@@ -19,6 +19,8 @@
     "webpack-dev-server": "^4.9.2"
   },
   "dependencies": {
+    "@types/howler": "^2.2.7",
+    "howler": "^2.2.3",
     "three": "^0.141.0",
     "troika-three-text": "^0.46.4"
   }

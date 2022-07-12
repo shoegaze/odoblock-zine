@@ -1,3 +1,4 @@
+import { Howl, Howler } from 'howler'
 import * as THREE from 'three'
 
 import { createLocalLayer } from "../../../../collection/layer/Layer"
@@ -6,7 +7,7 @@ import { createStaticScene } from "../../../../collection/scene/StaticScene"
 
 const homeLayer = createLocalLayer(0, [
   createStaticScene(
-    function setup(this) {
+    function setup() {
       const geo = new THREE.PlaneGeometry(50.0, 50.0)
       const mat = new THREE.MeshBasicMaterial({
         map: new THREE.TextureLoader().load('./img/mando.jpg'),

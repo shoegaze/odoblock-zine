@@ -1,5 +1,6 @@
 import * as THREE from "three"
 import { clamp } from "three/src/math/MathUtils"
+import { Howler } from "howler"
 
 import { layersDistance, zPosToZid } from "./collection/layer/Layer"
 import createAppGraphics from "./systems/AppGraphics"
@@ -7,6 +8,7 @@ import createAppBackground from "./systems/AppBackground"
 import { AppInputType, createAppInput } from "./systems/AppInput"
 import { AppThreads, createAppThreads } from "./systems/AppThreads"
 import { CameraController, createCameraController } from "./systems/AppCameraController"
+import { AudioScene } from "./collection/scene/AudioScene"
 
 
 type AppMethod = (this: App) => void
@@ -59,8 +61,8 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
     fov,
     near,
     far,
-    zMax: layersDistance,
-    zMin: -Infinity
+    zMax,
+    zMin
   })
 
   const clock = new THREE.Clock(false)
@@ -212,6 +214,33 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
             else if (i < pointer) {
               threads.decrementPointer()
             }
+          }
+
+          { // Update audio contexts
+            // if (cam.moved) {
+
+            threads.getActiveLayers().forEach(layer => {
+              layer.scenes.forEach(scene => {
+                const audioScene = scene as AudioScene
+
+                audioScene.updateStereo?.(cam)
+                audioScene.updateVolume?.(cam)
+              })
+            })
+
+            // }
+
+            // const { x: px, y: py, z: pz } = cam.position
+            // const dir = new THREE.Vector3(0, 0, -1.0)
+            // dir.applyQuaternion(cam.quaternion)
+
+            // const { x: dx, y: dy, z: dz } = dir
+
+            // // Howler.pos(px, py, pz)
+            // Howler.orientation(
+            //   px, py, pz,
+            //   dx, dy, dz
+            // )
           }
         }
       )
