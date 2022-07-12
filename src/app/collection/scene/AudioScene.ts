@@ -16,7 +16,7 @@ export interface AudioScene extends AppScene {
 
 
 type AudioSceneCallback = (this: AudioScene, app: App) => void
-type CreateAudioScene = (setup: AudioSceneCallback, options: HowlOptions) => AudioScene
+type CreateAudioScene = (setup: AudioSceneCallback, options: Omit<HowlOptions, 'html5'>) => AudioScene
 
 export const createAudioScene: CreateAudioScene = (setup, options) => {
   return {
