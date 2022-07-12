@@ -29,9 +29,10 @@ export const createAudioScene: CreateAudioScene = (setup, options) => {
       const spread = 50.0
       const stereo = clamp(dx / spread, -1.0, +1.0)
 
-      // console.group(this)
-      // console.log('stereo', stereo)
-      // console.groupEnd()
+      console.group(this)
+      console.log('stereo', stereo)
+      console.log(this.sound.stereo())
+      console.groupEnd()
 
       this.sound.stereo(stereo)
     },
