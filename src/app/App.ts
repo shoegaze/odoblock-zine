@@ -9,6 +9,7 @@ import { AppInputType, createAppInput } from "./systems/AppInput"
 import { AppThreads, createAppThreads } from "./systems/AppThreads"
 import { CameraController, createCameraController } from "./systems/AppCameraController"
 import { AudioScene } from "./collection/scene/AudioScene"
+import { createAppSound } from "./systems/AppSound"
 
 
 type AppMethod = (this: App) => void
@@ -210,37 +211,16 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
 
             if (i > pointer) {
               threads.incrementPointer()
+              sound.registerAudioScenes()
             }
             else if (i < pointer) {
               threads.decrementPointer()
+              sound.registerAudioScenes()
             }
           }
 
-          { // Update audio contexts
-            // if (cam.moved) {
-
-            threads.getActiveLayers().forEach(layer => {
-              layer.scenes.forEach(scene => {
-                const audioScene = scene as AudioScene
-
-                audioScene.updateStereo?.(cam)
-                audioScene.updateVolume?.(cam)
-              })
-            })
-
-            // }
-
-            // const { x: px, y: py, z: pz } = cam.position
-            // const dir = new THREE.Vector3(0, 0, -1.0)
-            // dir.applyQuaternion(cam.quaternion)
-
-            // const { x: dx, y: dy, z: dz } = dir
-
-            // // Howler.pos(px, py, pz)
-            // Howler.orientation(
-            //   px, py, pz,
-            //   dx, dy, dz
-            // )
+          { // Update audio parameters
+            sound.updateAudioParameters()
           }
         }
       )
@@ -302,6 +282,9 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
   const input = createAppInput(new THREE.Clock(true))
   const threads = createAppThreads(app)
   const cameraController = createCameraController(cam)
+
+  const sound = createAppSound(app)
+  sound.registerAudioScenes()
 
   return app
 }

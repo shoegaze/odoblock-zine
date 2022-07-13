@@ -4,6 +4,7 @@ import { clamp } from "three/src/math/MathUtils"
 import { App } from "../App"
 import { Layer, layersDistance } from "../collection/layer/Layer"
 import { AnimatedScene } from "../collection/scene/AnimatedScene"
+import { StaticScene } from "../collection/scene/StaticScene"
 import { createThread, Thread } from "../collection/thread/Thread"
 
 
@@ -16,6 +17,7 @@ export interface AppThreads {
   getThread: (name: string) => Thread | undefined
   getActiveThreads: () => Thread[]
   getActiveLayers: () => Layer[]
+  getActiveScenes: () => StaticScene[]
   getBounds: () => [number, number]
 
   getPointer: () => number
@@ -138,6 +140,14 @@ export const createAppThreads = (app: App): AppThreads => {
 
     getActiveLayers() {
       return activeLayers
+    },
+
+    getActiveScenes() {
+      // TODO: Memoize; set dirty flag
+      return activeLayers.reduce((acc, layer) => ([
+        ...acc,
+        ...layer.scenes
+      ]), [] as StaticScene[])
     },
 
     getBounds() {
