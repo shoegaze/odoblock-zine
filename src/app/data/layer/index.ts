@@ -6,7 +6,7 @@ import transitionLayer from "./persistent/transition/transitionLayer"
 
 type PersistentLayers = Layer[]
 export const persistentLayers: PersistentLayers = [
-  // debugPanel,
-  hud,
+  debugPanel,
+  // hud,
   transitionLayer
 ]

@@ -80,7 +80,7 @@ const debugPanel = createPersistentLayer([
 
       // TODO: Create method to set position to screen space
       group.position.set(
-        x + 0.0,
+        x - 3.0,
         y + 3.0,
         z - 10.0
       )
