@@ -4,7 +4,6 @@ import { Howl, HowlOptions } from "howler"
 
 import { App } from "../../App"
 import { AppScene, genericSetActive } from "./AppScene"
-import { layersDistance } from "../layer/Layer"
 
 
 export interface AudioScene extends AppScene {
@@ -16,7 +15,8 @@ export interface AudioScene extends AppScene {
 
 
 type AudioSceneCallback = (this: AudioScene, app: App) => void
-type CreateAudioScene = (setup: AudioSceneCallback, options: Omit<HowlOptions, 'html5'>) => AudioScene
+type AudioSceneOptions = { stereoSpread: number, volumeSpread: number } & Omit<HowlOptions, 'html5'>
+type CreateAudioScene = (setup: AudioSceneCallback, options: AudioSceneOptions) => AudioScene
 
 export const createAudioScene: CreateAudioScene = (setup, options) => {
   return {
@@ -26,7 +26,7 @@ export const createAudioScene: CreateAudioScene = (setup, options) => {
 
     updateStereo(cam): void {
       const dx = this.scene.position.x - cam.position.x
-      const spread = 50.0
+      const spread = options.stereoSpread
       const stereo = clamp(dx / spread, -1.0, +1.0)
 
       this.sound.stereo(stereo)
@@ -34,7 +34,7 @@ export const createAudioScene: CreateAudioScene = (setup, options) => {
 
     updateVolume(cam): void {
       const dist = cam.position.distanceTo(this.scene.position)
-      const spread = layersDistance / 2.0
+      const spread = options.volumeSpread
       const volume = Math.min(spread / dist, 1.0)
 
       this.sound.volume(volume)
