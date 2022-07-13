@@ -31,10 +31,10 @@ export interface AppThreads {
 }
 
 export const createAppThreads = (app: App): AppThreads => {
-  // TODO:
   const persistentThread: Thread = createThread(".persistent", [])
 
   // TODO: Optimize by sorting by zId
+  // TODO: Convert to spatial quadtree
   const allThreads: Thread[] = []
 
   let activeThreads: Thread[] = []
@@ -207,7 +207,7 @@ export const createAppThreads = (app: App): AppThreads => {
       // }
 
       // https://graphtoy.com/?f1(x,t)=2&v1=true&f2(x,t)=7&v2=true&f3(x,t)=5&v3=false&f4(x,t)=clamp(%20floor(%20(%20x%20%20+%20f3(x)/2%20)/f3(x)%20+%20f1(x)),%20f1(x),%20f2(x)%20)&v4=false&f5(x,t)=clamp(%20floor(%20(%20x/f3(x)%20%20+%200.5%20)%20+%20f1(x)),%20f1(x),%20f2(x)%20)&v5=true&f6(x,t)=&v6=false&grid=1
-      const zId = Math.floor(-zPos/layersDistance + zIdStart + 0.5)
+      const zId = Math.floor(-zPos / layersDistance + zIdStart + 0.5)
 
       return clamp(
         zId,
