@@ -1,0 +1,1439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg x="0pt" y="0pt" width="1000pt" height="1000pt" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g id="1">
+    <title>Layer 2</title>
+    <defs>
+      <title>Path</title>
+      <g id="2">
+        <defs>
+          <path id="3" d="M438.235,333.404 C431.952,331.729,426.599,336.403,421.245,339.328 C407.016,347.104,393.548,355.602,382.339,367.432 C372.104,378.234,359.915,387.546,350.181,398.611 C328.925,422.773,302.836,464.485,286.923,492.719 C280.495,504.123,272.753,515.257,267.8,527.301 C266.358,530.808,262.87,536.311,263.203,540.188 C263.775,546.848,279.346,546.875,283.225,549.433 C296.546,558.218,311.757,566.494,326.626,572.336 C331.314,574.178,336.431,574.833,341.081,576.807 C345.977,578.885,353.646,589.199,359.459,586.11 C367.193,582,372.204,569.268,376.363,562.012 C380.474,554.841,385.856,548.247,389.864,540.951 C395.35,530.966,399.125,520.853,406.028,511.643 C408.147,519.251,405.577,528.593,404.893,536.272 C403.541,551.464,402.278,567.117,402.278,582.367 C402.278,587.595,400.651,603.873,407.443,604.009 C413.418,604.129,419.436,598.141,424.139,595.132 C435.432,587.907,446.088,582.582,455.597,572.63 C493.329,533.137,514.927,481.431,527.996,429.005 C531.734,414.006,532.089,398.343,532.21,383.036 C532.242,379.033,534.536,370.94,532.803,367.364 C531.762,365.215,525.503,368.137,523.832,368.477 C515.866,370.098,504.225,371.56,496.259,370.019 C493.874,369.557,492.032,367.71,489.715,367.029 C483.83,365.299,479.064,365.277,473.616,361.79 C470.787,359.979,469.333,356.83,466.515,355.005 C456.187,348.321,446.667,342.678,438.235,333.404 z"/>
+        </defs>
+        <use xlink:href="#3" style="fill:#a9a8ff;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#2"/>
+    <defs>
+      <title>Path</title>
+      <g id="4">
+        <defs>
+          <path id="5" d="M406.436,597.902 C403.314,613.511,405.095,628.689,403.001,644.255 C402.363,648.993,399.976,659.076,403.421,663.158 C413.964,675.655,434.765,674.756,449.352,678.371 C477.806,685.423,503.295,677.856,531.555,675.225 C543.193,674.142,554.678,675.018,566.296,673.131 C577.767,671.267,588.436,666.351,599.631,663.88 C606.88,662.279,613.413,664.29,620.599,660.772 C632.982,654.709,631.616,640.887,629.292,629.047 C623.51,599.586,617.511,575.864,614.754,545.656 C614.211,539.702,612.991,516.211,617.717,512.378 C623.066,508.04,628.106,516.018,629.756,519.718 C633.688,528.541,644.967,554.321,655.197,555.308 C664.317,556.188,670.675,546.366,678.628,543.562 C697.509,536.906,722.102,535.578,737.08,521.13 C744.031,514.424,750.98,511.285,747.102,499.559 C744.016,490.226,733.449,479.563,726.83,472.486 C716.72,461.677,707.419,448.781,697.905,437.04 C692.416,430.267,688.661,419.337,679.836,416.011 C656.438,407.193,610.879,412.096,585.351,413.275 C558.213,414.528,524.194,415.123,502.567,433.395 C479.739,452.682,470.912,477.049,457.955,502.993 C441.308,536.323,425.294,566.467,406.436,597.902 z"/>
+        </defs>
+        <use xlink:href="#5" style="fill:#a9a8ff;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#4"/>
+    <defs>
+      <title>Path</title>
+      <g id="6">
+        <defs>
+          <path id="7" d="M543.85,441.668 C542.076,441.55,523.573,437.42,523.169,437.049 C519.4,433.591,520.912,422.479,521.168,417.863 C522.066,401.633,519.5,386.51,529.717,372.14 C536.138,363.108,547.681,360.167,554.335,350.986 C558.372,345.416,570.965,320.116,576.22,318.87 C587.941,316.091,598.616,329.378,605.466,336.865 C611.378,343.327,619.298,346.51,625.245,352.279 C636.966,363.649,645.717,377.476,657.373,389.146 C664.758,396.54,678.121,402.058,679.886,413.77 C682.934,433.997,659.552,430.838,646.207,432.385 C632.963,433.92,619.5,436.228,606.212,437.124 C600.518,437.508,594.571,436.13,588.982,436.881 C582.694,437.726,576.939,440.356,570.581,441.047 C558.63,442.345,548.112,440.35,536.165,443.864"/>
+        </defs>
+        <use xlink:href="#7" style="fill:#a9a8ff;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#6"/>
+  </g>
+  <g id="8">
+    <title>Layer 3</title>
+    <defs>
+      <title>Path</title>
+      <g id="9">
+        <defs>
+          <path id="10" d="M246.041,596.53 C250.728,596.53,256.856,598.174,261.318,596.782 C272.409,593.322,286.255,570.296,274.717,560.685 C262.587,550.581,241.417,561.597,228.563,563.228 C225.072,563.671,213.506,562.381,212.216,567.133 C211.873,568.394,241.842,592.709,246.041,596.53 z"/>
+        </defs>
+        <use xlink:href="#10" style="fill:#71553b;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#9"/>
+    <defs>
+      <title>Path</title>
+      <g id="11">
+        <defs>
+          <path id="12" d="M256.252,594.892 C256.554,596.3,255.002,608.057,253.63,608.041 C243.509,607.923,248.524,599.436,248.78,593.036"/>
+        </defs>
+        <use xlink:href="#12" style="fill:#71553b;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#11"/>
+    <defs>
+      <title>Path</title>
+      <g id="13">
+        <defs>
+          <path id="14" d="M754.086,528.681 C747.833,526.001,737.326,520.942,735.39,532.281 C734.433,537.883,751.96,564.371,757.745,563.066 C761.21,562.285,760.521,554.122,760.462,551.614 C760.211,540.807,756.797,528.168,749.523,520.164"/>
+        </defs>
+        <use xlink:href="#14" style="fill:#71553b;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#13"/>
+    <defs>
+      <title>Path</title>
+      <g id="15">
+        <defs>
+          <path id="16" d="M779.638,530.811 C788.12,539.293,798.642,571.365,778.487,570.502 C767.072,570.013,753.432,508.98,779.638,530.811 z"/>
+        </defs>
+        <use xlink:href="#16" style="fill:#71553b;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#15"/>
+    <defs>
+      <title>Path</title>
+      <g id="17">
+        <defs>
+          <path id="18" d="M792.11,525.944 C799.846,535.228,802.702,566.634,815.704,558.716 C837.115,545.678,801.569,495.671,792.11,525.944 z"/>
+        </defs>
+        <use xlink:href="#18" style="fill:#71553b;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#17"/>
+    <defs>
+      <title>Path</title>
+      <g id="19">
+        <defs>
+          <path id="20" d="M822.833,508.301 C833.146,517.24,833.304,526.042,836.536,538.191 C837.122,540.392,840.26,542.589,842.477,541.155 C871.905,522.12,831.775,475.509,822.833,508.301 z"/>
+        </defs>
+        <use xlink:href="#20" style="fill:#71553b;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#19"/>
+    <defs>
+      <title>Path</title>
+      <g id="21">
+        <defs>
+          <path id="22" d="M846.559,481.836 C853.874,486.569,867.506,518.373,874.362,511.059 C886.582,498.024,873.728,477.093,858.652,471.916 C850.301,469.049,846.074,472.608,846.559,481.836 z"/>
+        </defs>
+        <use xlink:href="#22" style="fill:#71553b;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#21"/>
+    <defs>
+      <title>Path</title>
+      <g id="23">
+        <defs>
+          <path id="24" d="M869.982,456.893 C877.977,462.667,889.76,485.189,892.604,483.1 C900.921,476.988,899.596,442.371,891.237,438.089 C880.563,432.621,867.379,454.935,867.853,462.976"/>
+        </defs>
+        <use xlink:href="#24" style="fill:#71553b;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#23"/>
+    <defs>
+      <title>Path</title>
+      <g id="25">
+        <defs>
+          <path id="26" d="M761.849,563.027 C746.143,563.027,712.971,543.426,731.346,525.687 C733.845,523.275,737.454,524.406,740.471,523.25 C744.542,521.689,750.941,516.844,755.599,518.721 C759.363,520.238,761.505,557.184,761.849,563.027 z"/>
+        </defs>
+        <use xlink:href="#26" style="fill:#71553b;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#25"/>
+    <defs>
+      <title>Path</title>
+      <g id="27">
+        <defs>
+          <path id="28" d="M521.739,284.547 C503.616,303.341,511.59,314.431,526.974,330.062 C534.166,337.37,544.807,348.437,555.65,340.828 C561.542,336.693,563.218,327.993,565.236,321.703 C572.369,299.461,574.182,290.515,563.911,268.48 C561.453,263.206,561.855,256.471,556.684,252.711 C545.893,244.863,525.302,275.778,521.739,284.547 z"/>
+        </defs>
+        <use xlink:href="#28" style="fill:#fdcf7c;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#27"/>
+    <defs>
+      <title>Path</title>
+      <g id="29">
+        <defs>
+          <path id="30" d="M426.166,731.306 C429.563,727.784,433.162,722.838,437.863,721.043 C446.254,717.839,476.729,726.146,476.366,703.547 C476.301,699.479,478.081,694.678,475.423,691.202 C469.792,683.836,429.214,673.475,421.546,677.775 C403.356,687.975,412.786,719.653,426.166,731.306 z"/>
+        </defs>
+        <use xlink:href="#30" style="fill:#fdcf7c;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#29"/>
+    <defs>
+      <title>Path</title>
+      <g id="31">
+        <defs>
+          <path id="32" d="M575.169,706.388 C575.169,706.388,569.889,694.893,569.889,694.893 C589.876,705.17,602.366,731.181,615.501,748.172 C617.004,750.117,629.417,767.357,626.037,768.406 C617.834,770.951,565.664,715.195,569.609,696.936"/>
+        </defs>
+        <use xlink:href="#32" style="fill:#fdcf7c;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#31"/>
+    <defs>
+      <title>Path</title>
+      <g id="33">
+        <defs>
+          <path id="34" d="M506.119,275.82 C510.969,286.38,526.05,298.568,511.983,310.267 C506.126,315.138,497.323,313.544,491.761,318.927 C486.417,324.1,492.871,332.993,485.077,334.564 C474.3,336.736,471.878,326.226,462.086,325.872 C455.767,325.643,451.744,337.218,450.921,336.517 C435.466,323.358,468.219,286.208,471.936,271.654 C473.319,266.237,477.939,250.623,484.232,249.458 C497.779,246.952,499.787,268.25,506.119,275.82 z"/>
+        </defs>
+        <use xlink:href="#34" style="fill:#8d816c;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#33"/>
+    <defs>
+      <title>Path</title>
+      <g id="35">
+        <defs>
+          <path id="36" d="M625.993,764.425 C614.917,751.101,600.023,726.193,599.382,708.478 C612.514,723.171,620.204,750.32,639.081,759.278 C638.935,746.963,624.706,735.507,619.899,724.64 C629,732.315,637.062,740.662,646.782,747.649 C646.345,739.755,616.551,711.013,610.675,700.014 C609.991,698.733,606.983,693.316,609.503,692.53 C615.944,690.521,625.844,708.04,629.774,711.855 C641.984,723.709,683.921,772.036,677.82,788.667 C665.099,823.341,634.515,775.032,625.993,764.425 z"/>
+        </defs>
+        <use xlink:href="#36" style="fill:#8d816c;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#35"/>
+    <defs>
+      <title>Path</title>
+      <g id="37">
+        <defs>
+          <path id="38" d="M644.244,759.923 C635.07,754.052,628.227,742.206,623.202,732.647 C622.469,731.253,618.572,723.551,620.159,722.41 C622.547,720.691,628.29,727.924,629.698,729.317 C638.554,738.084,644.469,748.326,652.011,758.105"/>
+        </defs>
+        <use xlink:href="#38" style="fill:#8d816c;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#37"/>
+    <defs>
+      <title>Path</title>
+      <g id="39">
+        <defs>
+          <path id="40" d="M650.222,759.297 C646.28,754.424,620.89,722.005,615.295,729.091 C605.661,741.289,634.403,763.996,641.406,772.652"/>
+        </defs>
+        <use xlink:href="#40" style="fill:#8d816c;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#39"/>
+    <defs>
+      <title>Path</title>
+      <g id="41">
+        <defs>
+          <path id="42" d="M615.969,746.812 C612.626,744.35,587.764,720.917,585.04,724.025 C578.582,731.395,615.718,756.43,623.089,758.571"/>
+        </defs>
+        <use xlink:href="#42" style="fill:#8d816c;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#41"/>
+    <defs>
+      <title>Path</title>
+      <g id="43">
+        <defs>
+          <path id="44" d="M516.144,708.67 C509.514,708.736,498.914,705.482,493.359,709.054 C485.962,713.811,488.098,740.416,494.78,744.026 C506.457,750.336,514.099,717.863,516.144,708.67 z"/>
+        </defs>
+        <use xlink:href="#44" style="fill:#8d816c;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#43"/>
+  </g>
+  <g id="45">
+    <title>Layer 5</title>
+    <defs>
+      <title>Path</title>
+      <g id="46">
+        <defs>
+          <path id="47" d="M417.049,339.076 C421.038,346.49,422.982,355.581,428.053,362.338 C442.988,382.239,474.734,398.426,499.425,400.229 C533.555,402.722,573.611,378.066,585.66,346.013 C587.016,342.407,585.938,338.475,586.481,334.774 C587.163,330.129,591.105,324.613,590.419,319.808 C589.418,312.802,571.528,312.292,567.706,316.266 C563.138,321.017,563.622,328.722,560.588,334.219 C550.739,352.06,537.947,365.017,516.021,367.193 C505.746,368.212,495.72,365.921,485.604,365.8 C482.218,365.76,478.923,368.647,475.494,367.538 C469.611,365.636,461.489,357.394,456.952,353.168 C450.275,346.95,446.368,333.163,438.43,329.28 C430.237,325.273,419.449,332.064,417.049,339.076 z"/>
+        </defs>
+        <use xlink:href="#47" style="fill:#b5ffc1;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#46"/>
+    <defs>
+      <title>Path</title>
+      <g id="48">
+        <defs>
+          <path id="49" d="M280.064,510.464 C303.461,524.179,331.738,533.131,353.298,549.407 C358.129,553.054,371.228,557.86,373.27,563.512 C373.96,565.423,369.33,576.304,368,578.159 C364.459,583.102,354.932,588.729,348.732,588.385 C333.147,587.519,271.475,558.533,263.733,545.435 C258.283,536.213,270.401,511.201,280.064,510.464 z"/>
+        </defs>
+        <use xlink:href="#49" style="fill:#b5ffc1;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#48"/>
+    <defs>
+      <title>Path</title>
+      <g id="50">
+        <defs>
+          <path id="51" d="M635.374,521.735 C671.75,521.587,698.836,489.2,733.83,483.677 C739.717,482.748,752.462,504.515,752.426,510.144 C752.374,518.431,729.459,525.3,723.606,529.179 C712.724,536.391,663.653,553.481,651.589,548.964 C643.515,545.941,638.037,529.359,635.374,521.735 z"/>
+        </defs>
+        <use xlink:href="#51" style="fill:#b5ffc1;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#50"/>
+    <defs>
+      <title>Path</title>
+      <g id="52">
+        <defs>
+          <path id="53" d="M403.874,507.808 C405.009,504.767,415.392,481.232,420.647,485.688 C426.786,490.894,412.783,512.157,409.651,516.479"/>
+        </defs>
+        <use xlink:href="#53" style="fill:#b5ffc1;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#52"/>
+    <defs>
+      <title>Path</title>
+      <g id="54">
+        <defs>
+          <path id="55" d="M403.883,640.994 C443.312,666.316,538.204,654.501,582.38,644.495 C594.116,641.837,633.577,620.499,634.01,646.78 C634.257,661.73,592.506,670.097,582.069,674.534 C556.69,685.322,416.164,687.236,398.868,665.045 C395.116,660.231,402.989,646.527,403.883,640.994 z"/>
+        </defs>
+        <use xlink:href="#55" style="fill:#b5ffc1;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#54"/>
+    <defs>
+      <title>Path</title>
+      <g id="56">
+        <defs>
+          <path id="57" d="M610.252,638.615 C613.988,636.33,627.126,625.899,629.52,630.449 C635.145,641.142,619.042,642.624,612.516,643.751"/>
+        </defs>
+        <use xlink:href="#57" style="fill:#b5ffc1;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#56"/>
+  </g>
+  <g id="58">
+    <title>Layer 1</title>
+    <defs>
+      <title>Path</title>
+      <g id="59">
+        <defs>
+          <path id="60" d="M441.394,325.861 C444.317,369.719,552.414,402.696,569.936,315.09"/>
+        </defs>
+        <use xlink:href="#60" style="fill:none;opacity:1;stroke:#54514b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:11;stroke-opacity:1;stroke-width:10;"/>
+      </g>
+    </defs>
+    <use xlink:href="#59"/>
+    <defs>
+      <title>Path</title>
+      <g id="61">
+        <defs>
+          <path id="62" d="M433.866,328.214 C350.489,372.681,343.848,408.982,294.889,481.012 C290.435,487.566,258.31,539.838,259.209,542.1 C263.797,553.632,320.159,570.961,333.185,579.917"/>
+        </defs>
+        <use xlink:href="#62" style="fill:none;opacity:1;stroke:#54514b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:11;stroke-opacity:1;stroke-width:10;"/>
+      </g>
+    </defs>
+    <use xlink:href="#61"/>
+    <defs>
+      <title>Path</title>
+      <g id="63">
+        <defs>
+          <path id="64" d="M570.774,311.747 C612.176,320.626,690.332,421.222,718.044,455.725 C724.45,463.7,756.568,500.735,754.483,509.472 C751.724,521.028,697.869,543.616,685.692,547.419 C676.257,550.366,666.046,549.642,656.4,552.159"/>
+        </defs>
+        <use xlink:href="#64" style="fill:none;opacity:1;stroke:#54514b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:11;stroke-opacity:1;stroke-width:10;"/>
+      </g>
+    </defs>
+    <use xlink:href="#63"/>
+    <defs>
+      <title>Path</title>
+      <g id="65">
+        <defs>
+          <path id="66" d="M324.482,576.486 C335.167,581.235,345.94,588.073,356.232,593.613 C367.453,577.037,378.385,568.556,384.755,556.458 C394.371,538.193,398.217,517.701,410.735,501.01 C407.274,510.219,399.291,640.793,397.834,664.11"/>
+        </defs>
+        <use xlink:href="#66" style="fill:none;opacity:1;stroke:#54514b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:11;stroke-opacity:1;stroke-width:10;"/>
+      </g>
+    </defs>
+    <use xlink:href="#65"/>
+    <defs>
+      <title>Path</title>
+      <g id="67">
+        <defs>
+          <path id="68" d="M397.834,664.11 C410.114,675.272,457.548,684.093,473.693,682.988 C494.256,681.58,516.14,681.164,536.747,680.603 C578.175,679.475,598.11,666.552,637.95,655.17"/>
+        </defs>
+        <use xlink:href="#68" style="fill:none;opacity:1;stroke:#54514b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:11;stroke-opacity:1;stroke-width:10;"/>
+      </g>
+    </defs>
+    <use xlink:href="#67"/>
+    <defs>
+      <title>Path</title>
+      <g id="69">
+        <defs>
+          <path id="70" d="M637.909,651.474 C616.638,591.913,622.934,516.87,597.213,471.858 C614.589,498.854,630.627,527.161,650.164,550.606"/>
+        </defs>
+        <use xlink:href="#70" style="fill:none;opacity:1;stroke:#54514b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:11;stroke-opacity:1;stroke-width:10;"/>
+      </g>
+    </defs>
+    <use xlink:href="#69"/>
+    <defs>
+      <title>Path</title>
+      <g id="71">
+        <defs>
+          <path id="72" d="M274.898,553.737 C265.806,553.232,212.371,558.91,208.71,565.356 C204.13,573.418,239.856,591.464,242.706,598.734 C252.134,622.79,248.876,646.458,272.127,658.796 C306.306,676.933,341.596,621.456,352.46,597.919"/>
+        </defs>
+        <use xlink:href="#72" style="fill:none;opacity:1;stroke:#54514b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:11;stroke-opacity:1;stroke-width:10;"/>
+      </g>
+    </defs>
+    <use xlink:href="#71"/>
+    <defs>
+      <title>Path</title>
+      <g id="73">
+        <defs>
+          <path id="74" d="M419.024,681.958 C411.858,695.265,400.367,706.051,407.184,722.709 C418.269,749.796,454.244,736.756,469.583,754.576 C476.349,762.435,450.083,807.707,466.408,807.707 C500.702,807.707,500.247,775.661,510.758,734.518 C515.455,716.13,524.807,703.494,524.824,684.073"/>
+        </defs>
+        <use xlink:href="#74" style="fill:none;opacity:1;stroke:#54514b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:11;stroke-opacity:1;stroke-width:10;"/>
+      </g>
+    </defs>
+    <use xlink:href="#73"/>
+    <defs>
+      <title>Path</title>
+      <g id="75">
+        <defs>
+          <path id="76" d="M536.814,680.547 C544.453,683.411,552.02,686.131,557.982,691.955 C567.329,701.087,566.343,715.675,574.796,725.345 C579.947,731.239,588.172,732.671,593.563,738.346 C599.206,744.287,600.323,754.217,606.758,759.225 C611.724,763.09,618.365,762.645,622.785,767.836 C627.636,773.533,641.688,794.352,649.107,797.924 C657.599,802.013,661.816,801.398,675.059,797.356 C688.483,793.259,675.059,768.812,675.059,761.685 C675.059,750.19,638.342,712.935,629.085,706.099 C620.157,699.507,635.298,701.656,614.4,672.788"/>
+        </defs>
+        <use xlink:href="#76" style="fill:none;opacity:1;stroke:#54514b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:11;stroke-opacity:1;stroke-width:10;"/>
+      </g>
+    </defs>
+    <use xlink:href="#75"/>
+    <defs>
+      <title>Path</title>
+      <g id="77">
+        <defs>
+          <path id="78" d="M441.394,328.214 C436.25,302.497,455.624,302.826,467.101,286.754 C473.948,277.166,470.515,239.915,490.144,246.052 C505.694,250.914,502.07,270.842,509.965,280.111 C513.042,283.723,515.272,279.912,519.697,281.971 C526.529,268.155,535.048,256.266,553.697,245.295 C569.936,245.295,574.294,299.722,570.774,315.09"/>
+        </defs>
+        <use xlink:href="#78" style="fill:none;opacity:1;stroke:#54514b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:11;stroke-opacity:1;stroke-width:10;"/>
+      </g>
+    </defs>
+    <use xlink:href="#77"/>
+    <defs>
+      <title>Path</title>
+      <g id="79">
+        <defs>
+          <path id="80" d="M709.337,604.587 C735.798,660.969,735.598,701.013,734.122,716.032 C732.344,734.127,733.509,788.017,759.435,761.456 C764.633,756.13,765.922,727.053,766.127,708.335 C766.629,662.31,762.906,636.272,764.008,602.461 C764.317,592.979,770.678,585.756,767.898,571.822 C764.913,556.854,765.743,536.818,754.58,514.671"/>
+        </defs>
+        <use xlink:href="#80" style="fill:none;opacity:1;stroke:#54514b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:11;stroke-opacity:1;stroke-width:10;"/>
+      </g>
+    </defs>
+    <use xlink:href="#79"/>
+    <defs>
+      <title>Path</title>
+      <g id="81">
+        <defs>
+          <path id="82" d="M650.164,553.705 C657.556,573.141,682.92,630.511,725.284,595.087"/>
+        </defs>
+        <use xlink:href="#82" style="fill:none;opacity:1;stroke:#54514b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:11;stroke-opacity:1;stroke-width:10;"/>
+      </g>
+    </defs>
+    <use xlink:href="#81"/>
+    <defs>
+      <title>Path</title>
+      <g id="83">
+        <defs>
+          <path id="84" d="M767.898,571.822 C804.447,595.162,932.212,480.872,901.538,438.409 C880.244,408.933,835.93,536.791,759.435,522.449"/>
+        </defs>
+        <use xlink:href="#84" style="fill:none;opacity:1;stroke:#54514b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:11;stroke-opacity:1;stroke-width:10;"/>
+      </g>
+    </defs>
+    <use xlink:href="#83"/>
+    <defs>
+      <title>Path</title>
+      <g id="85">
+        <defs>
+          <path id="86" d="M726.213,532.95 C726.213,532.95,733.634,541.244,733.634,541.244"/>
+        </defs>
+        <use xlink:href="#86" style="fill:none;opacity:1;stroke:#54514b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:11;stroke-opacity:1;stroke-width:10;"/>
+      </g>
+    </defs>
+    <use xlink:href="#85"/>
+  </g>
+  <g id="87">
+    <title>Layer 4</title>
+    <linearGradient x1="471.338" y1="276.178" x2="491.576" y2="272.767" gradientUnits="userSpaceOnUse" id="90">
+      <stop style="stop-color:#ffafbc;stop-opacity:1;"/>
+      <stop offset="1" style="stop-color:#ffeee4;stop-opacity:1;"/>
+    </linearGradient>
+    <defs>
+      <title>Path</title>
+      <g id="88">
+        <defs>
+          <path id="89" d="M487.749,267.067 C487.24,265.874,486.83,264.566,486.125,263.472 C480.32,254.467,474.814,268.216,473.113,272.717 C472.613,274.041,473.043,275.496,472.506,276.812 C471.734,278.702,470.333,283.987,472.161,285.656 C475.25,288.477,488.409,290.303,490.688,285.483 C493.149,280.28,490.432,271.405,487.749,267.067 z"/>
+        </defs>
+        <use xlink:href="#89" style="fill:url(#90);fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#88"/>
+    <linearGradient x1="526.463" y1="278.864" x2="551.217" y2="275.21" gradientUnits="userSpaceOnUse" id="93">
+      <stop style="stop-color:#ffafbc;stop-opacity:1;"/>
+      <stop offset="1" style="stop-color:#ffeee4;stop-opacity:1;"/>
+    </linearGradient>
+    <defs>
+      <title>Path</title>
+      <g id="91">
+        <defs>
+          <path id="92" d="M550.919,277.061 C550.966,272.928,549.124,261.35,543.006,262.078 C536.617,262.838,529.487,274.535,527.661,280.249 C527.068,282.107,525.88,284.924,526.589,286.871 C527.74,290.026,539.719,291.118,542.801,291.408 C544.22,291.542,546.453,292.598,547.663,291.611 C551.963,288.105,551.547,281.822,550.919,277.061 z"/>
+        </defs>
+        <use xlink:href="#92" style="fill:url(#93);fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#91"/>
+    <linearGradient x1="266.406" y1="651.984" x2="289.535" y2="650.236" gradientUnits="userSpaceOnUse" id="96">
+      <stop style="stop-color:#ffafbc;stop-opacity:1;"/>
+      <stop offset="1" style="stop-color:#ffeee4;stop-opacity:1;"/>
+    </linearGradient>
+    <defs>
+      <title>Path</title>
+      <g id="94">
+        <defs>
+          <path id="95" d="M266.319,643.94 C269.22,651.892,277.777,664.11,287.877,655.113 C296.175,647.722,272.506,643.327,266.319,644.533"/>
+        </defs>
+        <use xlink:href="#95" style="fill:url(#96);fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#94"/>
+    <linearGradient x1="235.439" y1="586.42" x2="259.091" y2="584.157" gradientUnits="userSpaceOnUse" id="99">
+      <stop style="stop-color:#ffafbc;stop-opacity:1;"/>
+      <stop offset="1" style="stop-color:#ffeee4;stop-opacity:1;"/>
+    </linearGradient>
+    <defs>
+      <title>Path</title>
+      <g id="97">
+        <defs>
+          <path id="98" d="M235.364,576.007 C241.223,577.64,249.454,578.6,254.498,581.979 C255.343,582.545,259.5,584.584,259.16,585.734 C258.478,588.037,253.618,594.743,250.977,594.567 C248.844,594.424,247.211,592.023,245.791,590.698 C241.511,586.703,235.004,582.305,235.364,576.007 z"/>
+        </defs>
+        <use xlink:href="#98" style="fill:url(#99);fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#97"/>
+    <linearGradient x1="471.961" y1="796.031" x2="480.57" y2="795.466" gradientUnits="userSpaceOnUse" id="102">
+      <stop style="stop-color:#ffafbc;stop-opacity:1;"/>
+      <stop offset="1" style="stop-color:#ffeee4;stop-opacity:1;"/>
+    </linearGradient>
+    <defs>
+      <title>Path</title>
+      <g id="100">
+        <defs>
+          <path id="101" d="M479.327,794.356 C477.344,792.623,470.733,793.223,472.118,797.007 C472.81,798.897,484.385,798.402,479.327,794.356 z"/>
+        </defs>
+        <use xlink:href="#101" style="fill:url(#102);fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#100"/>
+    <linearGradient x1="478.627" y1="787.984" x2="489.971" y2="786.416" gradientUnits="userSpaceOnUse" id="105">
+      <stop style="stop-color:#ffafbc;stop-opacity:1;"/>
+      <stop offset="1" style="stop-color:#ffeee4;stop-opacity:1;"/>
+    </linearGradient>
+    <defs>
+      <title>Path</title>
+      <g id="103">
+        <defs>
+          <path id="104" d="M490.014,781.889 C489.036,781.48,487.907,780.712,486.817,780.771 C481.792,781.045,475.78,788.925,480.022,793.182 C480.914,794.076,483.017,793.422,484.026,793.057 C488.032,791.607,489.647,785.621,490.014,781.889 z"/>
+        </defs>
+        <use xlink:href="#104" style="fill:url(#105);fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#103"/>
+    <linearGradient x1="748.274" y1="740.899" x2="757.953" y2="738.435" gradientUnits="userSpaceOnUse" id="108">
+      <stop style="stop-color:#ffafbc;stop-opacity:1;"/>
+      <stop offset="1" style="stop-color:#ffeee4;stop-opacity:1;"/>
+    </linearGradient>
+    <defs>
+      <title>Path</title>
+      <g id="106">
+        <defs>
+          <path id="107" d="M757.646,729.556 C751.274,729.65,748.451,736.675,748.242,742.476 C748.179,744.222,748.882,748.624,750.726,749.419 C753.812,750.75,756.13,748.142,756.886,745.488 C758.427,740.08,758.018,735.084,757.646,729.556 z"/>
+        </defs>
+        <use xlink:href="#107" style="fill:url(#108);fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#106"/>
+    <linearGradient x1="746.085" y1="755.587" x2="754.606" y2="754.599" gradientUnits="userSpaceOnUse" id="111">
+      <stop style="stop-color:#ffafbc;stop-opacity:1;"/>
+      <stop offset="1" style="stop-color:#ffeee4;stop-opacity:1;"/>
+    </linearGradient>
+    <defs>
+      <title>Path</title>
+      <g id="109">
+        <defs>
+          <path id="110" d="M752.896,751.632 C748.641,749.092,743.615,755.377,747.375,758.141 C752.093,761.61,757.48,755.27,752.896,751.632 z"/>
+        </defs>
+        <use xlink:href="#110" style="fill:url(#111);fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#109"/>
+    <defs>
+      <title>Path</title>
+      <g id="112">
+        <defs>
+          <path id="113" d="M523.891,304.776 C509.015,300.071,499.653,319.882,514.765,326.171 C529.431,332.274,541.674,308.916,523.891,304.776 z"/>
+        </defs>
+        <use xlink:href="#113" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#112"/>
+    <defs>
+      <title>Path</title>
+      <g id="114">
+        <defs>
+          <path id="115" d="M481.874,303.88 C471.897,301.891,459.768,314.177,471.513,321.322 C484.126,328.994,499.199,309.832,481.874,303.88 z"/>
+        </defs>
+        <use xlink:href="#115" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#114"/>
+    <defs>
+      <title>Path</title>
+      <g id="116">
+        <defs>
+          <path id="117" d="M276.701,614.048 C270.837,611.641,266.17,613.67,264.982,619.952 C264.425,622.894,263.227,626.458,266.575,628.365 C278.703,635.273,287.112,617.076,274.055,612.079"/>
+        </defs>
+        <use xlink:href="#117" style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#116"/>
+    <defs>
+      <title>Path</title>
+      <g id="118">
+        <defs>
+          <path id="119" d="M482.903,304.45 C484.778,307.435,488.949,312.472,488.691,316.209 C488.097,324.812,474.338,326.74,468.877,322.239 C462.435,316.929,466.941,307.3,472.485,303.593 C475.705,301.44,480.609,301.405,482.903,304.45 z"/>
+        </defs>
+        <use xlink:href="#119" style="fill:#54524b;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#118"/>
+    <defs>
+      <title>Path</title>
+      <g id="120">
+        <defs>
+          <path id="121" d="M524.92,305.358 C527.974,307.991,532.745,315.899,531.804,320.058 C530.083,327.663,521.826,328.656,515.566,327.918 C513.387,327.661,512.255,328.138,510.309,326.703 C502.053,320.617,505.034,308.887,512.957,304.509 C516.527,302.537,524.185,303.317,526.098,306.998"/>
+        </defs>
+        <use xlink:href="#121" style="fill:#54524b;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#120"/>
+    <defs>
+      <title>Path</title>
+      <g id="122">
+        <defs>
+          <path id="123" d="M267.001,613.48 C258.904,629.021,286.623,639.783,292.225,622.447 C294.768,614.576,287.425,606.587,279.846,605.639 C274.151,604.926,267.277,607.196,267.001,613.48 z"/>
+        </defs>
+        <use xlink:href="#123" style="fill:#54524b;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#122"/>
+    <defs>
+      <title>Path</title>
+      <g id="124">
+        <defs>
+          <path id="125" d="M466.859,319.596 C468.021,316.302,470.307,313.412,472.324,310.59 C472.791,309.936,473.721,307.963,474.51,307.77 C475.07,307.633,476.682,309.704,477.145,310.104 C478.268,311.073,478.425,312.197,478.951,313.485 C479.517,314.872,480.262,316.288,480.986,317.598 C481.499,318.527,482.71,319.937,482.898,320.951 C482.972,321.354,481.937,321.262,481.704,321.263 C480.864,321.264,479.99,321.635,479.177,321.585 C478.729,321.558,478.359,321.252,477.899,321.228 C476.81,321.172,475.905,321.521,474.86,321.612 C472.899,321.781,470.76,321.897,468.886,322.434"/>
+        </defs>
+        <use xlink:href="#125" style="fill:#639a75;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#124"/>
+    <defs>
+      <title>Path Copy</title>
+      <g id="126">
+        <defs>
+          <path id="127" d="M268.526,623.875 C270.128,619.883,273.28,616.379,276.059,612.959 C276.704,612.166,277.986,609.774,279.073,609.541 C279.845,609.375,282.067,611.885,282.706,612.37 C284.254,613.544,284.47,614.907,285.195,616.468 C285.975,618.148,287.003,619.865,288.001,621.453 C288.708,622.578,290.377,624.288,290.636,625.517 C290.738,626.005,289.312,625.894,288.991,625.894 C287.832,625.896,286.628,626.346,285.507,626.285 C284.889,626.252,284.38,625.881,283.745,625.852 C282.244,625.784,280.996,626.208,279.556,626.317 C276.852,626.523,273.904,626.663,271.32,627.314"/>
+        </defs>
+        <use xlink:href="#127" style="fill:#639a75;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#126"/>
+    <defs>
+      <title>Path</title>
+      <g id="128">
+        <defs>
+          <path id="129" d="M506.945,322.024 C509.29,318.895,511.416,315.559,513.747,312.468 C514.262,311.784,515.468,309.464,516.474,309.563 C517.42,309.656,517.778,311.906,518.228,312.591 C519.252,314.151,519.814,315.863,520.63,317.531 C521.572,319.455,523.139,321.246,523.64,323.425 C521.706,322.818,519.777,323.82,517.867,323.94 C514.309,324.165,510.724,323.628,507.236,323.833"/>
+        </defs>
+        <use xlink:href="#129" style="fill:#639a75;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#128"/>
+    <defs>
+      <title>Path</title>
+      <g id="130">
+        <defs>
+          <path id="131" d="M476.908,335.536 C477.704,337.484,478.42,340.56,480.526,341.503 C482.882,342.557,486.555,343.226,489.033,342.325 C491.515,341.421,494.909,335.667,494.292,333.051 C493.181,340.503,502.397,346.267,508.891,344.101 C512.751,342.813,514.379,338.94,515.292,335.381"/>
+        </defs>
+        <use xlink:href="#131" style="fill:none;opacity:1;stroke:#8c826d;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:11;stroke-opacity:1;stroke-width:6;"/>
+      </g>
+    </defs>
+    <use xlink:href="#130"/>
+    <defs>
+      <title>Path</title>
+      <g id="132">
+        <defs>
+          <path id="133" d="M289.291,653.678 C297.134,653.678,302.765,649.079,302.107,640.69 C301.856,637.49,299.623,634.336,298.414,631.415"/>
+        </defs>
+        <use xlink:href="#133" style="fill:none;opacity:1;stroke:#8c826d;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:11;stroke-opacity:1;stroke-width:6;"/>
+      </g>
+    </defs>
+    <use xlink:href="#132"/>
+    <linearGradient x1="488.673" y1="328.882" x2="503.527" y2="327.546" gradientUnits="userSpaceOnUse" id="136">
+      <stop style="stop-color:#ffafbc;stop-opacity:1;"/>
+      <stop offset="1" style="stop-color:#ffeee4;stop-opacity:1;"/>
+    </linearGradient>
+    <defs>
+      <title>Path</title>
+      <g id="134">
+        <defs>
+          <path id="135" d="M490.39,323.147 C493.363,322.968,504.913,321.198,503.456,326.646 C502.765,329.229,498.962,334.205,495.783,333.653 C492.307,333.05,485.349,324.475,490.39,323.147 z"/>
+        </defs>
+        <use xlink:href="#135" style="fill:url(#136);fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#134"/>
+    <defs>
+      <title>Path</title>
+      <g id="137">
+        <defs>
+          <path id="138" d="M268.244,626.283 C269.272,628.106,270.206,629.841,270.972,631.797 C271.32,632.685,271.639,634.344,272.392,634.97 C274.358,636.605,277.616,632.329,278.495,630.961 C275.097,630.549,270.458,628.903,268.244,626.283 z"/>
+        </defs>
+        <use xlink:href="#138" style="fill:#639a75;fill-opacity:1;fill-rule:nonzero;opacity:1;stroke:none;"/>
+      </g>
+    </defs>
+    <use xlink:href="#137"/>
+  </g>
+  <g id="139" style="mix-blend-mode:difference;">
+    <title>Layer 6 Copy Copy</title>
+    <defs>
+      <title>Path</title>
+      <g id="140">
+        <defs>
+          <path id="141" d="M425.956,476.116 C426.858,460.188,421.479,440.822,429.51,428.276 C432.633,423.397,442.858,423.97,444.31,435.753 C445.716,447.166,435.167,452.529,428.325,454.688"/>
+        </defs>
+        <use xlink:href="#141" style="fill:none;opacity:1;stroke:#54524b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#140"/>
+    <defs>
+      <title>Path</title>
+      <g id="142">
+        <defs>
+          <path id="143" d="M468.993,432.761 C451.491,429.999,450.5,463.685,463.071,468.07 C479.001,473.626,472.496,441.606,468.993,432.761 z"/>
+        </defs>
+        <use xlink:href="#143" style="fill:none;opacity:1;stroke:#54524b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#142"/>
+    <defs>
+      <title>Path</title>
+      <g id="144">
+        <defs>
+          <path id="145" d="M483.996,429.273 C490.981,431.624,497.387,431.471,504.527,430.269"/>
+        </defs>
+        <use xlink:href="#145" style="fill:none;opacity:1;stroke:#54524b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#144"/>
+    <defs>
+      <title>Path</title>
+      <g id="146">
+        <defs>
+          <path id="147" d="M493.472,431.764 C493.472,444.749,493.472,457.662,493.472,470.634"/>
+        </defs>
+        <use xlink:href="#147" style="fill:none;opacity:1;stroke:#54524b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#146"/>
+    <defs>
+      <title>Path</title>
+      <g id="148">
+        <defs>
+          <path id="149" d="M523.874,437.246 C505.521,426.555,504.748,467.012,512.768,472.349 C523.5,479.491,524.269,450.211,524.269,443.226 C525.87,454.526,529.611,465.273,535.719,473.624"/>
+        </defs>
+        <use xlink:href="#149" style="fill:none;opacity:1;stroke:#54524b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#148"/>
+    <defs>
+      <title>Path</title>
+      <g id="150">
+        <defs>
+          <path id="151" d="M539.667,434.256 C545.759,433.851,551.746,432.811,557.829,432.263"/>
+        </defs>
+        <use xlink:href="#151" style="fill:none;opacity:1;stroke:#54524b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#150"/>
+    <defs>
+      <title>Path</title>
+      <g id="152">
+        <defs>
+          <path id="153" d="M549.143,433.758 C550.378,446.235,551.285,459.083,551.907,471.631"/>
+        </defs>
+        <use xlink:href="#153" style="fill:none;opacity:1;stroke:#54524b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#152"/>
+    <defs>
+      <title>Path</title>
+      <g id="154">
+        <defs>
+          <path id="155" d="M578.36,431.266 C560.291,425.184,561.889,466.653,573.279,468.051 C586.366,469.657,587.447,444.646,578.36,431.266 z"/>
+        </defs>
+        <use xlink:href="#155" style="fill:none;opacity:1;stroke:#54524b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#154"/>
+    <defs>
+      <title>Path</title>
+      <g id="156">
+        <defs>
+          <path id="157" d="M449.137,494.452 C440.456,491.713,429.906,495.55,433.678,510.293 C435.857,518.81,454.468,515.296,451.702,529.084 C449.686,539.129,439.15,536.157,434.528,532.823"/>
+        </defs>
+        <use xlink:href="#157" style="fill:none;opacity:1;stroke:#54524b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#156"/>
+    <defs>
+      <title>Path</title>
+      <g id="158">
+        <defs>
+          <path id="159" d="M459.797,495.448 C466,495.448,472.163,495.471,478.354,494.95"/>
+        </defs>
+        <use xlink:href="#159" style="fill:none;opacity:1;stroke:#54524b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#158"/>
+    <defs>
+      <title>Path</title>
+      <g id="160">
+        <defs>
+          <path id="161" d="M470.063,497.94 C469.509,510.513,468.219,523.828,468.878,536.312"/>
+        </defs>
+        <use xlink:href="#161" style="fill:none;opacity:1;stroke:#54524b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#160"/>
+    <defs>
+      <title>Path</title>
+      <g id="162">
+        <defs>
+          <path id="163" d="M487.04,499.435 C486.591,507.371,486.177,536.789,495.014,537.219 C503.502,537.633,502.727,507.263,504.018,499.933"/>
+        </defs>
+        <use xlink:href="#163" style="fill:none;opacity:1;stroke:#54524b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#162"/>
+    <defs>
+      <title>Path</title>
+      <g id="164">
+        <defs>
+          <path id="165" d="M518.232,535.813 C516.428,523.672,517.14,511.255,516.652,498.937 C540.638,496.803,535.414,527.138,518.232,535.813 z"/>
+        </defs>
+        <use xlink:href="#165" style="fill:none;opacity:1;stroke:#54524b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#164"/>
+    <defs>
+      <title>Path</title>
+      <g id="166">
+        <defs>
+          <path id="167" d="M549.905,495.594 C548.605,509.537,547.449,523.823,549.281,537.699"/>
+        </defs>
+        <use xlink:href="#167" style="fill:none;opacity:1;stroke:#54524b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#166"/>
+    <defs>
+      <title>Path</title>
+      <g id="168">
+        <defs>
+          <path id="169" d="M572.353,497.168 C570.157,497.168,566.623,496.336,564.968,498.606 C560.34,504.952,561.379,528.528,569.129,531.043 C587.033,536.854,581.437,510.213,577.341,499.136"/>
+        </defs>
+        <use xlink:href="#169" style="fill:none;opacity:1;stroke:#54524b;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#168"/>
+  </g>
+  <g id="170">
+    <title>Layer 6</title>
+    <defs>
+      <title>Path</title>
+      <g id="171">
+        <defs>
+          <path id="172" d="M428.243,481.847 C429.144,465.919,423.766,446.553,431.796,434.007 C434.919,429.129,445.145,429.701,446.596,441.485 C448.002,452.897,437.453,458.26,430.612,460.419"/>
+        </defs>
+        <use xlink:href="#172" style="fill:none;opacity:1;stroke:#fdcf7c;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#171"/>
+    <defs>
+      <title>Path</title>
+      <g id="173">
+        <defs>
+          <path id="174" d="M471.279,438.492 C453.777,435.73,452.786,469.416,465.358,473.801 C481.288,479.357,474.783,447.337,471.279,438.492 z"/>
+        </defs>
+        <use xlink:href="#174" style="fill:none;opacity:1;stroke:#fdcf7c;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#173"/>
+    <defs>
+      <title>Path</title>
+      <g id="175">
+        <defs>
+          <path id="176" d="M486.283,435.004 C493.268,437.355,499.674,437.202,506.814,436.001"/>
+        </defs>
+        <use xlink:href="#176" style="fill:none;opacity:1;stroke:#fdcf7c;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#175"/>
+    <defs>
+      <title>Path</title>
+      <g id="177">
+        <defs>
+          <path id="178" d="M495.759,437.496 C495.758,450.48,495.758,463.394,495.759,476.365"/>
+        </defs>
+        <use xlink:href="#178" style="fill:none;opacity:1;stroke:#fdcf7c;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#177"/>
+    <defs>
+      <title>Path</title>
+      <g id="179">
+        <defs>
+          <path id="180" d="M526.16,442.977 C507.808,432.287,507.035,472.743,515.055,478.08 C525.786,485.222,526.555,455.942,526.555,448.957 C528.157,460.257,531.898,471.005,538.005,479.355"/>
+        </defs>
+        <use xlink:href="#180" style="fill:none;opacity:1;stroke:#fdcf7c;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#179"/>
+    <defs>
+      <title>Path</title>
+      <g id="181">
+        <defs>
+          <path id="182" d="M541.954,439.987 C548.045,439.582,554.033,438.542,560.116,437.994"/>
+        </defs>
+        <use xlink:href="#182" style="fill:none;opacity:1;stroke:#fdcf7c;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#181"/>
+    <defs>
+      <title>Path</title>
+      <g id="183">
+        <defs>
+          <path id="184" d="M551.429,439.489 C552.665,451.966,553.572,464.814,554.193,477.362"/>
+        </defs>
+        <use xlink:href="#184" style="fill:none;opacity:1;stroke:#fdcf7c;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#183"/>
+    <defs>
+      <title>Path</title>
+      <g id="185">
+        <defs>
+          <path id="186" d="M580.647,436.997 C562.577,430.915,564.175,472.384,575.565,473.782 C588.653,475.388,589.733,450.377,580.647,436.997 z"/>
+        </defs>
+        <use xlink:href="#186" style="fill:none;opacity:1;stroke:#fdcf7c;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#185"/>
+    <defs>
+      <title>Path</title>
+      <g id="187">
+        <defs>
+          <path id="188" d="M451.423,500.183 C442.742,497.444,432.193,501.281,435.964,516.024 C438.143,524.542,456.755,521.027,453.988,534.815 C451.973,544.86,441.437,541.888,436.815,538.555"/>
+        </defs>
+        <use xlink:href="#188" style="fill:none;opacity:1;stroke:#fdcf7c;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#187"/>
+    <defs>
+      <title>Path</title>
+      <g id="189">
+        <defs>
+          <path id="190" d="M462.084,501.18 C468.286,501.179,474.45,501.202,480.641,500.681"/>
+        </defs>
+        <use xlink:href="#190" style="fill:none;opacity:1;stroke:#fdcf7c;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#189"/>
+    <defs>
+      <title>Path</title>
+      <g id="191">
+        <defs>
+          <path id="192" d="M472.349,503.671 C471.796,516.244,470.505,529.56,471.165,542.043"/>
+        </defs>
+        <use xlink:href="#192" style="fill:none;opacity:1;stroke:#fdcf7c;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#191"/>
+    <defs>
+      <title>Path</title>
+      <g id="193">
+        <defs>
+          <path id="194" d="M489.327,505.166 C488.878,513.102,488.464,542.52,497.301,542.951 C505.789,543.364,505.014,512.995,506.305,505.665"/>
+        </defs>
+        <use xlink:href="#194" style="fill:none;opacity:1;stroke:#fdcf7c;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#193"/>
+    <defs>
+      <title>Path</title>
+      <g id="195">
+        <defs>
+          <path id="196" d="M520.518,541.545 C518.714,529.404,519.427,516.986,518.939,504.668 C542.925,502.534,537.7,532.869,520.518,541.545 z"/>
+        </defs>
+        <use xlink:href="#196" style="fill:none;opacity:1;stroke:#fdcf7c;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#195"/>
+    <defs>
+      <title>Path</title>
+      <g id="197">
+        <defs>
+          <path id="198" d="M552.192,501.326 C550.891,515.269,549.735,529.554,551.568,543.431"/>
+        </defs>
+        <use xlink:href="#198" style="fill:none;opacity:1;stroke:#fdcf7c;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#197"/>
+    <defs>
+      <title>Path</title>
+      <g id="199">
+        <defs>
+          <path id="200" d="M574.639,502.9 C572.443,502.9,568.91,502.067,567.254,504.337 C562.626,510.683,563.666,534.259,571.416,536.775 C589.319,542.586,583.723,515.944,579.628,504.867"/>
+        </defs>
+        <use xlink:href="#200" style="fill:none;opacity:1;stroke:#fdcf7c;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#199"/>
+  </g>
+  <g id="201">
+    <title>Layer 6 Copy Copy</title>
+    <defs>
+      <title>Path</title>
+      <g id="202">
+        <defs>
+          <path id="203" d="M430.784,478.219 C431.686,462.291,426.307,442.925,434.338,430.379 C437.461,425.5,447.686,426.073,449.138,437.856 C450.544,449.269,439.995,454.632,433.153,456.79"/>
+        </defs>
+        <use xlink:href="#203" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#202"/>
+    <defs>
+      <title>Path</title>
+      <g id="204">
+        <defs>
+          <path id="205" d="M473.821,434.864 C456.319,432.102,455.328,465.788,467.899,470.173 C483.829,475.729,477.324,443.709,473.821,434.864 z"/>
+        </defs>
+        <use xlink:href="#205" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#204"/>
+    <defs>
+      <title>Path</title>
+      <g id="206">
+        <defs>
+          <path id="207" d="M488.824,431.376 C495.809,433.727,502.215,433.574,509.355,432.372"/>
+        </defs>
+        <use xlink:href="#207" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#206"/>
+    <defs>
+      <title>Path</title>
+      <g id="208">
+        <defs>
+          <path id="209" d="M498.3,433.867 C498.3,446.852,498.3,459.765,498.3,472.737"/>
+        </defs>
+        <use xlink:href="#209" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#208"/>
+    <defs>
+      <title>Path</title>
+      <g id="210">
+        <defs>
+          <path id="211" d="M528.702,439.349 C510.349,428.658,509.576,469.115,517.596,474.452 C528.328,481.594,529.097,452.314,529.097,445.329 C530.698,456.629,534.439,467.376,540.547,475.727"/>
+        </defs>
+        <use xlink:href="#211" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#210"/>
+    <defs>
+      <title>Path</title>
+      <g id="212">
+        <defs>
+          <path id="213" d="M544.495,436.359 C550.587,435.954,556.574,434.914,562.657,434.366"/>
+        </defs>
+        <use xlink:href="#213" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#212"/>
+    <defs>
+      <title>Path</title>
+      <g id="214">
+        <defs>
+          <path id="215" d="M553.971,435.861 C555.206,448.337,556.113,461.186,556.735,473.734"/>
+        </defs>
+        <use xlink:href="#215" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#214"/>
+    <defs>
+      <title>Path</title>
+      <g id="216">
+        <defs>
+          <path id="217" d="M583.188,433.369 C565.119,427.287,566.717,468.756,578.107,470.154 C591.194,471.76,592.275,446.749,583.188,433.369 z"/>
+        </defs>
+        <use xlink:href="#217" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#216"/>
+    <defs>
+      <title>Path</title>
+      <g id="218">
+        <defs>
+          <path id="219" d="M453.965,496.555 C445.284,493.815,434.734,497.653,438.506,512.396 C440.685,520.913,459.296,517.399,456.53,531.187 C454.514,541.232,443.978,538.26,439.356,534.926"/>
+        </defs>
+        <use xlink:href="#219" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#218"/>
+    <defs>
+      <title>Path</title>
+      <g id="220">
+        <defs>
+          <path id="221" d="M464.625,497.551 C470.828,497.551,476.991,497.574,483.182,497.053"/>
+        </defs>
+        <use xlink:href="#221" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#220"/>
+    <defs>
+      <title>Path</title>
+      <g id="222">
+        <defs>
+          <path id="223" d="M474.891,500.043 C474.337,512.616,473.047,525.931,473.706,538.415"/>
+        </defs>
+        <use xlink:href="#223" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#222"/>
+    <defs>
+      <title>Path</title>
+      <g id="224">
+        <defs>
+          <path id="225" d="M491.868,501.538 C491.419,509.474,491.005,538.892,499.842,539.322 C508.33,539.736,507.555,509.366,508.846,502.036"/>
+        </defs>
+        <use xlink:href="#225" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#224"/>
+    <defs>
+      <title>Path</title>
+      <g id="226">
+        <defs>
+          <path id="227" d="M523.06,537.916 C521.256,525.775,521.968,513.358,521.48,501.04 C545.466,498.906,540.242,529.241,523.06,537.916 z"/>
+        </defs>
+        <use xlink:href="#227" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#226"/>
+    <defs>
+      <title>Path</title>
+      <g id="228">
+        <defs>
+          <path id="229" d="M554.733,497.697 C553.433,511.64,552.277,525.926,554.109,539.802"/>
+        </defs>
+        <use xlink:href="#229" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#228"/>
+    <defs>
+      <title>Path</title>
+      <g id="230">
+        <defs>
+          <path id="231" d="M577.181,499.271 C574.985,499.271,571.451,498.439,569.796,500.709 C565.168,507.055,566.207,530.631,573.957,533.146 C591.861,538.957,586.265,512.316,582.169,501.239"/>
+        </defs>
+        <use xlink:href="#231" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#230"/>
+  </g>
+  <g id="232">
+    <title>Layer 6 Copy Copy Copy</title>
+    <defs>
+      <title>Path</title>
+      <g id="233">
+        <defs>
+          <path id="234" d="M427.526,476.591 C428.427,460.664,423.049,441.297,431.079,428.752 C434.202,423.873,444.427,424.445,445.879,436.229 C447.285,447.642,436.736,453.004,429.895,455.163"/>
+        </defs>
+        <use xlink:href="#234" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#233"/>
+    <defs>
+      <title>Path</title>
+      <g id="235">
+        <defs>
+          <path id="236" d="M470.562,433.237 C453.06,430.475,452.069,464.161,464.641,468.546 C480.57,474.102,474.066,442.082,470.562,433.237 z"/>
+        </defs>
+        <use xlink:href="#236" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#235"/>
+    <defs>
+      <title>Path</title>
+      <g id="237">
+        <defs>
+          <path id="238" d="M485.566,429.748 C492.551,432.099,498.957,431.946,506.097,430.745"/>
+        </defs>
+        <use xlink:href="#238" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#237"/>
+    <defs>
+      <title>Path</title>
+      <g id="239">
+        <defs>
+          <path id="240" d="M495.042,432.24 C495.041,445.225,495.041,458.138,495.042,471.11"/>
+        </defs>
+        <use xlink:href="#240" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#239"/>
+    <defs>
+      <title>Path</title>
+      <g id="241">
+        <defs>
+          <path id="242" d="M525.443,437.722 C507.091,427.031,506.318,467.488,514.338,472.825 C525.069,479.966,525.838,450.687,525.838,443.702 C527.44,455.002,531.181,465.749,537.288,474.1"/>
+        </defs>
+        <use xlink:href="#242" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#241"/>
+    <defs>
+      <title>Path</title>
+      <g id="243">
+        <defs>
+          <path id="244" d="M541.236,434.732 C547.328,434.327,553.315,433.287,559.399,432.738"/>
+        </defs>
+        <use xlink:href="#244" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#243"/>
+    <defs>
+      <title>Path</title>
+      <g id="245">
+        <defs>
+          <path id="246" d="M550.712,434.233 C551.948,446.71,552.855,459.559,553.476,472.107"/>
+        </defs>
+        <use xlink:href="#246" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#245"/>
+    <defs>
+      <title>Path</title>
+      <g id="247">
+        <defs>
+          <path id="248" d="M579.93,431.742 C561.86,425.659,563.458,467.129,574.848,468.527 C587.936,470.133,589.016,445.121,579.93,431.742 z"/>
+        </defs>
+        <use xlink:href="#248" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#247"/>
+    <defs>
+      <title>Path</title>
+      <g id="249">
+        <defs>
+          <path id="250" d="M450.706,494.927 C442.025,492.188,431.476,496.025,435.247,510.768 C437.426,519.286,456.038,515.771,453.271,529.559 C451.256,539.604,440.72,536.632,436.098,533.299"/>
+        </defs>
+        <use xlink:href="#250" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#249"/>
+    <defs>
+      <title>Path</title>
+      <g id="251">
+        <defs>
+          <path id="252" d="M461.367,495.924 C467.569,495.924,473.733,495.947,479.924,495.426"/>
+        </defs>
+        <use xlink:href="#252" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#251"/>
+    <defs>
+      <title>Path</title>
+      <g id="253">
+        <defs>
+          <path id="254" d="M471.632,498.416 C471.079,510.989,469.788,524.304,470.448,536.787"/>
+        </defs>
+        <use xlink:href="#254" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#253"/>
+    <defs>
+      <title>Path</title>
+      <g id="255">
+        <defs>
+          <path id="256" d="M488.61,499.911 C488.16,507.846,487.747,537.265,496.583,537.695 C505.071,538.109,504.297,507.739,505.587,500.409"/>
+        </defs>
+        <use xlink:href="#256" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#255"/>
+    <defs>
+      <title>Path</title>
+      <g id="257">
+        <defs>
+          <path id="258" d="M519.801,536.289 C517.997,524.148,518.71,511.731,518.222,499.412 C542.208,497.279,536.983,527.614,519.801,536.289 z"/>
+        </defs>
+        <use xlink:href="#258" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#257"/>
+    <defs>
+      <title>Path</title>
+      <g id="259">
+        <defs>
+          <path id="260" d="M551.474,496.07 C550.174,510.013,549.018,524.299,550.851,538.175"/>
+        </defs>
+        <use xlink:href="#260" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#259"/>
+    <defs>
+      <title>Path</title>
+      <g id="261">
+        <defs>
+          <path id="262" d="M573.922,497.644 C571.726,497.644,568.193,496.812,566.537,499.082 C561.909,505.427,562.949,529.003,570.699,531.519 C588.602,537.33,583.006,510.689,578.911,499.612"/>
+        </defs>
+        <use xlink:href="#262" style="fill:none;opacity:1;stroke:#b6ffc1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:9;"/>
+      </g>
+    </defs>
+    <use xlink:href="#261"/>
+  </g>
+  <g id="263" style="mix-blend-mode:overlay;">
+    <title>Layer 6 Copy</title>
+    <defs>
+      <title>Path</title>
+      <g id="264">
+        <defs>
+          <path id="265" d="M428.243,476.116 C429.144,460.188,423.766,440.822,431.796,428.276 C434.919,423.397,445.145,423.97,446.596,435.753 C448.002,447.166,437.453,452.529,430.612,454.688"/>
+        </defs>
+        <use xlink:href="#265" style="fill:none;opacity:1;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:5;"/>
+      </g>
+    </defs>
+    <use xlink:href="#264"/>
+    <defs>
+      <title>Path</title>
+      <g id="266">
+        <defs>
+          <path id="267" d="M471.279,432.761 C453.777,429.999,452.786,463.685,465.358,468.07 C481.288,473.626,474.783,441.606,471.279,432.761 z"/>
+        </defs>
+        <use xlink:href="#267" style="fill:none;opacity:1;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:5;"/>
+      </g>
+    </defs>
+    <use xlink:href="#266"/>
+    <defs>
+      <title>Path</title>
+      <g id="268">
+        <defs>
+          <path id="269" d="M486.283,429.273 C493.268,431.624,499.674,431.471,506.814,430.269"/>
+        </defs>
+        <use xlink:href="#269" style="fill:none;opacity:1;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:5;"/>
+      </g>
+    </defs>
+    <use xlink:href="#268"/>
+    <defs>
+      <title>Path</title>
+      <g id="270">
+        <defs>
+          <path id="271" d="M495.759,431.764 C495.758,444.749,495.758,457.662,495.759,470.634"/>
+        </defs>
+        <use xlink:href="#271" style="fill:none;opacity:1;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:5;"/>
+      </g>
+    </defs>
+    <use xlink:href="#270"/>
+    <defs>
+      <title>Path</title>
+      <g id="272">
+        <defs>
+          <path id="273" d="M526.16,437.246 C507.808,426.556,507.035,467.012,515.055,472.349 C525.786,479.491,526.555,450.211,526.555,443.226 C528.157,454.526,531.898,465.273,538.005,473.624"/>
+        </defs>
+        <use xlink:href="#273" style="fill:none;opacity:1;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:5;"/>
+      </g>
+    </defs>
+    <use xlink:href="#272"/>
+    <defs>
+      <title>Path</title>
+      <g id="274">
+        <defs>
+          <path id="275" d="M541.954,434.256 C548.045,433.851,554.033,432.811,560.116,432.263"/>
+        </defs>
+        <use xlink:href="#275" style="fill:none;opacity:1;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:5;"/>
+      </g>
+    </defs>
+    <use xlink:href="#274"/>
+    <defs>
+      <title>Path</title>
+      <g id="276">
+        <defs>
+          <path id="277" d="M551.429,433.758 C552.665,446.235,553.572,459.083,554.193,471.631"/>
+        </defs>
+        <use xlink:href="#277" style="fill:none;opacity:1;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:5;"/>
+      </g>
+    </defs>
+    <use xlink:href="#276"/>
+    <defs>
+      <title>Path</title>
+      <g id="278">
+        <defs>
+          <path id="279" d="M580.647,431.266 C562.577,425.184,564.175,466.653,575.565,468.051 C588.653,469.657,589.733,444.646,580.647,431.266 z"/>
+        </defs>
+        <use xlink:href="#279" style="fill:none;opacity:1;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:5;"/>
+      </g>
+    </defs>
+    <use xlink:href="#278"/>
+    <defs>
+      <title>Path</title>
+      <g id="280">
+        <defs>
+          <path id="281" d="M451.423,494.452 C442.742,491.713,432.193,495.55,435.964,510.293 C438.143,518.81,456.755,515.296,453.988,529.084 C451.973,539.129,441.437,536.157,436.815,532.823"/>
+        </defs>
+        <use xlink:href="#281" style="fill:none;opacity:1;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:5;"/>
+      </g>
+    </defs>
+    <use xlink:href="#280"/>
+    <defs>
+      <title>Path</title>
+      <g id="282">
+        <defs>
+          <path id="283" d="M462.084,495.449 C468.286,495.448,474.45,495.471,480.641,494.95"/>
+        </defs>
+        <use xlink:href="#283" style="fill:none;opacity:1;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:5;"/>
+      </g>
+    </defs>
+    <use xlink:href="#282"/>
+    <defs>
+      <title>Path</title>
+      <g id="284">
+        <defs>
+          <path id="285" d="M472.349,497.94 C471.796,510.513,470.505,523.828,471.165,536.312"/>
+        </defs>
+        <use xlink:href="#285" style="fill:none;opacity:1;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:5;"/>
+      </g>
+    </defs>
+    <use xlink:href="#284"/>
+    <defs>
+      <title>Path</title>
+      <g id="286">
+        <defs>
+          <path id="287" d="M489.327,499.435 C488.878,507.371,488.464,536.789,497.301,537.22 C505.789,537.633,505.014,507.263,506.305,499.933"/>
+        </defs>
+        <use xlink:href="#287" style="fill:none;opacity:1;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:5;"/>
+      </g>
+    </defs>
+    <use xlink:href="#286"/>
+    <defs>
+      <title>Path</title>
+      <g id="288">
+        <defs>
+          <path id="289" d="M520.518,535.813 C518.714,523.672,519.427,511.255,518.939,498.937 C542.925,496.803,537.7,527.138,520.518,535.813 z"/>
+        </defs>
+        <use xlink:href="#289" style="fill:none;opacity:1;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:5;"/>
+      </g>
+    </defs>
+    <use xlink:href="#288"/>
+    <defs>
+      <title>Path</title>
+      <g id="290">
+        <defs>
+          <path id="291" d="M552.192,495.594 C550.891,509.537,549.735,523.823,551.568,537.699"/>
+        </defs>
+        <use xlink:href="#291" style="fill:none;opacity:1;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:5;"/>
+      </g>
+    </defs>
+    <use xlink:href="#290"/>
+    <defs>
+      <title>Path</title>
+      <g id="292">
+        <defs>
+          <path id="293" d="M574.639,497.168 C572.443,497.168,568.91,496.336,567.254,498.606 C562.626,504.952,563.666,528.528,571.416,531.043 C589.319,536.854,583.723,510.213,579.628,499.136"/>
+        </defs>
+        <use xlink:href="#293" style="fill:none;opacity:1;stroke:#ffffff;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:13;stroke-opacity:1;stroke-width:5;"/>
+      </g>
+    </defs>
+    <use xlink:href="#292"/>
+  </g>
+</svg>

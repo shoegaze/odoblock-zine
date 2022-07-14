@@ -1,18 +1,12 @@
-import { Layer } from "../../collection/Layer";
-import HomeLayer from "./0/HomeLayer";
-import Layer1 from "./1/Layer1";
-import TransitionLayer from "./persistent/transition/TransitionLayer";
-import DebugSquareLayer from "./persistent/debug/DebugSquareLayer";
+import { Layer } from "../../collection/layer/Layer"
+import debugPanel from "./persistent/debug/debugPanel"
+import hud from "./persistent/hud/hud"
+import transitionLayer from "./persistent/transition/transitionLayer"
 
 
-type LayersList = Array<Layer>
-
-export const persistentLayers: LayersList = [
-  TransitionLayer,
-  DebugSquareLayer
-]
-
-export const localLayers: LayersList = [
-  HomeLayer,
-  Layer1
+type PersistentLayers = Layer[]
+export const persistentLayers: PersistentLayers = [
+  debugPanel,
+  // hud,
+  transitionLayer
 ]
