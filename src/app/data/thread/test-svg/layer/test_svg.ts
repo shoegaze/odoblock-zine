@@ -10,14 +10,14 @@ const testSvg = createLocalLayer(0, [
     function setup(this) {
       const group = new THREE.Group()
 
-      loadSvg('svg/test-cat.svg', group, { debug: false })
+      loadSvg(group, 'svg/test-cat.svg')
 
       group.position.set(
         -25.0,
         +25.0,
-        +10.0
+        +25.0
       )
-      group.scale.multiplyScalar(0.05);
+      group.scale.multiplyScalar(0.05)
       group.scale.y *= -1
 
       this.scene.add(group)
