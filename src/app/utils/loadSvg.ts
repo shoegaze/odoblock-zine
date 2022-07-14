@@ -38,7 +38,6 @@ export const loadSvg = (url: string, group: THREE.Group, options: LoadSvgOptions
           color: color.convertSRGBToLinear(),
           opacity: fillOpacity,
           transparent: true,
-          side: THREE.DoubleSide,
           depthWrite: false
         })
 
@@ -60,7 +59,6 @@ export const loadSvg = (url: string, group: THREE.Group, options: LoadSvgOptions
           color: col.convertSRGBToLinear(),
           opacity: strokeOpacity,
           transparent: true,
-          side: THREE.DoubleSide,
           depthWrite: false
         })
 
