@@ -7,7 +7,7 @@ import { loadSvg } from "../../../../utils/loadSvg"
 
 const testSvg = createLocalLayer(0, [
   createStaticScene(
-    function setup(this) {
+    function setup() {
       const group = new THREE.Group()
 
       loadSvg(group, 'svg/test-cat.svg')

@@ -1,6 +1,5 @@
 import * as THREE from "three"
 import { clamp } from "three/src/math/MathUtils"
-import { Howler } from "howler"
 
 import { layersDistance, zPosToZid } from "./collection/layer/Layer"
 import createAppGraphics from "./systems/AppGraphics"
