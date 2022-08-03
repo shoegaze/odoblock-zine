@@ -7,6 +7,7 @@ import createAppBackground from "./systems/AppBackground"
 import { AppInputType, createAppInput } from "./systems/AppInput"
 import { AppThreads, createAppThreads } from "./systems/AppThreads"
 import { CameraController, createCameraController } from "./systems/AppCameraController"
+import { createAppSound } from "./systems/AppSound"
 
 
 type AppMethod = (this: App) => void
@@ -62,8 +63,8 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
     fov,
     near,
     far,
-    zMax: layersDistance,
-    zMin: -Infinity
+    zMax,
+    zMin
   })
 
   const clock = new THREE.Clock(false)
@@ -118,7 +119,7 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
 
     startPhysics() {
       cameraController.startPhysicsLoop(
-        (physics, _) => {
+        (physics, _) => { // beforeUpdate
           { // Reset camera rotation
             cam.rotation.set(0.0, 0.0, 0.0)
           }
@@ -149,7 +150,7 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
             input.resetQueuedInputs()
           }
         },
-        (physics, dt) => {
+        (physics, dt) => { // afterUpdate
           { // Decelerate if no input received for t seconds
             const t = clock.getElapsedTime()
             const lastInputTime = input.getLastInputTime()
@@ -169,6 +170,7 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
                 // TODO: Make this time dependent
                 physics.velocity.multiplyScalar(s)
               }
+              // TODO: Does this make sense?
               else {
                 physics.acceleration.set(0.0, 0.0, 0.0)
                 physics.velocity.set(0.0, 0.0, 0.0)
@@ -223,12 +225,21 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
             )
             const pointer = threads.getPointer()
 
+            // TODO: OnPointerChange event
             if (i > pointer) {
               threads.incrementPointer()
+              sound.registerAudioScenes()
             }
             else if (i < pointer) {
               threads.decrementPointer()
+              sound.registerAudioScenes()
             }
+          }
+
+          { // Update audio parameters
+            // DEBUG:
+            sound.registerAudioScenes()
+            sound.updateAudioParameters()
           }
         }
       )
@@ -288,8 +299,12 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
 
   const bg = createAppBackground(new THREE.Vector2(s, s), new THREE.Clock(true))
   const input = createAppInput(new THREE.Clock(true))
-  const threads = createAppThreads(app)
   const cameraController = createCameraController(cam)
+
+  const threads = createAppThreads(app)
+  const sound = createAppSound(app)
+  // BUG: threads.allThreads.length is still 0 here
+  // sound.registerAudioScenes()
 
   return app
 }
