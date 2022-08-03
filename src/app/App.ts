@@ -17,12 +17,15 @@ export interface App {
   getRendererSize: () => THREE.Vector2
   getThreads: () => AppThreads
   getCameraController: () => CameraController
+  getClock: () => THREE.Clock
 
   start: AppMethod
   startPhysics: AppMethod
   startAnimation: AppMethod
   resize: AppMethod
   render: AppMethod
+  play: AppMethod
+  pause: AppMethod
 
   queueTranslation: (dx: number, dy: number) => void
   queueZoom: (zoom: number) => void
@@ -67,7 +70,7 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
 
   const app: App = {
     getSeconds: () => {
-      return clock.getElapsedTime()
+        return clock.getElapsedTime()
     },
 
     getCamera: () => {
@@ -89,6 +92,20 @@ export const createApp = (canvas: HTMLCanvasElement, options: CreateAppOptions):
 
     getCameraController: () => {
       return cameraController
+    },
+
+    getClock: () => {
+      return clock
+    },
+
+    play() {
+      const elapsedTime = clock.elapsedTime
+      clock.start()
+      clock.elapsedTime = elapsedTime
+    },
+
+    pause() {
+      clock.stop()
     },
 
     start() {

@@ -34,8 +34,16 @@ import { localThreads } from './app/data/thread'
     app.resize()
   }
 
-  { // Drag event
+  { // Mouse handling events
     let dragging = false
+
+    canvas.onmouseenter = () => {
+      app.play()
+    }
+
+    canvas.onmouseleave = () => {
+      app.pause()
+    }
 
     canvas.onmousedown = (_) => {
       dragging = true
